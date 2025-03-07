@@ -1,7 +1,12 @@
 packages:
   - 'packages/*'
 catalog:
+  '@rsbuild/core': ~1.2.13
+  '@rsbuild/plugin-react': ^1.1.1
+  '@rslib/core': ^0.5.3
   '@types/react': ^18.3.13
   '@types/react-dom': ^18.3.1
+  '@visactor/vchart': ^1.13.6
   react: ^18.3.1
   react-dom: ^18.3.1
+  typescript: ^5.8.2
