@@ -1,0 +1,29 @@
+# Dependency directory
+**/node_modules/**
+
+.pnpm-debug.log
+
+# Coverage directory used by tools like istanbul
+dist
+es
+lib
+
+# JetBrains IDEs
+.idea
+
+# pnpm uses npm for publishing a new version with
+# dependencies bundled but the npm lockfile is not needed
+# because pnpm use pnpm for installation
+package-lock.json
+
+.DS_Store
+
+*.local
+
+.temp
+.eslintcache
+
+# runime cache
+.dumi
+
+

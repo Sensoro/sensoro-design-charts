@@ -1,0 +1,27 @@
+{
+  "name": "@sensoro-design/chart-theme",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "dev": "rslib build --watch",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@visactor/vchart": ">=1.10.4"
+  },
+  "dependencies": {
+    "@visactor/vchart-theme-utils": "^1.12.2"
+  }
+}
