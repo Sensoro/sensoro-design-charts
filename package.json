@@ -14,6 +14,8 @@
     "@rsbuild/core": "catalog:",
     "@rsbuild/plugin-react": "catalog:",
     "@rslib/core": "catalog:",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@visactor/react-vchart": "catalog:",
@@ -21,7 +23,8 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^3.0.7"
   },
   "simple-git-hooks": {
     "commit-msg": "npx --no -- commitlint --edit $1",
