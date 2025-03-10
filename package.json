@@ -1,16 +1,16 @@
 {
   "name": "sensoro-design-charts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "SENSORO 图表库",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "simple-git-hooks",
+    "preinstall": "npx only-allow pnpm"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.5.2",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@rsbuild/core": "catalog:",
     "@rsbuild/plugin-react": "catalog:",
     "@rslib/core": "catalog:",
@@ -20,6 +20,13 @@
     "@visactor/vchart": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "catalog:"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx --no -- commitlint --edit $1",
+    "preserveUnused": [
+      "commit-msg"
+    ]
   }
 }

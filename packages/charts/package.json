@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@visactor/react-vchart": "catalog:",
-    "@visactor/vchart": "catalog:"
+    "@visactor/vchart": "catalog:",
+    "@sensoro-design/charts-themes": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
