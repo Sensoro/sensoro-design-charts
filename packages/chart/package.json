@@ -1,6 +1,6 @@
 {
-  "name": "@sensoro-design/charts",
-  "version": "3.0.0",
+  "name": "@sensoro-design/chart",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     ".": {
