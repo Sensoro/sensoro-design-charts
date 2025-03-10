@@ -28,7 +28,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@sensoro-design/charts-themes": "workspace:*",
+    "@sensoro-design/chart-theme": "workspace:*",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
     "@visactor/vutils": "catalog:",
