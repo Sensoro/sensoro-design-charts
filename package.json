@@ -3,6 +3,12 @@
   "private": true,
   "description": "SENSORO 图表库",
   "scripts": {
+    "release:latest": "changeset pre exit && changeset add",
+    "release:next-alpha": "changeset pre enter alpha",
+    "release:next-beta": "changeset pre enter beta",
+    "release:next-rc": "changeset pre enter rc",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "prepare": "simple-git-hooks",
     "preinstall": "npx only-allow pnpm"
   },

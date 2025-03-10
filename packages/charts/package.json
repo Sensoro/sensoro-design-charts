@@ -28,9 +28,11 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
+    "@sensoro-design/charts-themes": "workspace:*",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
-    "@sensoro-design/charts-themes": "workspace:*"
+    "@visactor/vutils": "^0.19.4",
+    "@visactor/vrender-components": "*"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
