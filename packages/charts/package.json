@@ -31,7 +31,7 @@
     "@sensoro-design/charts-themes": "workspace:*",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
-    "@visactor/vutils": "^0.19.4",
+    "@visactor/vutils": "catalog:",
     "@visactor/vrender-components": "*"
   },
   "devDependencies": {
