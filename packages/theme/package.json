@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "@visactor/vchart-theme-utils": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
