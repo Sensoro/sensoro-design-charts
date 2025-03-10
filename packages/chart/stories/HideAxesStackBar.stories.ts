@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { HideAxesStackBar } from '../src/HideAxesStackBar';
+import { HideAxesStackBar } from '../src';
 
 const meta = {
   title: 'Components/HideAxesStackBar',
