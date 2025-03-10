@@ -1,7 +1,7 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { IAreaSeriesSpec } from '@visactor/vchart';
 import { hyphenPointPath } from '../config';
-import { colorBlue2 } from '@sensoro-design/charts-themes';
+import { colorBlue2 } from '@sensoro-design/chart-theme';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   style: {

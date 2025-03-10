@@ -1,7 +1,7 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { ICartesianCrosshairSpec } from '@visactor/vchart/esm/component/crosshair/interface'
 import type { DataItem } from './types';
-import { colorBlue2 } from '@sensoro-design/charts-themes';
+import { colorBlue2 } from '@sensoro-design/chart-theme';
 
 interface TransformDataOptions {
   xField?: string;
