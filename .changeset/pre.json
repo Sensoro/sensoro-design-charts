@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "@sensoro-design/chart": "0.0.0",
+    "@sensoro-design/chart-theme": "0.0.0"
+  },
+  "changesets": [
+    "better-lamps-arrive"
+  ]
+}
