@@ -27,6 +27,12 @@ catalogs:
     '@visactor/vchart':
       specifier: ^1.13.6
       version: 1.13.6
+    '@visactor/vchart-theme-utils':
+      specifier: ^1.12.2
+      version: 1.12.2
+    '@visactor/vutils':
+      specifier: ^0.19.4
+      version: 0.19.4
     react:
       specifier: ^18.3.1
       version: 18.3.1
@@ -93,11 +99,11 @@ importers:
         specifier: ^3.0.7
         version: 3.0.8(@types/node@22.13.9)(jiti@2.4.2)(jsdom@26.0.0)(terser@5.39.0)
 
-  packages/charts:
+  packages/chart:
     dependencies:
-      '@sensoro-design/charts-themes':
+      '@sensoro-design/chart-theme':
         specifier: workspace:*
-        version: link:../themes
+        version: link:../theme
       '@visactor/react-vchart':
         specifier: 'catalog:'
         version: 1.13.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -108,7 +114,7 @@ importers:
         specifier: '*'
         version: 0.22.4
       '@visactor/vutils':
-        specifier: ^0.19.4
+        specifier: 'catalog:'
         version: 0.19.4
       react:
         specifier: '>=16.9.0'
@@ -190,13 +196,13 @@ importers:
         specifier: ^3.0.7
         version: 3.0.8(@types/node@22.13.9)(jiti@2.4.2)(jsdom@26.0.0)(terser@5.39.0)
 
-  packages/themes:
+  packages/theme:
     dependencies:
       '@visactor/vchart':
         specifier: '>=1.10.4'
         version: 1.13.6
       '@visactor/vchart-theme-utils':
-        specifier: ^1.12.2
+        specifier: 'catalog:'
         version: 1.12.2(@visactor/vchart@1.13.6)
 
 packages:
