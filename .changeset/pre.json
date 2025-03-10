@@ -6,6 +6,7 @@
     "@sensoro-design/chart-theme": "0.0.0"
   },
   "changesets": [
-    "better-lamps-arrive"
+    "better-lamps-arrive",
+    "famous-sides-brush"
   ]
 }
