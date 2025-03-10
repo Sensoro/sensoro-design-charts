@@ -33,6 +33,9 @@
     "typescript": "catalog:",
     "vitest": "^3.0.7"
   },
+  "resolutions": {
+    "@visactor/vchart": "catalog:"
+  },
   "simple-git-hooks": {
     "commit-msg": "npx --no -- commitlint --edit $1",
     "preserveUnused": [

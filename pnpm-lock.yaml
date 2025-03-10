@@ -24,9 +24,6 @@ catalogs:
     '@visactor/react-vchart':
       specifier: ^1.13.6
       version: 1.13.6
-    '@visactor/vchart':
-      specifier: ^1.13.6
-      version: 1.13.6
     '@visactor/vchart-theme-utils':
       specifier: ^1.12.2
       version: 1.12.2
@@ -42,6 +39,9 @@ catalogs:
     typescript:
       specifier: ^5.8.2
       version: 5.8.2
+
+overrides:
+  '@visactor/vchart': ^1.13.6
 
 importers:
 
@@ -81,7 +81,7 @@ importers:
         specifier: 'catalog:'
         version: 1.13.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@visactor/vchart':
-        specifier: 'catalog:'
+        specifier: ^1.13.6
         version: 1.13.6
       react:
         specifier: 'catalog:'
@@ -108,7 +108,7 @@ importers:
         specifier: 'catalog:'
         version: 1.13.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@visactor/vchart':
-        specifier: 'catalog:'
+        specifier: ^1.13.6
         version: 1.13.6
       '@visactor/vrender-components':
         specifier: '*'
@@ -199,7 +199,7 @@ importers:
   packages/theme:
     dependencies:
       '@visactor/vchart':
-        specifier: '>=1.10.4'
+        specifier: ^1.13.6
         version: 1.13.6
       '@visactor/vchart-theme-utils':
         specifier: 'catalog:'
@@ -1466,7 +1466,7 @@ packages:
   '@visactor/vchart-theme-utils@1.12.2':
     resolution: {integrity: sha512-PkgSAivtUZukCWVUGCXxKcbTzI/oMj1Ky22VYcVs/KM4VFmmCywU2xjBBe1du0LUey6CAKB7bMlj5bL2jctG0A==}
     peerDependencies:
-      '@visactor/vchart': '>=1.10.4'
+      '@visactor/vchart': ^1.13.6
 
   '@visactor/vchart@1.13.6':
     resolution: {integrity: sha512-FCGGJblvupQpqP2yI4S7y2uRV/kMlNzQeakqehk1tQwe0e/Yduji7qpYqo1rPDC18xmg/EO6STzyslsoR33fhQ==}
