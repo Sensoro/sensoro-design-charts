@@ -1,5 +1,5 @@
 {
-  "name": "@sensoro-design/chart-theme",
+  "name": "@sensoro-design/charts-themes",
   "version": "1.0.0",
   "type": "module",
   "exports": {
@@ -15,8 +15,7 @@
   ],
   "scripts": {
     "build": "rslib build",
-    "dev": "rslib build --watch",
-    "test": "vitest run"
+    "dev": "rslib build --watch"
   },
   "peerDependencies": {
     "@visactor/vchart": ">=1.10.4"

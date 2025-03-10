@@ -21,6 +21,9 @@ catalogs:
     '@types/react-dom':
       specifier: ^18.3.1
       version: 18.3.5
+    '@visactor/react-vchart':
+      specifier: ^1.13.6
+      version: 1.13.6
     '@visactor/vchart':
       specifier: ^1.13.6
       version: 1.13.6
@@ -53,6 +56,9 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 18.3.5(@types/react@18.3.18)
+      '@visactor/react-vchart':
+        specifier: 'catalog:'
+        version: 1.13.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@visactor/vchart':
         specifier: 'catalog:'
         version: 1.13.6
@@ -4316,6 +4322,17 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.26.0
       eslint-visitor-keys: 4.2.0
+
+  '@visactor/react-vchart@1.13.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@visactor/vchart': 1.13.6
+      '@visactor/vgrammar-core': 0.16.0
+      '@visactor/vrender-core': 0.22.4
+      '@visactor/vrender-kits': 0.22.4
+      '@visactor/vutils': 0.19.4
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-is: 18.3.1
 
   '@visactor/react-vchart@1.13.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:

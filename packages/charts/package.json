@@ -23,6 +23,14 @@
     "storybook": "storybook dev",
     "test": "vitest run"
   },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "dependencies": {
+    "@visactor/react-vchart": "catalog:",
+    "@visactor/vchart": "catalog:"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@eslint/js": "^9.21.0",
@@ -48,10 +56,5 @@
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.24.1",
     "vitest": "^3.0.7"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
-  },
-  "private": true
+  }
 }

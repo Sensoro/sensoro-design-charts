@@ -16,6 +16,7 @@
     "@rslib/core": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
