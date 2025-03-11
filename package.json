@@ -4,6 +4,7 @@
   "description": "SENSORO 图表库",
   "scripts": {
     "start": "rspress dev",
+    "docs:build": "rspress build",
     "release:latest": "changeset pre exit && changeset add",
     "release:next-alpha": "changeset pre enter alpha",
     "release:next-beta": "changeset pre enter beta",
