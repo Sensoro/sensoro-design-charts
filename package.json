@@ -5,7 +5,7 @@
   "scripts": {
     "start": "rspress dev",
     "docs:build": "rspress build",
-    "release:build": "pnpm --filter @sensoro-design/* build",
+    "release:build": "pnpm run --filter @sensoro-design/* build",
     "release:latest": "changeset pre exit && changeset add",
     "release:next-alpha": "changeset pre enter alpha",
     "release:next-beta": "changeset pre enter beta",
