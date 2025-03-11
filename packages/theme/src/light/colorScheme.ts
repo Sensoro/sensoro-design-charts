@@ -1,5 +1,8 @@
 import type { IThemeColorScheme } from '@visactor/vchart';
-import { dataScheme } from '../dataScheme';
+import {
+  dataScheme,
+  colorGreyPro09,
+} from '../common';
 
 export const colorScheme: IThemeColorScheme = {
   default: {
@@ -20,7 +23,7 @@ export const colorScheme: IThemeColorScheme = {
       /** 滑块类组件已选范围填充颜色 */
       sliderTrackColor: 'rgba(22,93,255,1)',
       /** 浮层背景区域颜色 */
-      popupBackgroundColor: 'rgba(255,255,255,1)',
+      popupBackgroundColor: colorGreyPro09,
 
       /** 主要字色 */
       primaryFontColor: 'rgba(29,33,41,1)',

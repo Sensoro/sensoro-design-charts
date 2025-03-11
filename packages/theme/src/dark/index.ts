@@ -6,9 +6,8 @@ import {
   colorGrey06,
   colorGrey08,
   colorGrey10,
-  colorGreyPro09,
-} from '../config';
-import { token } from '../token';
+} from '../common';
+import { component } from '../common/component'
 import { colorScheme } from './colorScheme';
 
 export const dark: ITheme = {
@@ -16,7 +15,6 @@ export const dark: ITheme = {
   description: 'Sensoro Design - dark',
   type: 'dark',
   background: '#161D2A',
-  token,
   colorScheme,
   padding: 24,
   series: {
@@ -46,30 +44,7 @@ export const dark: ITheme = {
 
   },
   component: {
-    tooltip: {
-      panel: {
-        backgroundColor: '#314059',
-        padding: 12,
-        border: {
-          radius: 0,
-        },
-      },
-      titleLabel: {
-        fontSize: 12,
-        lineHeight: 20,
-        fontColor: colorGrey06,
-      },
-      keyLabel: {
-        fontSize: 12,
-        lineHeight: 20,
-        fontColor: '#fff',
-      },
-      valueLabel: {
-        fontSize: 12,
-        lineHeight: 20,
-        fontColor: '#fff',
-      },
-    },
+    tooltip: component.tooltip,
     title: {
       textStyle: {
         fontSize: 16,
