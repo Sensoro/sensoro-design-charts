@@ -153,15 +153,6 @@ importers:
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.21.0
-      '@rsbuild/core':
-        specifier: ~1.2.13
-        version: 1.2.15
-      '@rsbuild/plugin-react':
-        specifier: ^1.1.1
-        version: 1.1.1(@rsbuild/core@1.2.15)
-      '@rslib/core':
-        specifier: ^0.5.3
-        version: 0.5.3(typescript@5.8.2)
       '@storybook/addon-essentials':
         specifier: ^8.6.0
         version: 8.6.4(@types/react@19.0.10)(storybook@8.6.4(prettier@3.5.3))
