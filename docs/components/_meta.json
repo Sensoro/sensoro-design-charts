@@ -4,5 +4,6 @@
   "DoubleOverlapArea",
   "Line",
   "RangeColumn",
-  "HideAxesStackBar"
+  "HideAxesStackBar",
+  "Pie"
 ]
