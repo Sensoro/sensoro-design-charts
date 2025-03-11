@@ -1,5 +1,6 @@
 import type { ITheme } from '@visactor/vchart';
 import { component } from '../common/component';
+import { token } from '../common/token';
 import { colorScheme } from './colorScheme';
 
 export const light: ITheme = {
@@ -7,6 +8,7 @@ export const light: ITheme = {
   description: 'Sensoro Design - light',
   type: 'light',
   colorScheme,
+  token,
   padding: 24,
   series: {
     area: {

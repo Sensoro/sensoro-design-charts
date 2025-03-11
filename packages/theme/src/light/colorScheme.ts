@@ -1,6 +1,9 @@
 import type { IThemeColorScheme } from '@visactor/vchart';
 import {
   dataScheme,
+  colorGrey03,
+  colorGrey04,
+  colorGrey06,
   colorGreyPro09,
 } from '../common';
 
@@ -32,16 +35,16 @@ export const colorScheme: IThemeColorScheme = {
       /** 第三字色 */
       tertiaryFontColor: 'rgba(134,144,156,1)',
       /** 轴标签字色 */
-      axisLabelFontColor: 'rgba(134,144,156,1)',
+      axisLabelFontColor: colorGrey06,
       /** 禁用字色 */
       disableFontColor: 'rgba(201,205,212,1)',
       /** 轴高亮标记字色 */
       axisMarkerFontColor: 'rgba(255,255,255,1)',
 
       /** 轴网格线颜色 */
-      axisGridColor: 'rgba(229,230,235,1)',
+      axisGridColor: colorGrey03,
       /** 轴线颜色 */
-      axisDomainColor: 'rgba(229,230,235,1)',
+      axisDomainColor: colorGrey04,
 
       /** 缩略轴滑块描边颜色 */
       dataZoomHandleStrokeColor: 'rgba(169,174,184,1)',

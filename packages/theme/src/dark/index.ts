@@ -1,5 +1,6 @@
 import type { ITheme } from '@visactor/vchart';
-import { component } from '../common/component'
+import { component } from '../common/component';
+import { token } from '../common/token';
 import { colorScheme } from './colorScheme';
 
 export const dark: ITheme = {
@@ -8,6 +9,7 @@ export const dark: ITheme = {
   type: 'dark',
   background: '#161D2A',
   colorScheme,
+  token,
   padding: 24,
   series: {
     area: {
@@ -33,7 +35,6 @@ export const dark: ITheme = {
         },
       },
     },
-
   },
   component,
 };
