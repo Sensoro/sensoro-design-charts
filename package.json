@@ -27,6 +27,7 @@
     "@types/react-dom": "catalog:",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
+    "dayjs": "^1.11.13",
     "react": "catalog:",
     "react-dom": "catalog:",
     "simple-git-hooks": "catalog:",
