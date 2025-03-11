@@ -13,6 +13,9 @@ export default defineConfig({
     dark: '/logo.png',
   },
   logoText: 'Sensoro Design Chart',
+  globalUIComponents: [
+    path.join(__dirname, 'docs/global/ChartTheme.tsx')
+  ],
   plugins: [
     pluginPreview({
 
