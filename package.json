@@ -13,7 +13,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "license": "MIT",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.2",
   "devDependencies": {
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
