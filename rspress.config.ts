@@ -17,9 +17,7 @@ export default defineConfig({
     path.join(__dirname, 'docs/global/ChartTheme.tsx')
   ],
   plugins: [
-    pluginPreview({
-
-    }),
+    pluginPreview({}),
     pluginLastUpdated(),
     // pluginPlayground({
     //   defaultDirection: 'vertical',
@@ -38,5 +36,13 @@ export default defineConfig({
         content: 'https://github.com/Sensoro/sensoro-design-charts',
       },
     ],
+  },
+  builderConfig: {
+    resolve: {
+      alias: {
+        '@sensoro-design/chart': './packages/chart/src',
+        '@sensoro-design/chart-theme': './packages/theme/src',
+      },
+    },
   },
 });
