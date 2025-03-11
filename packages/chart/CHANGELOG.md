@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- add Pie Chart
+
 ## 1.0.0-rc.1
 
 ### Patch Changes
