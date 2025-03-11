@@ -2,16 +2,15 @@
 pageType: home
 
 hero:
-  name: My Site
-  text: A cool website!
-  tagline: This is the tagline
+  name: Sensoro Design Chart
+  text: 基于 vchart 的图表库
   actions:
     - theme: brand
-      text: Quick Start
-      link: /guide/
+      text: 图表
+      link: /components/
     - theme: alt
       text: GitHub
-      link: https://github.com/web-infra-dev/rspress
+      link: https://github.com/Sensoro/sensoro-design-charts
   image:
     src: /rspress-icon.png
     alt: Logo
