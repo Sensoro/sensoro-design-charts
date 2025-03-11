@@ -18,7 +18,7 @@ export const Basic: Story = {
   args: {
     height: 400,
     title: {
-      text: '心率分布（bpm）',
+      text: '基础折线图',
     },
     data: {
       values: [
