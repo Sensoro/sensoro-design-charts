@@ -7,11 +7,12 @@ import { pluginPlayground } from '@rspress/plugin-playground';
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Sensoro Design Chart',
-  icon: '/rspress-icon.png',
+  icon: '/logo.png',
   logo: {
-    light: '/rspress-light-logo.png',
-    dark: '/rspress-dark-logo.png',
+    light: '/logo.png',
+    dark: '/logo.png',
   },
+  logoText: 'Sensoro Design Chart',
   plugins: [
     pluginPreview({
 

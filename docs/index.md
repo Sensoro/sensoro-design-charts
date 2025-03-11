@@ -12,7 +12,7 @@ hero:
       text: GitHub
       link: https://github.com/Sensoro/sensoro-design-charts
   image:
-    src: /rspress-icon.png
+    src: /logo.png
     alt: Logo
 features:
   - title: Blazing fast build speed
