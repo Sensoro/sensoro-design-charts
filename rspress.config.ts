@@ -5,6 +5,7 @@ import { pluginLastUpdated } from '@rspress/plugin-last-updated';
 import { pluginPlayground } from '@rspress/plugin-playground';
 
 export default defineConfig({
+  base: '/sensoro-design-charts/',
   root: path.join(__dirname, 'docs'),
   title: 'Sensoro Design Chart',
   icon: '/logo.png',
