@@ -12,7 +12,7 @@ function ChartTheme() {
   const dark = useDark();
 
   React.useEffect(() => {
-    ThemeManager.setCurrentTheme(dark ? 'sensoroDesignDark' : 'sensoroDesignLight');
+    // ThemeManager.setCurrentTheme(dark ? 'sensoroDesignDark' : 'sensoroDesignLight');
   }, [dark])
 
   return null
