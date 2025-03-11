@@ -24,6 +24,8 @@ package-lock.json
 .eslintcache
 
 # runime cache
-.dumi
+doc_build
+
+
 
 

@@ -1,5 +1,5 @@
 packages:
-  - 'packages/*'
+  - packages/*
 catalog:
   '@changesets/cli': ^2.28.1
   '@commitlint/cli': ^19.8.0
