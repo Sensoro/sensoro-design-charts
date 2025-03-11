@@ -15,10 +15,7 @@
   ],
   "scripts": {
     "build": "rslib build",
-    "check": "biome check --write",
-    "dev": "rslib build --watch",
-    "format": "prettier --write .",
-    "lint": "eslint ."
+    "dev": "rslib build --watch"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
@@ -30,16 +27,6 @@
     "@visactor/vchart": "catalog:",
     "@visactor/vutils": "catalog:",
     "@visactor/vrender-components": "*"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@eslint/js": "^9.21.0",
-    "eslint": "^9.21.0",
-    "globals": "^16.0.0",
-    "jsdom": "^26.0.0",
-    "prettier": "^3.5.2",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.24.1"
   },
   "publishConfig": {
     "access": "public"

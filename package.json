@@ -5,6 +5,9 @@
   "scripts": {
     "start": "rspress dev",
     "docs:build": "rspress build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "biome check --write",
     "release:build": "pnpm run --filter @sensoro-design/* build",
     "release:latest": "changeset pre exit && changeset add",
     "release:next-alpha": "changeset pre enter alpha",
@@ -18,10 +21,12 @@
   "license": "MIT",
   "packageManager": "pnpm@10.6.2",
   "devDependencies": {
+    "@antfu/eslint-config": "^4.8.1",
     "@biomejs/biome": "catalog:",
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
+    "@eslint-react/eslint-plugin": "catalog:",
     "@rsbuild/core": "catalog:",
     "@rsbuild/plugin-react": "catalog:",
     "@rslib/core": "catalog:",
@@ -39,6 +44,10 @@
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
     "dayjs": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "lint-staged": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "rspress": "catalog:",
@@ -46,13 +55,14 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "resolutions": {
-    "@visactor/vchart": "catalog:"
-  },
   "simple-git-hooks": {
     "commit-msg": "npx --no -- commitlint --edit $1",
+    "pre-commit": "npx lint-staged",
     "preserveUnused": [
       "commit-msg"
     ]
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
