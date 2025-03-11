@@ -39,6 +39,9 @@ jobs:
               args: [--no-frozen-lockfile]
 
       - name: Build
+        run: pnpm release:build
+
+      - name: Build Docs
         run: pnpm docs:build
 
       - name: Deploy
