@@ -1,9 +1,7 @@
 [
   "index",
   "Area",
-  "DoubleOverlapArea",
   "Line",
   "RangeColumn",
-  "HideAxesStackBar",
   "Pie"
 ]

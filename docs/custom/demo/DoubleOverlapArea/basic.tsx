@@ -1,4 +1,5 @@
-import { DoubleOverlapArea, type DoubleOverlapAreaProps } from '@sensoro-design/chart';
+import type { DoubleOverlapAreaProps } from '@sensoro-design/chart';
+import { DoubleOverlapArea } from '@sensoro-design/chart';
 
 function Example() {
   const spec: DoubleOverlapAreaProps = {
@@ -25,12 +26,12 @@ function Example() {
           },
         },
       },
-    }
-  }
+    },
+  };
 
   return (
     <DoubleOverlapArea {...spec} />
-  )
+  );
 };
 
 export default Example;

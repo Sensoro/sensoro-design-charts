@@ -1,7 +1,12 @@
 [
   {
-    "text": "组件",
-    "link": "/components/",
-    "activeMatch": "/components/"
+    "text": "VChart 图表",
+    "link": "/charts/",
+    "activeMatch": "/charts/"
+  },
+  {
+    "text": "扩展图表",
+    "link": "/custom/",
+    "activeMatch": "/custom/"
   }
 ]

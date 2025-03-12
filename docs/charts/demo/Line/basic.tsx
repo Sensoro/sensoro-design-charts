@@ -1,4 +1,5 @@
-import { Line, type LineProps } from '@sensoro-design/chart';
+import type { LineProps } from '@sensoro-design/chart';
+import { Line } from '@sensoro-design/chart';
 
 function Example() {
   const spec: LineProps = {
@@ -31,12 +32,12 @@ function Example() {
           type: 'line',
         },
       },
-    }
+    },
   };
 
   return (
     <Line {...spec} />
-  )
+  );
 };
 
 export default Example;

@@ -1,4 +1,5 @@
-import { RangeColumn, type RangeColumnProps } from '@sensoro-design/chart';
+import type { RangeColumnProps } from '@sensoro-design/chart';
+import { RangeColumn } from '@sensoro-design/chart';
 import dayjs from 'dayjs';
 
 const list = [
@@ -82,12 +83,12 @@ function Example() {
           visible: false,
         },
       },
-    ]
+    ],
   };
 
   return (
     <RangeColumn {...spec} />
-  )
+  );
 }
 
 export default Example;
