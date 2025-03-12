@@ -7,6 +7,10 @@ export const light: ITheme = {
   name: 'sensoroDesignLight',
   description: 'Sensoro Design - light',
   type: 'light',
+  background: {
+    type: 'palette',
+    key: 'backgroundColor',
+  },
   colorScheme,
   token,
   padding: 24,

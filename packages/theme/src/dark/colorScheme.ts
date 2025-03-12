@@ -8,7 +8,7 @@ export const colorScheme: IThemeColorScheme = {
     dataScheme,
     palette: {
       /** 背景色 */
-      backgroundColor: 'rgba(255,255,255,1)',
+      backgroundColor: '#161D2A',
       /** 图表边框色 */
       borderColor: 'rgba(229,230,235,1)',
       /** 默认阴影颜色 */

@@ -7,7 +7,10 @@ export const dark: ITheme = {
   name: 'sensoroDesignDark',
   description: 'Sensoro Design - dark',
   type: 'dark',
-  background: '#161D2A',
+  background: {
+    type: 'palette',
+    key: 'backgroundColor',
+  },
   colorScheme,
   token,
   padding: 24,
@@ -25,7 +28,7 @@ export const dark: ITheme = {
               {
                 offset: 0,
                 color: '#4E85DD',
-                opacity: 1,
+                opacity: 0.8,
               },
               {
                 offset: 1,

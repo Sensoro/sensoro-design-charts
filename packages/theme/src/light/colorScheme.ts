@@ -1,10 +1,11 @@
 import type { IThemeColorScheme } from '@visactor/vchart';
 import {
-  dataScheme,
   colorGrey03,
   colorGrey04,
   colorGrey06,
   colorGreyPro09,
+  colorWhite,
+  dataScheme,
 } from '../common';
 
 export const colorScheme: IThemeColorScheme = {
@@ -12,7 +13,7 @@ export const colorScheme: IThemeColorScheme = {
     dataScheme,
     palette: {
       /** 背景色 */
-      backgroundColor: 'rgba(255,255,255,1)',
+      backgroundColor: colorWhite,
       /** 图表边框色 */
       borderColor: 'rgba(229,230,235,1)',
       /** 默认阴影颜色 */
