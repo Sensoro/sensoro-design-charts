@@ -25,7 +25,7 @@ export const colorScheme: IThemeColorScheme = {
       popupBackgroundColor: '#314059',
 
       /** 主要字色 */
-      primaryFontColor: 'rgba(29,33,41,1)',
+      primaryFontColor: '#8194B5',
       /** 次要字色 */
       secondaryFontColor: 'rgba(78,89,105,1)',
       /** 第三字色 */

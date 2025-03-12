@@ -1,7 +1,6 @@
 import type { ITitleTheme } from '@visactor/vchart';
 import {
   colorGrey08,
-  colorGrey10,
 } from '../colors';
 
 export const title: ITitleTheme = {
@@ -13,7 +12,10 @@ export const title: ITitleTheme = {
   textStyle: {
     fontSize: 16,
     fontWeight: 500,
-    fill: colorGrey10,
+    fill: {
+      type: 'palette',
+      key: 'primaryFontColor',
+    },
     lineHeight: 50,
   },
   subtextStyle: {

@@ -3,6 +3,7 @@ import {
   colorGrey03,
   colorGrey04,
   colorGrey06,
+  colorGrey10,
   colorGreyPro09,
   colorWhite,
   dataScheme,
@@ -30,7 +31,7 @@ export const colorScheme: IThemeColorScheme = {
       popupBackgroundColor: colorGreyPro09,
 
       /** 主要字色 */
-      primaryFontColor: 'rgba(29,33,41,1)',
+      primaryFontColor: colorGrey10,
       /** 次要字色 */
       secondaryFontColor: 'rgba(78,89,105,1)',
       /** 第三字色 */
