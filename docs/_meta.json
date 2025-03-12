@@ -8,5 +8,10 @@
     "text": "扩展图表",
     "link": "/custom/",
     "activeMatch": "/custom/"
+  },
+  {
+    "text": "示例图表",
+    "link": "/demos/",
+    "activeMatch": "/demos/"
   }
 ]
