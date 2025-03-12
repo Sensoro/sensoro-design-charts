@@ -1,4 +1,5 @@
-import { Area, hyphenPointPath, type AreaProps } from '@sensoro-design/chart';
+import type { AreaProps } from '@sensoro-design/chart';
+import { Area, hyphenPointPath } from '@sensoro-design/chart';
 import { colorBlue2 } from '@sensoro-design/chart-theme';
 
 function Example() {
@@ -38,6 +39,14 @@ function Example() {
         { date: 23, value: 14170 },
       ],
     },
+    axes: [
+      {
+        orient: 'left',
+        grid: {
+          visible: true,
+        },
+      },
+    ],
     tooltip: {
       dimension: {
         shapeType: hyphenPointPath,
@@ -80,12 +89,12 @@ function Example() {
           },
         },
       },
-    }
+    },
   };
 
   return (
     <Area {...spec} />
-  )
+  );
 };
 
 export default Example;

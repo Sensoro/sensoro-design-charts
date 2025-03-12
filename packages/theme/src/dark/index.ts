@@ -24,11 +24,13 @@ export const dark: ITheme = {
             stops: [
               {
                 offset: 0,
-                opacity: 0.15,
+                color: '#4E85DD',
+                opacity: 1,
               },
               {
                 offset: 1,
-                color: '#fff',
+                color: '#4E85DD',
+                opacity: 0,
               },
             ],
           },
