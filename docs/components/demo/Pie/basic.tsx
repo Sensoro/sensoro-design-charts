@@ -1,4 +1,5 @@
-import { Pie, type PieProps } from '@sensoro-design/chart';
+import type { PieProps } from '@sensoro-design/chart';
+import { Pie } from '@sensoro-design/chart';
 
 function Example() {
   const spec: PieProps = {
@@ -10,8 +11,8 @@ function Example() {
         values: [
           { type: 'oxygen', value: 46 },
           { type: 'silicon', value: 27 },
-        ]
-      }
+        ],
+      },
     ],
     outerRadius: 1,
     innerRadius: 0.6,
@@ -35,16 +36,15 @@ function Example() {
             value: (datum) => {
               return `${datum?.value} 次`;
             },
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
-    theme: 'sensoroDesignDark'
   };
 
   return (
     <Pie {...spec} />
-  )
+  );
 };
 
 export default Example;

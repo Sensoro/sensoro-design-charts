@@ -1,4 +1,5 @@
-import { HideAxesStackBar, type HideAxesStackBarProps } from '@sensoro-design/chart';
+import type { HideAxesStackBarProps } from '@sensoro-design/chart';
+import { HideAxesStackBar } from '@sensoro-design/chart';
 
 function Example() {
   const spec: HideAxesStackBarProps = {
@@ -42,12 +43,11 @@ function Example() {
     },
     height: 150,
     width: 400,
-    theme: 'sensoroDesignDark'
   };
 
   return (
     <HideAxesStackBar {...spec} />
-  )
+  );
 };
 
 export default Example;

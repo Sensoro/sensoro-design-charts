@@ -1,9 +1,10 @@
 import type { IComponentTheme } from '@visactor/vchart';
-import { tooltip } from './tooltip';
-import { title } from './title';
 import { axis } from './axis';
 import { crosshair } from './crosshair';
-import { scrollBar } from './scrollBar'
+import { discreteLegend } from './discreteLegend';
+import { scrollBar } from './scrollBar';
+import { title } from './title';
+import { tooltip } from './tooltip';
 
 export const component: IComponentTheme = {
   tooltip,
@@ -11,4 +12,5 @@ export const component: IComponentTheme = {
   axis,
   crosshair,
   scrollBar,
+  discreteLegend,
 };
