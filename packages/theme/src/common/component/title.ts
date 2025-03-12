@@ -5,6 +5,11 @@ import {
 } from '../colors';
 
 export const title: ITitleTheme = {
+  height: 24,
+  padding: {
+    top: 0,
+    bottom: 24,
+  },
   textStyle: {
     fontSize: 16,
     fontWeight: 500,
@@ -15,7 +20,4 @@ export const title: ITitleTheme = {
     fontSize: 12,
     fill: colorGrey08,
   },
-  padding: {
-    bottom: 0,
-  },
-}
+};
