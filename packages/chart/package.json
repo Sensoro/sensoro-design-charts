@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/chart",
-  "version": "1.0.0-rc.2",
   "type": "module",
+  "version": "1.0.0-rc.3",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -25,8 +25,8 @@
     "@sensoro-design/chart-theme": "workspace:*",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
-    "@visactor/vutils": "catalog:",
-    "@visactor/vrender-components": "*"
+    "@visactor/vrender-components": "*",
+    "@visactor/vutils": "catalog:"
   },
   "publishConfig": {
     "access": "public"
