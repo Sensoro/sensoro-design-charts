@@ -1,7 +1,9 @@
 {
   "name": "sensoro-design-charts",
   "private": true,
+  "packageManager": "pnpm@10.6.2",
   "description": "SENSORO 图表库",
+  "license": "MIT",
   "scripts": {
     "start": "rspress dev",
     "docs:build": "rspress build",
@@ -18,8 +20,6 @@
     "prepare": "simple-git-hooks",
     "preinstall": "npx only-allow pnpm"
   },
-  "license": "MIT",
-  "packageManager": "pnpm@10.6.2",
   "devDependencies": {
     "@antfu/eslint-config": "^4.8.1",
     "@biomejs/biome": "catalog:",
@@ -54,6 +54,10 @@
     "simple-git-hooks": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
+  },
+  "resolutions": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "simple-git-hooks": {
     "commit-msg": "npx --no -- commitlint --edit $1",

@@ -81,12 +81,6 @@ catalogs:
     lint-staged:
       specifier: ^15.4.3
       version: 15.4.3
-    react:
-      specifier: ^18.3.1
-      version: 18.3.1
-    react-dom:
-      specifier: ^18.3.1
-      version: 18.3.1
     rspress:
       specifier: ^1.40.2
       version: 1.43.3
@@ -99,6 +93,10 @@ catalogs:
     vitest:
       specifier: ^3.0.7
       version: 3.0.8
+
+overrides:
+  react: ^18.3.1
+  react-dom: ^18.3.1
 
 importers:
 
@@ -186,10 +184,10 @@ importers:
         specifier: 'catalog:'
         version: 15.4.3
       react:
-        specifier: 'catalog:'
+        specifier: ^18.3.1
         version: 18.3.1
       react-dom:
-        specifier: 'catalog:'
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       rspress:
         specifier: 'catalog:'
@@ -211,7 +209,7 @@ importers:
         version: link:../theme
       '@visactor/react-vchart':
         specifier: 'catalog:'
-        version: 1.13.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 1.13.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@visactor/vchart':
         specifier: 'catalog:'
         version: 1.13.6
@@ -222,11 +220,11 @@ importers:
         specifier: 'catalog:'
         version: 0.19.4
       react:
-        specifier: '>=16.9.0'
-        version: 19.0.0
+        specifier: ^18.3.1
+        version: 18.3.1
       react-dom:
-        specifier: '>=16.9.0'
-        version: 19.0.0(react@19.0.0)
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
 
   packages/theme:
     dependencies:
@@ -1016,7 +1014,7 @@ packages:
   '@mdx-js/react@2.3.0':
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
     peerDependencies:
-      react: '>=16'
+      react: ^18.3.1
 
   '@module-federation/error-codes@0.8.4':
     resolution: {integrity: sha512-55LYmrDdKb4jt+qr8qE8U3al62ZANp3FhfVaNPOaAmdTh0jHdD8M3yf5HKFlr5xVkVO4eV/F/J2NCfpbh+pEXQ==}
@@ -1040,8 +1038,8 @@ packages:
     resolution: {integrity: sha512-RFkU9/i7cN2bsq/iTkurMWOEErmYcY6JiQI3Jn+WeR/FGISH8JbHERjpS9oRuSOPvDMJI0Z8nJeKkbOs9sBYQw==}
     peerDependencies:
       monaco-editor: '>= 0.25.0 < 1'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^18.3.1
+      react-dom: ^18.3.1
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1526,7 +1524,7 @@ packages:
     engines: {node: '>=14.17.6'}
     peerDependencies:
       '@rspress/core': ^1.43.3
-      react: '>=17.0.0'
+      react: ^18.3.1
       react-router-dom: ^6.8.1
 
   '@rspress/plugin-preview@1.43.3':
@@ -1534,7 +1532,7 @@ packages:
     engines: {node: '>=14.17.6'}
     peerDependencies:
       '@rspress/core': ^1.43.3
-      react: '>=17.0.0'
+      react: ^18.3.1
       react-router-dom: ^6.8.1
 
   '@rspress/plugin-typedoc@1.43.3':
@@ -1581,8 +1579,8 @@ packages:
       '@testing-library/dom': ^10.0.0
       '@types/react': ^18.0.0 || ^19.0.0
       '@types/react-dom': ^18.0.0 || ^19.0.0
-      react: ^18.0.0 || ^19.0.0
-      react-dom: ^18.0.0 || ^19.0.0
+      react: ^18.3.1
+      react-dom: ^18.3.1
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -1752,8 +1750,8 @@ packages:
   '@visactor/react-vchart@1.13.6':
     resolution: {integrity: sha512-C0Wcw2ONzKVNE8JNs/kmwekIB4QbSrZRbUaRcjrH19DidRGQBKSz9oHu/M0Y5zHKyKkDXhzL8mYBlVcbbqYjvw==}
     peerDependencies:
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
+      react: ^18.3.1
+      react-dom: ^18.3.1
 
   '@visactor/vchart@1.13.6':
     resolution: {integrity: sha512-FCGGJblvupQpqP2yI4S7y2uRV/kMlNzQeakqehk1tQwe0e/Yduji7qpYqo1rPDC18xmg/EO6STzyslsoR33fhQ==}
@@ -3057,7 +3055,7 @@ packages:
   htmr@1.0.2:
     resolution: {integrity: sha512-7T9babEHZwECQ2/ouxNPow1uGcKbj/BcbslPGPRxBKIOLNiIrFKq6ELzor7mc4HiexZzdb3izQQLl16bhPR9jw==}
     peerDependencies:
-      react: '>=15.6.1'
+      react: ^18.3.1
 
   human-id@4.1.1:
     resolution: {integrity: sha512-3gKm/gCSUipeLsRYZbbdA1BD83lBoWUkZ7G9VFrhWPAU76KwYo5KR8V28bpoPm/ygy0x5/GCbpRQdY7VLYCoIg==}
@@ -4064,7 +4062,7 @@ packages:
   qrcode.react@3.2.0:
     resolution: {integrity: sha512-YietHHltOHA4+l5na1srdaMx4sVSOjV9tamHs+mwiLWAMr6QVACRUw1Neax5CptFILcNoITctJY0Ipyn5enQ8g==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^18.3.1
 
   quansync@0.2.8:
     resolution: {integrity: sha512-4+saucphJMazjt7iOM27mbFCk+D9dd/zmgMDCzRZ8MEoBfYp7lAvoN38et/phRQF6wOPMy/OROBGgoWeSKyluA==}
@@ -4080,19 +4078,14 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-dom@19.0.0:
-    resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
-    peerDependencies:
-      react: ^19.0.0
-
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
   react-helmet-async@1.3.0:
     resolution: {integrity: sha512-9jZ57/dAn9t3q6hneQS0wukqC2ENOBgMNVEhb/ZG9ZSxUetzVIw4iAmEU38IaVg3QGYauQPhSeUTuIUtFglWpg==}
     peerDependencies:
-      react: ^16.6.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
+      react: ^18.3.1
+      react-dom: ^18.3.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -4114,26 +4107,22 @@ packages:
     resolution: {integrity: sha512-x30B78HV5tFk8ex0ITwzC9TTZMua4jGyA9IUlH1JLQYQTFyxr/ZxwOJq7evg1JX1qGVUcvhsmQSKdPncQrjTgA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
+      react: ^18.3.1
+      react-dom: ^18.3.1
 
   react-router@6.30.0:
     resolution: {integrity: sha512-D3X8FyH9nBcTSHGdEKurK7r8OYE1kKFn3d/CF+CoxbSHkxU7o37+Uh7eAHRXr6k2tSExXYO++07PeXJtA/dEhQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: ^18.3.1
 
   react-syntax-highlighter@15.6.1:
     resolution: {integrity: sha512-OqJ2/vL7lEeV5zTJyG7kmARppUjiB9h9udl4qHQjjgEos66z00Ia0OckwYfRxCSFrW8RJIBnsBwQsHZbVPspqg==}
     peerDependencies:
-      react: '>= 0.14.0'
+      react: ^18.3.1
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.0.0:
-    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
 
   read-package-up@11.0.0:
@@ -4421,9 +4410,6 @@ packages:
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
-
-  scheduler@0.25.0:
-    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
   schema-utils@4.3.0:
     resolution: {integrity: sha512-Gf9qqc58SpCA/xdziiHz35F4GNIWYWZrEshUc/G/r5BnLph6xpKuLeoJoQuj5WfBIx/eQLf+hmVPYHaxJu7V2g==}
@@ -6917,17 +6903,6 @@ snapshots:
       '@visactor/vutils': 0.19.4
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-is: 18.3.1
-
-  '@visactor/react-vchart@1.13.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@visactor/vchart': 1.13.6
-      '@visactor/vgrammar-core': 0.16.0
-      '@visactor/vrender-core': 0.22.4
-      '@visactor/vrender-kits': 0.22.4
-      '@visactor/vutils': 0.19.4
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
       react-is: 18.3.1
 
   '@visactor/vchart@1.13.6':
@@ -9905,11 +9880,6 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-dom@19.0.0(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-      scheduler: 0.25.0
-
   react-fast-compare@3.2.2: {}
 
   react-helmet-async@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
@@ -9957,8 +9927,6 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
-
-  react@19.0.0: {}
 
   read-package-up@11.0.0:
     dependencies:
@@ -10284,8 +10252,6 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
-
-  scheduler@0.25.0: {}
 
   schema-utils@4.3.0:
     dependencies:
