@@ -46,6 +46,5 @@ export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
     [yAxes, xAxes, xField, yField],
   );
 
-  // @ts-expect-error 忽略报错
   return <CommonChart {...defaultProps} {...rest} tooltip={tooltipProps} />;
 };

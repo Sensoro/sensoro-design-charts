@@ -1,9 +1,9 @@
+import type { HideAxesStackBarProps } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import { defaultTooltip, defaultProps } from './config';
-import { transformData, getDefaultSeries, getDefaultCrosshair } from './utils';
 import React from 'react';
-import { HideAxesStackBarProps } from './types';
+import { defaultProps, defaultTooltip } from './config';
+import { getDefaultCrosshair, getDefaultSeries, transformData } from './utils';
 
 export function HideAxesStackBar(props: HideAxesStackBarProps) {
   const {
@@ -20,7 +20,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
     () => {
       const list = transformData(data, {
         xField,
-        yField
+        yField,
       });
 
       return [
@@ -30,10 +30,10 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
         {
           values: list[1],
         },
-      ]
+      ];
     },
-    [data, xField, yField]
-  )
+    [data, xField, yField],
+  );
 
   const crosshairMemo = React.useMemo(
     () => {
@@ -43,18 +43,17 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
 
       return merge(defaultCrosshair, crosshair);
     },
-    [crosshair, barWidth]
-  )
+    [crosshair, barWidth],
+  );
 
   const series = getDefaultSeries({
     xField,
     yField,
     barWidth,
-  })
+  });
   const tooltipProps = merge(defaultTooltip, tooltip);
 
   return (
-    // @ts-expect-error 忽略报错
     <CommonChart
       {...defaultProps}
       data={dataMemo}
@@ -66,4 +65,4 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
   );
 }
 
-export type { HideAxesStackBarProps }
+export type { HideAxesStackBarProps };

@@ -3,9 +3,9 @@ import type { IMarkLineYSpec } from '@visactor/vchart/esm/component/marker/mark-
 
 import { LineChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
+import React from 'react';
 import { defaultPoint } from './config';
 import { getDefaultMarkLine } from './utils';
-import React from 'react';
 
 export interface LineProps extends LineChartProps {
   defaultMarkLine?: IMarkLineYSpec;
@@ -24,7 +24,6 @@ export function Line(props: LineProps) {
   }
 
   return (
-    // @ts-expect-error 忽略报错
     <LineChart
       {...props}
       markLine={markLineData}
