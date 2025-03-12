@@ -6,7 +6,6 @@ import { useDark } from 'rspress/runtime';
 
 ThemeManager.registerTheme('sensoroDesignLight', light);
 ThemeManager.registerTheme('sensoroDesignDark', dark);
-ThemeManager.setCurrentTheme('sensoroDesignLight');
 
 function ChartTheme() {
   const dark = useDark();
