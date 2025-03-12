@@ -23,7 +23,7 @@ export default defineConfig({
     //     '@sensoro-design/chart',
     //     '@sensoro-design/chart-theme',
     //     'dayjs',
-    //   ]
+    //   ],
     // }),
   ],
   themeConfig: {
