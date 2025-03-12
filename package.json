@@ -30,7 +30,6 @@
     "@rsbuild/core": "catalog:",
     "@rsbuild/plugin-react": "catalog:",
     "@rslib/core": "catalog:",
-    "@rspress/plugin-last-updated": "catalog:",
     "@rspress/plugin-playground": "catalog:",
     "@rspress/plugin-preview": "catalog:",
     "@rspress/plugin-typedoc": "catalog:",

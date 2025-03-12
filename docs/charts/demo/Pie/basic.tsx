@@ -3,39 +3,41 @@ import { Pie } from '@sensoro-design/chart';
 
 function Example() {
   const spec: PieProps = {
-    height: 36,
-    width: 36,
-    padding: 0,
+    height: 300,
     data: [
       {
         values: [
-          { type: 'oxygen', value: 46 },
-          { type: 'silicon', value: 27 },
+          { type: 'oxygen', value: '46.60' },
+          { type: 'silicon', value: '27.72' },
+          { type: 'aluminum', value: '8.13' },
+          { type: 'iron', value: '5' },
+          { type: 'calcium', value: '3.63' },
+          { type: 'sodium', value: '2.83' },
+          { type: 'potassium', value: '2.59' },
+          { type: 'others', value: '3.5' },
         ],
       },
     ],
-    outerRadius: 1,
-    innerRadius: 0.6,
-    padAngle: 2,
+    outerRadius: 0.8,
     valueField: 'value',
     categoryField: 'type',
+    title: {
+      visible: true,
+      text: '基础饼图',
+    },
     legends: {
-      visible: false,
+      visible: true,
+      orient: 'left',
+    },
+    label: {
+      visible: true,
     },
     tooltip: {
       mark: {
-        shapeType: 'square',
-        title: {
-          visible: false,
-        },
         content: [
           {
-            key: (datum) => {
-              return `${datum?.type}`;
-            },
-            value: (datum) => {
-              return `${datum?.value} 次`;
-            },
+            key: datum => datum?.type,
+            value: datum => `${datum?.value}%`,
           },
         ],
       },

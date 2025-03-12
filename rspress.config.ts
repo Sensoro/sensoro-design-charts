@@ -1,8 +1,6 @@
 import * as path from 'node:path';
-import { defineConfig } from 'rspress/config';
 import { pluginPreview } from '@rspress/plugin-preview';
-import { pluginLastUpdated } from '@rspress/plugin-last-updated';
-import { pluginPlayground } from '@rspress/plugin-playground';
+import { defineConfig } from 'rspress/config';
 
 export default defineConfig({
   base: '/sensoro-design-charts/',
@@ -15,11 +13,10 @@ export default defineConfig({
   },
   logoText: 'Sensoro Design Chart',
   globalUIComponents: [
-    path.join(__dirname, 'docs/global/ChartTheme.tsx')
+    path.join(__dirname, 'docs/global/ChartTheme.tsx'),
   ],
   plugins: [
     pluginPreview({}),
-    pluginLastUpdated(),
     // pluginPlayground({
     //   defaultDirection: 'vertical',
     //   include: [
@@ -30,6 +27,7 @@ export default defineConfig({
     // }),
   ],
   themeConfig: {
+    lastUpdated: true,
     socialLinks: [
       {
         icon: 'github',
