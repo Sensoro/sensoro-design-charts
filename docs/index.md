@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: 图表
-      link: /charts/
+      link: /charts/start/introduction
     - theme: alt
       text: GitHub
       link: https://github.com/Sensoro/sensoro-design-charts

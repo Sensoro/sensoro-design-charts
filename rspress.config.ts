@@ -7,14 +7,17 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Sensoro Design Chart',
   icon: '/logo.png',
-  logo: {
-    light: '/logo.png',
-    dark: '/logo.png',
-  },
+  logo: '/logo.png',
   logoText: 'Sensoro Design Chart',
   globalUIComponents: [
     path.join(__dirname, 'docs/global/ChartTheme.tsx'),
   ],
+  markdown: {
+    checkDeadLinks: true,
+  },
+  route: {
+    cleanUrls: true,
+  },
   plugins: [
     pluginPreview({}),
     // pluginPlayground({
@@ -27,7 +30,10 @@ export default defineConfig({
     // }),
   ],
   themeConfig: {
+    enableContentAnimation: true,
+    enableAppearanceAnimation: false,
     lastUpdated: true,
+    hideNavbar: 'auto',
     socialLinks: [
       {
         icon: 'github',

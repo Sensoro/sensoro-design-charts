@@ -1,5 +1,9 @@
 [
-  "index",
+  {
+    "type": "dir",
+    "name": "start",
+    "label": "开始"
+  },
   "Area",
   "Line",
   "RangeColumn",
