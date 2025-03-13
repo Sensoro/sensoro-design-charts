@@ -17,3 +17,5 @@ export type { PieProps } from './Pie';
 
 export { default as RangeColumn } from './RangeColumn';
 export type { RangeColumnProps } from './RangeColumn';
+
+export { VChart as VChartCore } from '@visactor/vchart';
