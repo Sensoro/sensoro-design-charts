@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.5
+
+### Patch Changes
+
+- export VChartCore
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.0-rc.3
+
 ## 1.0.0-rc.4
 
 ### Patch Changes
