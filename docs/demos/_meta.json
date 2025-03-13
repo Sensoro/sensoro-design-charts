@@ -1,4 +1,12 @@
 [
-  "index",
-  "Pie"
+  {
+    "type": "file",
+    "name": "index",
+    "label": "概览"
+  },
+  {
+    "type": "dir",
+    "name": "config",
+    "label": "定制化配置"
+  }
 ]
