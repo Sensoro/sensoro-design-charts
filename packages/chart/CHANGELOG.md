@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.6
+
+### Patch Changes
+
+- 修复编译结果报错
+
 ## 1.0.0-rc.5
 
 ### Patch Changes
