@@ -2,7 +2,7 @@ import type { CommonChartProps } from '@visactor/react-vchart';
 import type { ICartesianAxisSpec } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { defaultTooltip } from './config';
 import { getDefaultProps } from './utils';
 
@@ -34,7 +34,7 @@ export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
 
   const tooltipProps = merge(defaultTooltip, tooltip);
 
-  const defaultProps = React.useMemo(
+  const defaultProps = useMemo(
     () => {
       return getDefaultProps({
         yAxes,

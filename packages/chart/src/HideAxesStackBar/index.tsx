@@ -1,7 +1,7 @@
 import type { HideAxesStackBarProps } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { defaultProps, defaultTooltip } from './config';
 import { getDefaultCrosshair, getDefaultSeries, transformData } from './utils';
 
@@ -16,7 +16,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
     ...rest
   } = props;
 
-  const dataMemo = React.useMemo(
+  const dataMemo = useMemo(
     () => {
       const list = transformData(data, {
         xField,
@@ -35,7 +35,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
     [data, xField, yField],
   );
 
-  const crosshairMemo = React.useMemo(
+  const crosshairMemo = useMemo(
     () => {
       const defaultCrosshair = getDefaultCrosshair({
         barWidth,
