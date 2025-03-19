@@ -1,7 +1,7 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { ICartesianAxisSpec } from './types';
-import { merge } from '@visactor/vutils';
 import { colorBlue2 } from '@sensoro-design/chart-theme';
+import { merge } from '@visactor/vutils';
 import { defaultArea, defaultPoint } from './config';
 
 interface Params {

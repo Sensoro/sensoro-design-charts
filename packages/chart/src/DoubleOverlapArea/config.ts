@@ -39,6 +39,9 @@ export const defaultArea: NonNullable<IAreaSeriesSpec['area']> = {
 };
 
 export const defaultTooltip: CommonChartProps['tooltip'] = {
+  mark: {
+    visible: false,
+  },
   dimension: {
     shapeType: hyphenPointPath,
     shapeFill: colorBlue2,
