@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- 修复 mark tooltip 展示不一致问题
+
 ## 1.0.0-rc.6
 
 ### Patch Changes
