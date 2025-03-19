@@ -7,5 +7,6 @@
   "Area",
   "Line",
   "RangeColumn",
-  "Pie"
+  "Pie",
+  "Sankey"
 ]
