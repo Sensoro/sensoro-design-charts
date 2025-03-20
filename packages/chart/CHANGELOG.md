@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.8
+
+### Patch Changes
+
+- add Bar Sankey charts
+
 ## 1.0.0-rc.7
 
 ### Patch Changes
