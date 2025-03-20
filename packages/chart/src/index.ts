@@ -1,6 +1,9 @@
 export { default as Area } from './Area';
 export type { AreaProps } from './Area';
 
+export { default as Bar } from './Bar';
+export type { BarProps } from './Bar';
+
 export { hyphenPointPath } from './config';
 
 export { DoubleOverlapArea } from './DoubleOverlapArea';

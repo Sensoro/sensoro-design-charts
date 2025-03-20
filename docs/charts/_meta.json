@@ -8,5 +8,6 @@
   "Line",
   "RangeColumn",
   "Pie",
-  "Sankey"
+  "Sankey",
+  "Bar"
 ]
