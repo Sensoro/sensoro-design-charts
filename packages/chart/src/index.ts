@@ -1,4 +1,4 @@
-export { default as Area } from './Area';
+export { Area } from './Area';
 export type { AreaProps } from './Area';
 
 export { default as Bar } from './Bar';
