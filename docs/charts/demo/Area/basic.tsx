@@ -10,6 +10,32 @@ function Example() {
     },
     xField: 'date',
     yField: 'value',
+    legends: [
+      {
+        visible: true,
+        position: 'end',
+        orient: 'top',
+        item: {
+          shape: {
+            style: {
+              size: 10,
+              symbolType: hyphenPointPath,
+              dy: -5,
+              fill: colorBlue2,
+            },
+          },
+          label: {
+            formatMethod: () => {
+              return '测试图例';
+            },
+          },
+        },
+        layoutType: 'absolute',
+        left: 0,
+        right: -20,
+        top: 2,
+      },
+    ],
     data: {
       values: [
         { date: 0, value: 11635 },

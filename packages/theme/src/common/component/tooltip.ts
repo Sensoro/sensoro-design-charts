@@ -5,7 +5,7 @@ export const tooltip: ITooltipTheme = {
   /** 偏移量 */
   offset: {
     x: 10,
-    y: 10
+    y: 10,
   },
   panel: {
     padding: {
@@ -16,12 +16,12 @@ export const tooltip: ITooltipTheme = {
     },
     backgroundColor: {
       type: 'palette',
-      key: 'popupBackgroundColor'
+      key: 'popupBackgroundColor',
     } as any,
     border: {
       color: {
         type: 'palette',
-        key: 'popupBackgroundColor'
+        key: 'popupBackgroundColor',
       } as any,
       width: 0,
       radius: 0,
@@ -33,9 +33,9 @@ export const tooltip: ITooltipTheme = {
       spread: 0,
       color: {
         type: 'palette',
-        key: 'shadowColor'
-      } as any
-    }
+        key: 'shadowColor',
+      } as any,
+    },
   },
   spaceRow: 6,
   titleLabel: {
@@ -44,18 +44,18 @@ export const tooltip: ITooltipTheme = {
     fontColor: colorGrey06,
     fontWeight: 'bold',
     textBaseline: 'middle',
-    spacing: 0
+    spacing: 0,
   },
   shape: {
     size: 8,
-    spacing: 6
+    spacing: 6,
   },
   keyLabel: {
     fontSize: 12,
     lineHeight: 20,
     fontColor: '#fff',
     textBaseline: 'middle',
-    spacing: 26
+    spacing: 26,
   },
   valueLabel: {
     fontSize: 12,
@@ -63,6 +63,6 @@ export const tooltip: ITooltipTheme = {
     fontColor: '#fff',
     fontWeight: 'bold',
     textBaseline: 'middle',
-    spacing: 0
+    spacing: 0,
   },
-}
+};

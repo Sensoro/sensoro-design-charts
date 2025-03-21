@@ -54,6 +54,7 @@ export const discreteLegend: IDiscreteLegendTheme = {
     spaceRow: 6,
     padding: 2,
     background: {
+      visible: false,
       state: {
         selectedHover: {
           fill: {
@@ -70,7 +71,7 @@ export const discreteLegend: IDiscreteLegendTheme = {
       },
     },
     shape: {
-      space: 6,
+      space: 10,
       style: {
         lineWidth: 0,
         fillOpacity: 1,

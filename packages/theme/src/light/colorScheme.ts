@@ -4,6 +4,7 @@ import {
   colorGrey04,
   colorGrey06,
   colorGrey10,
+  colorGreyPro08,
   colorGreyPro09,
   colorWhite,
   dataScheme,
@@ -33,7 +34,7 @@ export const colorScheme: IThemeColorScheme = {
       /** 主要字色 */
       primaryFontColor: colorGrey10,
       /** 次要字色 */
-      secondaryFontColor: 'rgba(78,89,105,1)',
+      secondaryFontColor: colorGreyPro08,
       /** 第三字色 */
       tertiaryFontColor: 'rgba(134,144,156,1)',
       /** 轴标签字色 */
