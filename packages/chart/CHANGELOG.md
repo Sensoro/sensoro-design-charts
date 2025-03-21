@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.10
+
+### Patch Changes
+
+- move @sensoro-design/chart-theme to peerDependencies
+
 ## 1.0.0-rc.9
 
 ### Patch Changes
