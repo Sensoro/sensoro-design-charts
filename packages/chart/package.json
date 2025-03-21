@@ -18,11 +18,11 @@
     "dev": "rslib build --watch"
   },
   "peerDependencies": {
+    "@sensoro-design/chart-theme": "*",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@sensoro-design/chart-theme": "workspace:*",
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
     "@visactor/vrender-components": "*",
