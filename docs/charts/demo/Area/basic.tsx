@@ -20,7 +20,7 @@ function Example() {
             style: {
               size: 10,
               symbolType: hyphenPointPath,
-              dy: -5,
+              dy: -4,
               fill: colorBlue2,
             },
           },
@@ -32,8 +32,8 @@ function Example() {
         },
         layoutType: 'absolute',
         left: 0,
-        right: -20,
-        top: 2,
+        right: -26,
+        top: 0,
       },
     ],
     data: {
