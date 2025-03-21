@@ -1,4 +1,6 @@
-export const defaultPoint = {
+import type { LineChartProps } from '@visactor/react-vchart';
+
+export const defaultPoint: LineChartProps['point'] = {
   style: {
     size: 0,
     stroke: '#fff',
@@ -8,5 +10,11 @@ export const defaultPoint = {
     dimension_hover: {
       size: 10,
     },
+  },
+};
+
+export const defaultTooltip: LineChartProps['tooltip'] = {
+  mark: {
+    visible: false,
   },
 };

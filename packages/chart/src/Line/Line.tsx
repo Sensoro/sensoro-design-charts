@@ -4,7 +4,7 @@ import type { IMarkLineYSpec } from '@visactor/vchart/esm/component/marker/mark-
 import { LineChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React from 'react';
-import { defaultPoint } from './config';
+import { defaultPoint, defaultTooltip } from './config';
 import { getDefaultMarkLine } from './utils';
 
 export interface LineProps extends LineChartProps {
@@ -12,10 +12,11 @@ export interface LineProps extends LineChartProps {
 }
 
 export function Line(props: LineProps) {
-  const { defaultMarkLine, markLine, point } = props;
+  const { defaultMarkLine, markLine, point, tooltip } = props;
 
   let markLineData = markLine;
   const pointData = merge(defaultPoint, point);
+  const tooltipData = merge(defaultTooltip, tooltip);
 
   if (!markLineData && defaultMarkLine && defaultMarkLine.y) {
     markLineData = [
@@ -28,6 +29,7 @@ export function Line(props: LineProps) {
       {...props}
       markLine={markLineData}
       point={pointData}
+      tooltip={tooltipData}
     />
   );
 };
