@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.9
+
+### Patch Changes
+
+- 默认关闭部分图表图元 Tooltip & 图例主题修改
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.0-rc.4
+
 ## 1.0.0-rc.8
 
 ### Patch Changes
