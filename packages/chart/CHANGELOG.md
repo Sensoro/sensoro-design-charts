@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.12
+
+### Patch Changes
+
+- TwoStateArea 细节调整
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.0-rc.5
+
 ## 1.0.0-rc.11
 
 ### Patch Changes
