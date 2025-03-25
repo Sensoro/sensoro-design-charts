@@ -30,6 +30,8 @@ export const colorScheme: IThemeColorScheme = {
       sliderTrackColor: 'rgba(22,93,255,1)',
       /** 浮层背景区域颜色 */
       popupBackgroundColor: colorGreyPro09,
+      /** 浮层边框颜色 */
+      popupBorderColor: colorGreyPro09,
 
       /** 主要字色 */
       primaryFontColor: colorGrey10,
@@ -63,6 +65,11 @@ export const colorScheme: IThemeColorScheme = {
       markLabelBackgroundColor: 'rgba(229,230,235,1)',
       /** 标注线颜色 */
       markLineStrokeColor: 'rgba(78,89,105,1)',
+
+      /** Tooltip 标题颜色 */
+      tooltipTitleColor: colorGrey06,
+      /** Tooltip Key颜色 */
+      tooltipKeyLabelColor: colorWhite,
 
       /** 危险色 */
       dangerColor: 'rgba(245,63,63,1)',

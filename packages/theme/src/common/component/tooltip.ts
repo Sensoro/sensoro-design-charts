@@ -1,5 +1,4 @@
 import type { ITooltipTheme } from '@visactor/vchart';
-import { colorGrey06 } from '../colors';
 
 export const tooltip: ITooltipTheme = {
   /** 偏移量 */
@@ -21,9 +20,9 @@ export const tooltip: ITooltipTheme = {
     border: {
       color: {
         type: 'palette',
-        key: 'popupBackgroundColor',
+        key: 'popupBorderColor',
       } as any,
-      width: 0,
+      width: 1,
       radius: 0,
     },
     shadow: {
@@ -41,7 +40,10 @@ export const tooltip: ITooltipTheme = {
   titleLabel: {
     fontSize: 12,
     lineHeight: 20,
-    fontColor: colorGrey06,
+    fontColor: {
+      type: 'palette',
+      key: 'tooltipTitleColor',
+    } as any,
     fontWeight: 'bold',
     textBaseline: 'middle',
     spacing: 0,
@@ -53,7 +55,10 @@ export const tooltip: ITooltipTheme = {
   keyLabel: {
     fontSize: 12,
     lineHeight: 20,
-    fontColor: '#fff',
+    fontColor: {
+      type: 'palette',
+      key: 'tooltipKeyLabelColor',
+    } as any,
     textBaseline: 'middle',
     spacing: 26,
   },

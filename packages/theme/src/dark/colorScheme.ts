@@ -23,6 +23,8 @@ export const colorScheme: IThemeColorScheme = {
       sliderTrackColor: 'rgba(22,93,255,1)',
       /** 浮层背景区域颜色 */
       popupBackgroundColor: '#314059',
+      /** 浮层边框颜色 */
+      popupBorderColor: '#293449',
 
       /** 主要字色 */
       primaryFontColor: '#8194B5',
@@ -31,7 +33,7 @@ export const colorScheme: IThemeColorScheme = {
       /** 第三字色 */
       tertiaryFontColor: 'rgba(134,144,156,1)',
       /** 轴标签字色 */
-      axisLabelFontColor: '#546789',
+      axisLabelFontColor: '#8194B5',
       /** 禁用字色 */
       disableFontColor: 'rgba(201,205,212,1)',
       /** 轴高亮标记字色 */
@@ -56,6 +58,11 @@ export const colorScheme: IThemeColorScheme = {
       markLabelBackgroundColor: 'rgba(229,230,235,1)',
       /** 标注线颜色 */
       markLineStrokeColor: 'rgba(78,89,105,1)',
+
+      /** Tooltip 标题颜色 */
+      tooltipTitleColor: '#AEC0DE',
+      /** Tooltip Key颜色 */
+      tooltipKeyLabelColor: '#F6F9FE',
 
       /** 危险色 */
       dangerColor: 'rgba(245,63,63,1)',

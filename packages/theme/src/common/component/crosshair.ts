@@ -1,7 +1,4 @@
 import type { ICrosshairTheme } from '@visactor/vchart';
-import {
-  colorBlue04,
-} from '../colors';
 
 export const crosshair: ICrosshairTheme = {
   xField: {
@@ -9,10 +6,13 @@ export const crosshair: ICrosshairTheme = {
       type: 'line',
       width: 1,
       style: {
-        stroke: colorBlue04,
+        stroke: {
+          type: 'palette',
+          key: 'primaryFontColor',
+        },
         strokeOpacity: 1,
         lineDash: [3, 2],
       },
     },
   },
-}
+};

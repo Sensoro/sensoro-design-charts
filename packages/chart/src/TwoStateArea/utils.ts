@@ -74,7 +74,8 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
   const point = {
     style: {
       size: 0,
-      stroke: '#fff',
+      stroke: 'default',
+      fill: '#161D2A',
       lineWidth: 2,
     },
     state: {
@@ -98,6 +99,11 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
       tooltip: tooltip1,
       invalidType: 'break',
       point,
+      line: {
+        style: {
+          lineCap: 'square',
+        },
+      },
     },
     {
       type: 'area',
@@ -112,6 +118,11 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
       invalidType: 'break',
       tooltip: tooltip2,
       point,
+      line: {
+        style: {
+          lineCap: 'square',
+        },
+      },
     },
   ];
 

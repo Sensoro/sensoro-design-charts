@@ -3,6 +3,9 @@ import type { TwoStateAreaProps } from './types';
 export const defaultXAxes: NonNullable<TwoStateAreaProps['xAxes']> = {
   orient: 'bottom',
   type: 'band',
+  tick: {
+    visible: false,
+  },
 };
 
 export const defaultYAxes: NonNullable<TwoStateAreaProps['yAxes']> = {
