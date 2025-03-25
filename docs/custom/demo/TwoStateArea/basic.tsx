@@ -1,5 +1,5 @@
 import type { TwoStateAreaProps } from '@sensoro-design/chart';
-import { hyphenPointPath, TwoStateArea } from '@sensoro-design/chart';
+import { TwoStateArea } from '@sensoro-design/chart';
 import dayjs from 'dayjs';
 
 function Example() {
@@ -46,21 +46,19 @@ function Example() {
     ],
     tooltip: {
       dimension: {
-        shapeType: hyphenPointPath,
         title: {
           value: (datum) => {
             return dayjs(datum?.time).format('MM-DD HH:mm');
           },
         },
-        content: {
-          key: (datum) => {
-            return `屋内${datum?.value ? '有人' : '无人'} `;
+        content: [
+          {
+            key: (datum) => {
+              return `屋内${datum?.value ? '有人' : '无人'} `;
+            },
+            value: '',
           },
-          value: () => {
-            return '';
-          },
-        },
-        maxLineCount: 2,
+        ],
       },
     },
     xAxes: {

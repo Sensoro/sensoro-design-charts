@@ -1,4 +1,7 @@
-import type { DataItem } from './types';
+import type { CommonChartProps } from '@visactor/react-vchart';
+import type { DataItem, TwoStateAreaProps } from './types';
+import { merge } from '@visactor/vutils';
+import { hyphenPointPath } from '../config';
 
 interface TransformDataOptions {
   xField?: string;
@@ -23,4 +26,94 @@ export function transformData(data: DataItem[] = [], options: TransformDataOptio
       }],
     ] as [DataItem[], DataItem[]];
   }, [[], []]);
+}
+
+interface GetDefaultTooltipOptions {
+  yField: string;
+}
+
+export function getDefaultTooltip(options: GetDefaultTooltipOptions) {
+  const { yField } = options;
+
+  const defaultTooltip: CommonChartProps['tooltip'] = {
+    mark: {
+      visible: false,
+    },
+    dimension: {
+      shapeType: hyphenPointPath,
+      updateContent: (prev) => {
+        return prev?.filter(item => item.datum?.[`${yField}`] !== null);
+      },
+    },
+  };
+
+  return defaultTooltip;
+}
+
+interface GetDefaultSeriesOptions {
+  xField: string;
+  yField: string;
+  color: [string, string];
+  tooltip: TwoStateAreaProps['tooltip'];
+}
+
+export function getDefaultSeries(options: GetDefaultSeriesOptions) {
+  const { xField, yField, color, tooltip } = options;
+  const defaultTooltip = getDefaultTooltip({ yField });
+  const tooltip1 = merge({}, defaultTooltip, {
+    dimension: {
+      shapeFill: color[0],
+    },
+  }, tooltip);
+  const tooltip2 = merge({}, defaultTooltip, {
+    dimension: {
+      shapeFill: color[1],
+    },
+  }, tooltip);
+
+  const point = {
+    style: {
+      size: 0,
+      stroke: '#fff',
+      lineWidth: 2,
+    },
+    state: {
+      dimension_hover: {
+        size: 10,
+      },
+    },
+  };
+
+  const series: CommonChartProps['series'] = [
+    {
+      type: 'area',
+      area: {
+        style: {
+          curveType: 'step',
+        },
+      },
+      dataIndex: 0,
+      xField,
+      yField,
+      tooltip: tooltip1,
+      invalidType: 'break',
+      point,
+    },
+    {
+      type: 'area',
+      area: {
+        style: {
+          curveType: 'step',
+        },
+      },
+      dataIndex: 1,
+      xField,
+      yField,
+      invalidType: 'break',
+      tooltip: tooltip2,
+      point,
+    },
+  ];
+
+  return series;
 }

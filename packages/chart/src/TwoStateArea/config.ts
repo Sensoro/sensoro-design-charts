@@ -1,11 +1,4 @@
-import type { CommonChartProps } from '@visactor/react-vchart';
 import type { TwoStateAreaProps } from './types';
-
-export const defaultTooltip: CommonChartProps['tooltip'] = {
-  mark: {
-    visible: false,
-  },
-};
 
 export const defaultXAxes: NonNullable<TwoStateAreaProps['xAxes']> = {
   orient: 'bottom',
