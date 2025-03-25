@@ -71,20 +71,6 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
     },
   }, tooltip);
 
-  const point = {
-    style: {
-      size: 0,
-      stroke: 'default',
-      fill: '#161D2A',
-      lineWidth: 2,
-    },
-    state: {
-      dimension_hover: {
-        size: 10,
-      },
-    },
-  };
-
   const series: CommonChartProps['series'] = [
     {
       type: 'area',
@@ -98,7 +84,6 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
       yField,
       tooltip: tooltip1,
       invalidType: 'break',
-      point,
       line: {
         style: {
           lineCap: 'square',
@@ -117,7 +102,6 @@ export function getDefaultSeries(options: GetDefaultSeriesOptions) {
       yField,
       invalidType: 'break',
       tooltip: tooltip2,
-      point,
       line: {
         style: {
           lineCap: 'square',
