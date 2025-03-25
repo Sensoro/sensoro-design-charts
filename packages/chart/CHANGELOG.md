@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.11
+
+### Patch Changes
+
+- add TwoStateArea、Common
+
 ## 1.0.0-rc.10
 
 ### Patch Changes
