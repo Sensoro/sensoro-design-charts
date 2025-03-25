@@ -713,63 +713,7 @@ const list = [
     time: 1742836200000,
     count: 3.7,
   },
-  {
-    time: 1742835900000,
-    count: 4.1,
-  },
-  {
-    time: 1742835600000,
-    count: 4.4,
-  },
-  {
-    time: 1742835300000,
-    count: 4.5,
-  },
-  {
-    time: 1742835000000,
-    count: 4.7,
-  },
-  {
-    time: 1742834700000,
-    count: 5,
-  },
-  {
-    time: 1742834400000,
-    count: 5,
-  },
-  {
-    time: 1742834100000,
-    count: 5.3,
-  },
-  {
-    time: 1742833800000,
-    count: 5.7,
-  },
-  {
-    time: 1742833500000,
-    count: 6,
-  },
-  {
-    time: 1742833200000,
-    count: 6.3,
-  },
-  {
-    time: 1742832900000,
-    count: 6.3,
-  },
-  {
-    time: 1742832600000,
-    count: 6.5,
-  },
-  {
-    time: 1742832300000,
-    count: 7,
-  },
-  {
-    time: 1742832000000,
-    count: 7.6,
-  },
-];
+].reverse();
 
 function Example() {
   const spec: AreaProps = {
@@ -850,19 +794,6 @@ function Example() {
         visible: true,
         line: {
           type: 'line',
-        },
-      },
-    },
-    point: {
-      style: {
-        size: 0,
-        fill: '#161D2A',
-        stroke: 'default',
-        lineWidth: 2,
-      },
-      state: {
-        dimension_hover: {
-          size: 10,
         },
       },
     },

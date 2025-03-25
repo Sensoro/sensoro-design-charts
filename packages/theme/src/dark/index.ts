@@ -39,6 +39,22 @@ export const dark: ITheme = {
           },
         },
       },
+      point: {
+        style: {
+          size: 0,
+          fill: {
+            type: 'palette',
+            key: 'backgroundColor',
+          },
+          stroke: 'default',
+          lineWidth: 2,
+        },
+        state: {
+          dimension_hover: {
+            size: 10,
+          },
+        },
+      },
     },
   },
   component,
