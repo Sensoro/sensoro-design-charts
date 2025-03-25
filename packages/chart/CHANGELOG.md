@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.13
+
+### Patch Changes
+
+- 优化面积图
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.0-rc.6
+
 ## 1.0.0-rc.12
 
 ### Patch Changes
