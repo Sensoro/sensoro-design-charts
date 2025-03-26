@@ -1,9 +1,9 @@
 import type { TwoStateAreaProps } from './types';
+import { AreaChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React, { useMemo } from 'react';
-import Common from '../Common';
-import { defaultXAxes, defaultYAxes } from './config';
-import { getDefaultSeries, getDefaultTooltip, transformData } from './utils';
+import { defaultLegends, defaultXAxes, defaultYAxes } from './config';
+import { getDefaultTooltip, transformData } from './utils';
 
 export function TwoStateArea(props: TwoStateAreaProps) {
   const {
@@ -12,8 +12,10 @@ export function TwoStateArea(props: TwoStateAreaProps) {
     yField = 'value',
     xAxes,
     yAxes,
+    // eslint-disable-next-line react/no-unstable-default-props
     color = ['#5C8BE6', '#3EB390'],
     tooltip,
+    legend,
     ...rest
   } = props;
 
@@ -26,10 +28,7 @@ export function TwoStateArea(props: TwoStateAreaProps) {
 
       return [
         {
-          values: list[0],
-        },
-        {
-          values: list[1],
+          values: list,
         },
       ];
     },
@@ -43,24 +42,41 @@ export function TwoStateArea(props: TwoStateAreaProps) {
 
   const defaultTooltip = getDefaultTooltip({
     yField,
+    color,
   });
 
   const tooltipData = merge(defaultTooltip, tooltip);
-
-  const series = getDefaultSeries({
-    xField,
-    yField,
-    color,
-    tooltip,
-  });
+  const legendData = merge(defaultLegends, legend);
 
   return (
-    <Common
-      series={series}
+    <AreaChart
       data={dataMemo}
       axes={axes}
+      area={{
+        style: {
+          curveType: 'step',
+        },
+      }}
+      line={{
+        style: {
+          lineCap: 'square',
+        },
+      }}
+      stack={false}
+      xField={xField}
+      yField={yField}
+      seriesField="type"
       color={color}
+      invalidType="break"
       tooltip={tooltipData}
+      legends={legend ? legendData : undefined}
+      point={{
+        style: {
+          stroke: (data) => {
+            return data?.type === 1 ? color[0] : color[1];
+          },
+        },
+      }}
       {...rest}
     />
   );

@@ -1,21 +1,22 @@
-import type { CommonChartProps } from '@visactor/react-vchart';
+import type { AreaChartProps } from '@visactor/react-vchart';
 import type { ICartesianAxisSpec } from '@visactor/vchart/esm/component/axis/cartesian/interface';
+import type { ILegendSpec } from '@visactor/vchart/esm/component/legend/interface';
 
 export {
   ICartesianAxisSpec,
 };
 
 export interface DataItem {
-  time: number;
-  value: number;
   [key: string]: any;
 }
 
 export interface TwoStateAreaProps {
+  options?: AreaChartProps['options'];
+  padding?: AreaChartProps['padding'];
   /** 图表标题 */
-  title?: CommonChartProps['title'];
+  title?: AreaChartProps['title'];
   /** Tooltip */
-  tooltip?: CommonChartProps['tooltip'];
+  tooltip?: AreaChartProps['tooltip'];
   /** 图表高度 */
   height?: number;
   /** 图表宽度 */
@@ -42,9 +43,11 @@ export interface TwoStateAreaProps {
   color?: [string, string];
   /** 图表数据 */
   data: DataItem[];
+  /** 图例配置 */
+  legend?: ILegendSpec;
   /**
    * 图表主题
    */
-  theme?: CommonChartProps['theme'];
-  crosshair?: CommonChartProps['crosshair'];
+  theme?: AreaChartProps['theme'];
+  crosshair?: AreaChartProps['crosshair'];
 }
