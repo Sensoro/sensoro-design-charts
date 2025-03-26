@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.14
+
+### Patch Changes
+
+- 重构 TwoStateArea 图表
+
 ## 1.0.0-rc.13
 
 ### Patch Changes
