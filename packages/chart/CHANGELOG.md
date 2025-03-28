@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.17
+
+### Patch Changes
+
+- line chart 修复多个图表配置公用最后一个问题
+
 ## 1.0.0-rc.16
 
 ### Patch Changes
