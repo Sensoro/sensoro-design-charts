@@ -8,7 +8,7 @@ export interface AreaProps extends AreaChartProps {}
 
 export function Area(props: AreaProps) {
   const { tooltip } = props;
-  const tooltipData = merge(defaultTooltip, tooltip);
+  const tooltipData = merge({}, defaultTooltip, tooltip);
 
   return (
     <AreaChart
