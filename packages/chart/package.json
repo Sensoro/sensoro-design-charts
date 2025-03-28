@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/chart",
   "type": "module",
-  "version": "1.0.0-rc.17",
+  "version": "1.0.0-rc.18",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
