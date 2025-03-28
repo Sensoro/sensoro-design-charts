@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.15
+
+### Patch Changes
+
+- 修复 legend 配置互相影响
+
 ## 1.0.0-rc.14
 
 ### Patch Changes
