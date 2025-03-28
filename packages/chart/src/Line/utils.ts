@@ -1,7 +1,7 @@
-import type { IMarkLineSpec, IMarkLineXYSpec } from './types';
+import type { IDataPos, IDataPosCallback } from '@visactor/vchart/esm/component/marker/interface';
 
-export function getDefaultMarkLine(value: IMarkLineXYSpec['y']) {
-  const markLineY: IMarkLineSpec = {
+export function getDefaultMarkLine(value: IDataPos | IDataPosCallback) {
+  const markLineY = {
     y: value,
     endSymbol: {
       visible: false,
