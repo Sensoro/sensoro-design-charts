@@ -12,7 +12,7 @@ export interface LineProps extends LineChartProps {
 }
 
 export function Line(props: LineProps) {
-  const { defaultMarkLine, markLine, point, tooltip } = props;
+  const { defaultMarkLine, markLine, point, tooltip, ...rest } = props;
 
   let markLineData = markLine;
   const pointData = merge(defaultPoint, point);
@@ -26,10 +26,10 @@ export function Line(props: LineProps) {
 
   return (
     <LineChart
-      {...props}
       markLine={markLineData}
       point={pointData}
       tooltip={tooltipData}
+      {...rest}
     />
   );
 };
