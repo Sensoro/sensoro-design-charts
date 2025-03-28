@@ -45,8 +45,8 @@ export function TwoStateArea(props: TwoStateAreaProps) {
     color,
   });
 
-  const tooltipData = merge(defaultTooltip, tooltip);
-  const legendData = merge(defaultLegends, legend);
+  const tooltipData = merge({}, defaultTooltip, tooltip);
+  const legendData = merge({}, defaultLegends, legend);
 
   return (
     <AreaChart
