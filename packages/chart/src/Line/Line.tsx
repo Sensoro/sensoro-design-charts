@@ -15,12 +15,12 @@ export function Line(props: LineProps) {
   const { defaultMarkLine, markLine, point, tooltip, ...rest } = props;
 
   let markLineData = markLine;
-  const pointData = merge(defaultPoint, point);
-  const tooltipData = merge(defaultTooltip, tooltip);
+  const pointData = merge({}, defaultPoint, point);
+  const tooltipData = merge({}, defaultTooltip, tooltip);
 
   if (!markLineData && defaultMarkLine && defaultMarkLine.y) {
     markLineData = [
-      merge(getDefaultMarkLine(defaultMarkLine.y), defaultMarkLine),
+      merge({}, getDefaultMarkLine(defaultMarkLine.y), defaultMarkLine),
     ];
   }
 
