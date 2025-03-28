@@ -1,5 +1,11 @@
 # @sensoro-design/chart-theme
 
+## 1.0.0-rc.7
+
+### Patch Changes
+
+- 修复 crosshair line 主题配置
+
 ## 1.0.0-rc.6
 
 ### Patch Changes

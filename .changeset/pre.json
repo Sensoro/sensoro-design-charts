@@ -6,6 +6,7 @@
     "@sensoro-design/chart-theme": "0.0.0"
   },
   "changesets": [
+    "angry-spiders-cheer",
     "better-lamps-arrive",
     "cool-candies-pick",
     "dry-teams-rescue",
