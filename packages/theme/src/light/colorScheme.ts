@@ -1,5 +1,6 @@
 import type { IThemeColorScheme } from '@visactor/vchart';
 import {
+  colorBlue04,
   colorGrey03,
   colorGrey04,
   colorGrey06,
@@ -70,6 +71,9 @@ export const colorScheme: IThemeColorScheme = {
       tooltipTitleColor: colorGrey06,
       /** Tooltip Key颜色 */
       tooltipKeyLabelColor: colorWhite,
+
+      /** crosshair 线颜色  */
+      crosshairLineColor: colorBlue04,
 
       /** 危险色 */
       dangerColor: 'rgba(245,63,63,1)',

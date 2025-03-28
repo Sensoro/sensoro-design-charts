@@ -8,7 +8,7 @@ export const crosshair: ICrosshairTheme = {
       style: {
         stroke: {
           type: 'palette',
-          key: 'primaryFontColor',
+          key: 'crosshairLineColor',
         },
         strokeOpacity: 1,
         lineDash: [3, 2],

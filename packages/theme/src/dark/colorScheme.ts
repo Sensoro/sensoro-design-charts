@@ -64,6 +64,9 @@ export const colorScheme: IThemeColorScheme = {
       /** Tooltip Key颜色 */
       tooltipKeyLabelColor: '#F6F9FE',
 
+      /** crosshair 线颜色  */
+      crosshairLineColor: '#8194B5',
+
       /** 危险色 */
       dangerColor: 'rgba(245,63,63,1)',
       /** 警告色 */
