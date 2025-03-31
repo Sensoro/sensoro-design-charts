@@ -8,7 +8,7 @@ const tickTextMap: Record<number, string> = {
   70: '高风险',
   100: '',
 };
-
+const barWidth = 6;
 const ticks = Object.keys(tickTextMap).map(val => +val);
 
 function Example() {
@@ -34,7 +34,7 @@ function Example() {
     tooltip: {
       visible: false,
     },
-    barWidth: 6,
+    barWidth,
     yField: 'year',
     xField: 'step',
     direction: 'horizontal',
@@ -67,12 +67,11 @@ function Example() {
         },
         label: {
           space: 4,
-          // style: {
-          //   dx: 5,
-          // },
-          // dataFilter: () => {
-          //   return
-          // }
+          style: {
+            // dx: () => 20,
+          },
+          containerAlign: 'right',
+          lastVisible: false,
         },
       },
       {
@@ -84,6 +83,21 @@ function Example() {
         },
       },
     ],
+    extensionMark: [
+      {
+        type: 'rect',
+        style: {
+          fill: '#F6F9FE',
+          width: 4,
+          height: barWidth,
+          x: (_, ctx) => {
+            // @ts-expect-error 忽略报错
+            return ctx.valueToX(80);
+          },
+          y: 32.5,
+        },
+      },
+    ],
     crosshair: [
       {
         yField: {
@@ -91,7 +105,6 @@ function Example() {
         },
       },
     ],
-
   };
 
   return (
