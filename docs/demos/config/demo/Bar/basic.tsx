@@ -19,7 +19,7 @@ function Example() {
       right: 0,
       left: 0,
     },
-    color: ['#3EB390', '#CC9B47', '#D96299', '#D96762'],
+    color: ['#3EB390', '#3EB390', '#CC9B47', '#D96299', '#D96762'],
     data: [
       {
         values: [
