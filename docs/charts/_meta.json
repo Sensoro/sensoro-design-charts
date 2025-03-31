@@ -9,5 +9,6 @@
   "RangeColumn",
   "Pie",
   "Sankey",
-  "Bar"
+  "Bar",
+  "WordCloud"
 ]

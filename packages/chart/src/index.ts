@@ -30,4 +30,7 @@ export type { SankeyProps } from './Sankey';
 export { TwoStateArea } from './TwoStateArea';
 export type { TwoStateAreaProps } from './TwoStateArea';
 
+export { default as WordCloud } from './WordCloud';
+export type { WordCloudProps } from './WordCloud';
+
 export { VChart as VChartCore } from '@visactor/vchart';
