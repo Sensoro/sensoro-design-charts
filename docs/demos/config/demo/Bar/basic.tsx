@@ -67,11 +67,6 @@ function Example() {
         },
         label: {
           space: 4,
-          style: {
-            // dx: () => 20,
-          },
-          containerAlign: 'right',
-          lastVisible: false,
         },
       },
       {
