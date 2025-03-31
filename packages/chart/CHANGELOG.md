@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.0.0-rc.19
+
+### Patch Changes
+
+- add WordCloud chart
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.0-rc.8
+
 ## 1.0.0-rc.18
 
 ### Patch Changes

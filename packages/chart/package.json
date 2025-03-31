@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/chart",
   "type": "module",
-  "version": "1.0.0-rc.18",
+  "version": "1.0.0-rc.19",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,7 +18,7 @@
     "dev": "rslib build --watch"
   },
   "peerDependencies": {
-    "@sensoro-design/chart-theme": "1.0.0-rc.7",
+    "@sensoro-design/chart-theme": "1.0.0-rc.8",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
