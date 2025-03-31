@@ -48,7 +48,6 @@ function Example() {
       formatMethod: (_, datum) => {
         return tickTextMap[datum?.value];
       },
-      // position: 'top-left',
       style: {
         type: 'text',
         fontSize: 12,
@@ -68,6 +67,12 @@ function Example() {
         },
         label: {
           space: 4,
+          // style: {
+          //   dx: 5,
+          // },
+          // dataFilter: () => {
+          //   return
+          // }
         },
       },
       {
