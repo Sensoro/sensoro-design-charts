@@ -8,8 +8,8 @@ import {
   colorGreyPro08,
   colorGreyPro09,
   colorWhite,
-  dataScheme,
 } from '../common';
+import { dataScheme } from './dataScheme';
 
 export const colorScheme: IThemeColorScheme = {
   default: {

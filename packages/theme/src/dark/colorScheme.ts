@@ -1,7 +1,5 @@
 import type { IThemeColorScheme } from '@visactor/vchart';
-import {
-  dataScheme,
-} from '../common';
+import { dataScheme } from './dataScheme';
 
 export const colorScheme: IThemeColorScheme = {
   default: {
