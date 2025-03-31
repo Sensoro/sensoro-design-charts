@@ -1,5 +1,43 @@
 # @sensoro-design/chart
 
+## 1.0.0
+
+### Major Changes
+
+- b115ecc: 初版
+
+### Patch Changes
+
+- 4971272: move @sensoro-design/chart-theme to peerDependencies
+- 44d1995: add Bar Sankey charts
+- 9c30d73: 修复 legend 配置互相影响
+- 994c1cc: add TwoStateArea、Common
+- d92b987: 修复引用报错
+- a325453: add Pie Chart
+- 671a9f2: export VChartCore
+- f2ee70e: 修复 mark tooltip 展示不一致问题
+- e276dfa: 默认关闭部分图表图元 Tooltip & 图例主题修改
+- 2ea5ccd: 修复编译结果报错
+- 7f07328: add WordCloud chart
+- a8e3b32: Area chart 修复多个图表配置公用最后一个问题
+- 初始版本
+- 119ed20: 优化面积图
+- b58a5af: TwoStateArea 细节调整
+- 971317d: 重构 TwoStateArea 图表
+- 841a791: 完善暗黑主题
+- db9b24a: line chart 修复多个图表配置公用最后一个问题
+- Updated dependencies [5db09cf]
+- Updated dependencies [b115ecc]
+- Updated dependencies [3f3b4b4]
+- Updated dependencies [671a9f2]
+- Updated dependencies [e276dfa]
+- Updated dependencies [7f07328]
+- Updated dependencies
+- Updated dependencies [119ed20]
+- Updated dependencies [b58a5af]
+- Updated dependencies [841a791]
+  - @sensoro-design/chart-theme@1.0.0
+
 ## 1.0.0-rc.19
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @sensoro-design/chart-theme
 
+## 1.0.0
+
+### Major Changes
+
+- b115ecc: 初版
+
+### Patch Changes
+
+- 5db09cf: 修复 crosshair line 主题配置
+- 3f3b4b4: 修复暗黑主题 title 颜色不正确
+- 671a9f2: export VChartCore
+- e276dfa: 默认关闭部分图表图元 Tooltip & 图例主题修改
+- 7f07328: add WordCloud chart
+- 初始版本
+- 119ed20: 优化面积图
+- b58a5af: TwoStateArea 细节调整
+- 841a791: 完善暗黑主题
+
 ## 1.0.0-rc.8
 
 ### Patch Changes
