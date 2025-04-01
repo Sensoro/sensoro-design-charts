@@ -1,0 +1,4 @@
+.test-tooltip {
+  backdrop-filter: blur(20px);
+  background: rgba(49,64,89,0.35) !important;
+}

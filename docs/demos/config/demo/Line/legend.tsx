@@ -2,6 +2,7 @@ import type { LineProps } from '@sensoro-design/chart';
 import { hyphenPointPath, Line } from '@sensoro-design/chart';
 import dayjs from 'dayjs';
 import list from './data1.json';
+import './test.css';
 
 function Example() {
   const spec: LineProps = {
@@ -60,6 +61,7 @@ function Example() {
       mark: {
         visible: false,
       },
+      className: 'test-tooltip',
       dimension: {
         shapeType: hyphenPointPath,
         title: {
