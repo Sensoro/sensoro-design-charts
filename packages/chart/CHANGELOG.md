@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.1.1
+
+### Patch Changes
+
+- 解决图裂 label 主题配置问题
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.1
+
 ## 1.1.0
 
 ### Minor Changes
