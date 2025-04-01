@@ -1,6 +1,6 @@
 import type { AreaProps } from '@sensoro-design/chart';
 import { Area, hyphenPointPath } from '@sensoro-design/chart';
-import { colorBlue2 } from '@sensoro-design/chart-theme';
+import { lightColors } from '@sensoro-design/chart-theme';
 
 function Example() {
   const spec: AreaProps = {
@@ -21,7 +21,7 @@ function Example() {
               size: 10,
               symbolType: hyphenPointPath,
               dy: -4,
-              fill: colorBlue2,
+              fill: lightColors.blue2,
             },
           },
           label: {
@@ -76,7 +76,7 @@ function Example() {
     tooltip: {
       dimension: {
         shapeType: hyphenPointPath,
-        shapeFill: colorBlue2,
+        shapeFill: lightColors.blue2,
         title: {
           value: (datum) => {
             return `${datum?.date}:00 ~ ${datum?.date + 1}:00`;

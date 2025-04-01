@@ -3,5 +3,6 @@
   "RangeColumn",
   "Area",
   "Line",
-  "Bar"
+  "Bar",
+  "Radar"
 ]

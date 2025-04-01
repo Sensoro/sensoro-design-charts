@@ -10,5 +10,6 @@
   "Pie",
   "Sankey",
   "Bar",
-  "WordCloud"
+  "WordCloud",
+  "Radar"
 ]

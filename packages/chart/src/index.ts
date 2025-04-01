@@ -21,6 +21,9 @@ export type { LineProps } from './Line';
 export { default as Pie } from './Pie';
 export type { PieProps } from './Pie';
 
+export { default as Radar } from './Radar';
+export type { RadarProps } from './Radar';
+
 export { default as RangeColumn } from './RangeColumn';
 export type { RangeColumnProps } from './RangeColumn';
 
