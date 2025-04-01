@@ -59,7 +59,7 @@ function Example() {
       visible: true,
       style: {
         fontSize: 11,
-        fill: '#F6F9FE',
+        fill: '#AEC0DE',
       },
     },
   };

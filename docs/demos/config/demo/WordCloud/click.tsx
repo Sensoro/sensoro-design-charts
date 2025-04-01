@@ -24,8 +24,8 @@ function Example() {
       },
       state: {
         hover: {
-          fill: '#AEC0DE',
-          fontWeight: 600,
+          fill: '#F6F9FE',
+          fontWeight: 500,
         },
       },
     },
