@@ -58,9 +58,7 @@ export const colorScheme: IThemeColorScheme = {
       markLineStrokeColor: 'rgba(78,89,105,1)',
 
       /** Tooltip 标题颜色 */
-      tooltipTitleColor: '#AEC0DE',
-      /** Tooltip Key颜色 */
-      tooltipKeyLabelColor: '#F6F9FE',
+      tooltipTitleColor: '#F6F9FE',
 
       /** crosshair 线颜色  */
       crosshairLineColor: '#8194B5',

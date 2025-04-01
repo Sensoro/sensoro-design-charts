@@ -57,7 +57,7 @@ export const tooltip: ITooltipTheme = {
     lineHeight: 20,
     fontColor: {
       type: 'palette',
-      key: 'tooltipKeyLabelColor',
+      key: 'secondaryFontColor',
     } as any,
     textBaseline: 'middle',
     spacing: 26,
@@ -65,7 +65,10 @@ export const tooltip: ITooltipTheme = {
   valueLabel: {
     fontSize: 12,
     lineHeight: 20,
-    fontColor: '#fff',
+    fontColor: {
+      type: 'palette',
+      key: 'secondaryFontColor',
+    } as any,
     fontWeight: 'bold',
     textBaseline: 'middle',
     spacing: 0,
