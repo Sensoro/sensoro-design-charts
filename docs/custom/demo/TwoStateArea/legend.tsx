@@ -92,6 +92,7 @@ function Example() {
         visible: true,
         line: {
           type: 'line',
+          width: 1,
         },
       },
     },

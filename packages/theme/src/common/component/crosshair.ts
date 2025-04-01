@@ -4,7 +4,6 @@ export const crosshair: ICrosshairTheme = {
   xField: {
     line: {
       type: 'line',
-      width: 1,
       style: {
         stroke: {
           type: 'palette',
