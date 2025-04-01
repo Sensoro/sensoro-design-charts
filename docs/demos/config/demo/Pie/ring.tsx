@@ -28,7 +28,7 @@ function Example() {
         spaceCol: 32,
         shape: {
           style: {
-            symbolType: 'rectRound',
+            symbolType: 'square',
           },
         },
         label: {
