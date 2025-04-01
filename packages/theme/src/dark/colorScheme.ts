@@ -27,7 +27,7 @@ export const colorScheme: IThemeColorScheme = {
       /** 主要字色 */
       primaryFontColor: '#8194B5',
       /** 次要字色 */
-      secondaryFontColor: 'rgba(78,89,105,1)',
+      secondaryFontColor: '#AEC0DE',
       /** 第三字色 */
       tertiaryFontColor: 'rgba(134,144,156,1)',
       /** 轴标签字色 */
