@@ -55,11 +55,29 @@ function Example() {
     xField: 'name',
     yField: 'value',
     barWidth: 20,
+    bar: {
+      style: {
+        opacity: 0.5,
+      },
+      state: {
+        dimension_hover: {
+          opacity: 1,
+        },
+        dimension_hover_reverse: {
+          opacity: 0.5,
+        },
+      },
+    },
     label: {
       visible: true,
       style: {
         fontSize: 11,
         fill: '#AEC0DE',
+      },
+    },
+    crosshair: {
+      xField: {
+        visible: false,
       },
     },
   };
