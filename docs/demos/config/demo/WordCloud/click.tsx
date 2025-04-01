@@ -15,7 +15,13 @@ function Example() {
     data: {
       values: list,
     },
+    tooltip: {
+      visible: false,
+    },
     word: {
+      style: {
+        cursor: 'pointer',
+      },
       state: {
         hover: {
           fill: '#AEC0DE',
