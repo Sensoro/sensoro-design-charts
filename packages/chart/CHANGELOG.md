@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.1.0
+
+### Minor Changes
+
+- add Radar chart
+
 ## 1.0.0
 
 ### Major Changes
