@@ -4,5 +4,6 @@
   "Area",
   "Line",
   "Bar",
-  "Radar"
+  "Radar",
+  "WordCloud"
 ]

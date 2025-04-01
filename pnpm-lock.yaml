@@ -220,7 +220,7 @@ importers:
   packages/chart:
     dependencies:
       '@sensoro-design/chart-theme':
-        specifier: 1.0.0
+        specifier: '>=1.0.0'
         version: 1.0.0(@visactor/vchart@1.13.7)
       '@visactor/react-vchart':
         specifier: 'catalog:'
