@@ -1,5 +1,5 @@
-import type { RadarProps } from '@sensoro-design/chart';
-import { Radar } from '@sensoro-design/chart';
+import type { BarProps } from '@sensoro-design/chart';
+import { Bar } from '@sensoro-design/chart';
 
 const list = [
   {
@@ -106,60 +106,39 @@ const list = [
 ];
 
 function Example() {
-  const spec: RadarProps = {
+  const spec: BarProps = {
     height: 400,
+    padding: [24 + 20 + 40, 24, 24, 24],
+    title: {
+      text: '文章来源',
+      layoutType: 'absolute',
+      top: -60,
+      left: 0,
+      padding: 0,
+    },
+    legends: {
+      visible: true,
+      position: 'end',
+      orient: 'top',
+      layoutType: 'absolute',
+      top: -60,
+      left: 0,
+      right: -24,
+    },
     data: [
       {
         values: list,
       },
     ],
-    categoryField: 'name',
-    valueField: 'value',
+    xField: ['name', 'type'],
+    yField: 'value',
     seriesField: 'type',
-    point: {
-      visible: false,
-    },
-    line: {
-      style: {
-        lineWidth: 1.5,
-      },
-    },
-    legends: {
-
-    },
-    area: {
-      visible: true,
-    },
-    axes: [
-      {
-        orient: 'radius',
-        min: 0,
-        max: 120,
-        grid: {
-          style: {
-            lineDash: [0],
-          },
-        },
-      },
-      {
-        orient: 'angle',
-        tick: {
-          visible: false,
-        },
-        grid: {
-          style: {
-            lineDash: [0],
-          },
-        },
-        label: {
-          space: 8,
-        },
-      },
-    ],
+    barWidth: 8,
+    barGapInGroup: 4,
   };
 
   return (
-    <Radar {...spec} />
+    <Bar {...spec} />
   );
 };
 
