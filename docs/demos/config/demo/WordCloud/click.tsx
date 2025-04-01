@@ -7,6 +7,7 @@ function Example() {
     height: 225,
     width: 464,
     padding: 0,
+    color: ['#AEC0DE', '#5C8BE6', '#3EB390', '#D96762'],
     nameField: 'name',
     valueField: 'value',
     seriesField: 'name',
