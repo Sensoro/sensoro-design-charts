@@ -15,6 +15,14 @@ function Example() {
     data: {
       values: list,
     },
+    word: {
+      state: {
+        hover: {
+          fill: '#AEC0DE',
+          fontWeight: 600,
+        },
+      },
+    },
   };
 
   const handleClick: WordCloudProps['onClick'] = (e) => {
