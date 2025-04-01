@@ -115,6 +115,10 @@ function Example() {
       top: -60,
       left: 0,
       padding: 0,
+      textStyle: {
+        fontSize: 14,
+        fill: '#F6F9FE',
+      },
     },
     legends: {
       visible: true,
