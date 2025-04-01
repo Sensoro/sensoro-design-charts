@@ -61,6 +61,7 @@ function Example() {
       mark: {
         visible: false,
       },
+      confine: true,
       className: 'test-tooltip',
       dimension: {
         shapeType: hyphenPointPath,
