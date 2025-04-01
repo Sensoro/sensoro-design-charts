@@ -8,6 +8,8 @@ const list = [
   { type: '负面', value: 274 },
 ];
 
+const total = list.reduce<number>((prev, cur) => prev + cur.value, 0);
+
 function Example() {
   const spec: PieProps = {
     height: 400,
@@ -23,6 +25,7 @@ function Example() {
     categoryField: 'type',
     legends: {
       item: {
+        spaceCol: 32,
         shape: {
           style: {
             symbolType: 'rectRound',
@@ -31,9 +34,27 @@ function Example() {
         label: {
           widthRatio: 0.5,
           formatMethod: (text, item) => {
-            // eslint-disable-next-line no-console
-            console.log(text, item);
-            return '测试';
+            const itemData = list[item.index];
+            const value = itemData.value;
+
+            return {
+              type: 'rich',
+              text: [
+                {
+                  text,
+                  fontSize: 12,
+                  fill: '#AEC0DE',
+                  stroke: false,
+                },
+                {
+                  text: `   ${((value / total) * 100).toFixed(2)}%`,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  fill: '#AEC0DE',
+                  stroke: false,
+                },
+              ],
+            } as any;
           },
         },
         value: {
@@ -50,7 +71,7 @@ function Example() {
           fontSize: 20,
           fill: '#F6F9FE',
           fontWeight: 600,
-          text: list.reduce<number>((prev, cur) => prev + cur.value, 0),
+          text: total,
         },
       },
       content: [
