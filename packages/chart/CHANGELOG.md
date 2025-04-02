@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.1.2
+
+### Patch Changes
+
+- 修复多个问题
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.3
+
 ## 1.1.1
 
 ### Patch Changes
