@@ -77,7 +77,6 @@ function Example() {
     },
     crosshair: {
       xField: {
-
         visible: true,
         line: {
           type: 'rect',
