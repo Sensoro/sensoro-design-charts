@@ -6,7 +6,7 @@ import { hyphenPointPath } from '../config';
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   style: {
     size: 0,
-    stroke: '#fff',
+    stroke: 'default',
     lineWidth: 2,
   },
   state: {
