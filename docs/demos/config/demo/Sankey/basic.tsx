@@ -135,19 +135,6 @@ function Example() {
       },
     },
 
-    animationNormal: {
-      link: {
-        loop: 100,
-        duration: 1500,
-        easing: 'quadIn',
-        // custom: VRender.StreamLight,
-        customParameters: {
-          streamLength: 30,
-          attribute: { stroke: 'white', strokeOpacity: 0.8, lineWidth: 2 },
-        },
-      },
-    },
-
     emphasis: {
       enable: true,
       trigger: 'hover',
