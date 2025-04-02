@@ -59,6 +59,10 @@ export const colorScheme: IThemeColorScheme = {
 
       /** Tooltip 标题颜色 */
       tooltipTitleColor: '#F6F9FE',
+      /** Tooltip Key 颜色 */
+      tooltipKeyLabelColor: '#AEC0DE',
+      /** Tooltip Value 颜色 */
+      tooltipValueLabelColor: '#AEC0DE',
 
       /** crosshair 线颜色  */
       crosshairLineColor: '#8194B5',
