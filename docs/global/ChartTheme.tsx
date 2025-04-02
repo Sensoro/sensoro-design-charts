@@ -1,3 +1,4 @@
+import type { ITheme } from '@visactor/vchart';
 import { VChartCore } from '@sensoro-design/chart';
 import { dark, light } from '@sensoro-design/chart-theme';
 import React from 'react';
@@ -6,8 +7,8 @@ import './globale.css';
 
 const { ThemeManager } = VChartCore;
 
-ThemeManager.registerTheme('sensoroDesignLight', light as any);
-ThemeManager.registerTheme('sensoroDesignDark', dark as any);
+ThemeManager.registerTheme('sensoroDesignLight', light as ITheme);
+ThemeManager.registerTheme('sensoroDesignDark', dark as ITheme);
 
 function ChartTheme() {
   const dark = useDark();
