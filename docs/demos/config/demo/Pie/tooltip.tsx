@@ -1,6 +1,6 @@
 import type { PieProps } from '@sensoro-design/chart';
 import { Pie } from '@sensoro-design/chart';
-import { colorGreyPro07, darkColors } from '@sensoro-design/chart-theme';
+import { colorGreyPro07, colorWhite } from '@sensoro-design/chart-theme';
 
 const list = [
   { type: '正面', value: 24253 },
@@ -18,11 +18,52 @@ function Example() {
         values: list,
       },
     ],
-    color: [darkColors.blue2, darkColors.green2, darkColors.red2],
     outerRadius: 0.8,
     innerRadius: 0.6,
     valueField: 'value',
     categoryField: 'type',
+    tooltip: {
+      mark: {
+        title: {
+          visible: false,
+        },
+        content: () => {
+          return [
+            {
+              hasShape: true,
+              shapeType: 'square',
+              key: datum => datum?.type,
+              keyStyle: {
+                fill: colorWhite,
+                // fontSize: 14,
+              },
+            },
+            {
+              hasShape: false,
+              key: '风险数量',
+              value: (datum) => {
+                return datum?.value.toLocaleString();
+              },
+              keyStyle: {
+                dx: -20,
+              },
+            },
+            {
+              hasShape: false,
+              key: '风险占比',
+              value: (datum) => {
+                return `${((datum?.value / total) * 100).toFixed(2)}%`;
+              },
+            },
+          ];
+        },
+      },
+      style: {
+        titleLabel: {
+          fill: colorWhite,
+        },
+      },
+    },
     indicator: {
       visible: true,
       title: {
