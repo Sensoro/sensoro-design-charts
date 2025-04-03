@@ -66,6 +66,7 @@ function Example() {
           },
         },
         label: {
+          flush: true,
           space: 4,
         },
       },
