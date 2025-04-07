@@ -114,7 +114,7 @@ function Example() {
 
     link: {
       style: {
-        fill: '#30343D',
+        fill: 'rgba(246, 249, 254, 0.15)',
       },
     },
 
