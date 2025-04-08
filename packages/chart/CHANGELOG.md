@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.2.0
+
+### Minor Changes
+
+- add CirclePacking chart
+
 ## 1.1.2
 
 ### Patch Changes
