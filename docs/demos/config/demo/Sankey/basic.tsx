@@ -1,5 +1,7 @@
 import type { SankeyProps } from '@sensoro-design/chart';
+import type { IVChart } from '@visactor/react-vchart';
 import { Sankey } from '@sensoro-design/chart';
+import React from 'react';
 
 const values = [
   {
@@ -72,7 +74,32 @@ const specified = {
   无风险: colors[4],
 };
 
+function Tooltip(props: { style?: React.CSSProperties }) {
+  const { style } = props;
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        width: '100px',
+        visibility: 'hidden',
+        backdropFilter: 'blur(20px)',
+        background: 'rgba(49,64,89,0.35)',
+        padding: 16,
+        top: 0,
+        left: 0,
+        ...style,
+      }}
+    >
+      我是 Tooltip
+    </div>
+  );
+}
+
 function Example() {
+  const chartRef = React.useRef<IVChart>(null);
+  const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
+
   const spec: SankeyProps = {
     height: 600,
     data: [
@@ -142,8 +169,75 @@ function Example() {
     },
   };
 
+  React.useEffect(
+    () => {
+      const timeout = setTimeout(() => {
+        // eslint-disable-next-line no-console
+        console.log(chartRef.current);
+
+        const chart = chartRef.current;
+
+        if (!chart)
+          return;
+        chart.setTooltipHandler({
+          showTooltip: (activeType, data, params) => {
+            // eslint-disable-next-line no-console
+            console.log('show', params);
+            setTooltipStyles((prev) => {
+              return {
+                ...prev,
+                left: params.event.x + 30,
+                top: params.event.y + 30,
+              };
+            });
+
+            if (params.changePositionOnly) {
+              return;
+            }
+
+            setTooltipStyles((prev) => {
+              return {
+                ...prev,
+                visibility: 'visible',
+              };
+            });
+
+            return 0;
+          },
+          hideTooltip: () => {
+            // eslint-disable-next-line no-console
+            console.log('hide');
+            setTooltipStyles((prev) => {
+              return {
+                ...prev,
+                visibility: 'hidden',
+              };
+            });
+
+            return 0;
+          },
+          release: () => {
+            // eslint-disable-next-line no-console
+            console.log('release');
+          },
+        });
+      }, 500);
+
+      return () => {
+        timeout && clearTimeout(timeout);
+      };
+    },
+    [],
+  );
+
   return (
-    <Sankey {...spec} />
+    <>
+      <Sankey
+        {...spec}
+        ref={chartRef}
+      />
+      <Tooltip style={tooltipStyles} />
+    </>
   );
 };
 

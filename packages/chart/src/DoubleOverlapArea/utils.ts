@@ -1,6 +1,6 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { ICartesianAxisSpec } from './types';
-import { colorBlue2 } from '@sensoro-design/chart-theme';
+import { colorBlue2, colorGrey04 } from '@sensoro-design/chart-theme';
 import { merge } from '@visactor/vutils';
 import { defaultArea, defaultPoint } from './config';
 
@@ -31,7 +31,7 @@ export function getDefaultProps(params: Params) {
   const yAxesData = merge(defaultYAxes, yAxes);
 
   const defaultProps: CommonChartProps = {
-    color: ['#C5D7F9', colorBlue2, '#C5D7F9'],
+    color: [colorGrey04, colorBlue2, colorGrey04],
     series: [
       {
         type: 'area',
