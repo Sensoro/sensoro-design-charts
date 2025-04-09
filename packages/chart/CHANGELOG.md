@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.2.1
+
+### Patch Changes
+
+- export ITheme type
+
 ## 1.2.0
 
 ### Minor Changes
