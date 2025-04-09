@@ -1,5 +1,4 @@
-import type { SankeyProps } from '@sensoro-design/chart';
-import type { IVChart } from '@visactor/react-vchart';
+import type { IVChart, SankeyProps } from '@sensoro-design/chart';
 import { Sankey } from '@sensoro-design/chart';
 import React from 'react';
 
