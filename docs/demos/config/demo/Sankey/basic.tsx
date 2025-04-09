@@ -117,15 +117,17 @@ function Example() {
     valueField: 'value',
     nodeAlign: 'left',
     nodeWidth: 4,
-    // @ts-expect-error 忽略报错
-    nodeKey: datum => datum.name,
-    nodeHeight: (node) => {
+    nodeKey(datum) {
+      // @ts-expect-error 忽略报错
+      return datum.name;
+    },
+    nodeHeight(node) {
       return node.depth === 0 ? 160 : 40;
     },
     label: {
       visible: true,
       offset: 8,
-      formatMethod: (_, datum) => {
+      formatMethod(_, datum) {
         return `${datum?.name} ${datum?.total?.toLocaleString()}`;
       },
       style: {
@@ -136,7 +138,7 @@ function Example() {
 
     link: {
       style: {
-        fill: (datum) => {
+        fill(datum) {
           // @ts-expect-error 忽略报错
           const start = specified[datum?.source];
           // @ts-expect-error 忽略报错
@@ -182,7 +184,7 @@ function Example() {
         chart.setTooltipHandler({
           showTooltip: (activeType, data, params) => {
             // eslint-disable-next-line no-console
-            console.log('show', params);
+            console.log(activeType, data, params);
             setTooltipStyles((prev) => {
               return {
                 ...prev,
@@ -205,8 +207,6 @@ function Example() {
             return 0;
           },
           hideTooltip: () => {
-            // eslint-disable-next-line no-console
-            console.log('hide');
             setTooltipStyles((prev) => {
               return {
                 ...prev,
@@ -216,10 +216,7 @@ function Example() {
 
             return 0;
           },
-          release: () => {
-            // eslint-disable-next-line no-console
-            console.log('release');
-          },
+          release: () => {},
         });
       }, 500);
 
@@ -234,6 +231,7 @@ function Example() {
     <>
       <Sankey
         {...spec}
+        skipFunctionDiff
         ref={chartRef}
       />
       <Tooltip style={tooltipStyles} />

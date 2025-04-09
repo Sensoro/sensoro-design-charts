@@ -40,3 +40,4 @@ export { default as WordCloud } from './WordCloud';
 export type { WordCloudProps } from './WordCloud';
 
 export { VChart as VChartCore } from '@visactor/vchart';
+export type { IVChart } from '@visactor/vchart';
