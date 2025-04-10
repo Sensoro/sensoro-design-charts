@@ -6,19 +6,9 @@ import React, { useMemo } from 'react';
 import { defaultTooltip } from './config';
 import { getDefaultProps } from './utils';
 
-export interface DoubleOverlapAreaProps {
-  /** 图表标题 */
-  title?: CommonChartProps['title'];
-  /** Tooltip */
-  tooltip?: CommonChartProps['tooltip'];
-  /** 图表高度 */
-  height?: number;
+export interface DoubleOverlapAreaProps extends CommonChartProps {
   xField?: string | string[];
   yField?: string | string[];
-  /**
-   * 图表数据
-   */
-  data: CommonChartProps['data'];
   /**
    * 坐标轴 X 轴配置
    */
@@ -27,8 +17,6 @@ export interface DoubleOverlapAreaProps {
    * 坐标轴 Y 轴配置
    */
   yAxes?: Partial<ICartesianAxisSpec>;
-  onDimensionClick?: CommonChartProps['onDimensionClick'];
-  onDimensionHover?: CommonChartProps['onDimensionHover'];
 }
 
 export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
