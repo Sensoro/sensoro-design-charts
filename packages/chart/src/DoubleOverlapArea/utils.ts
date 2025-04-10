@@ -21,6 +21,11 @@ export function getDefaultProps(params: Params) {
     label: {
       visible: true,
     },
+    trimPadding: true,
+    innerOffset: {
+      left: 32,
+      right: 32,
+    },
     type: 'band',
   };
 
