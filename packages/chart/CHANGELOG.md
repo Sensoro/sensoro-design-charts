@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.4.1
+
+### Patch Changes
+
+- 解决图表数据少时左右侧留白过大
+
 ## 1.4.0
 
 ### Minor Changes
