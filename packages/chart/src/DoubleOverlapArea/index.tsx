@@ -1,4 +1,5 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
+import type { Cursor } from '@visactor/vchart/esm/typings/cursor';
 import type { ICartesianAxisSpec } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
@@ -9,6 +10,7 @@ import { getDefaultProps } from './utils';
 export interface DoubleOverlapAreaProps extends CommonChartProps {
   xField?: string | string[];
   yField?: string | string[];
+  cursor?: Cursor;
   /**
    * 坐标轴 X 轴配置
    */
@@ -20,7 +22,7 @@ export interface DoubleOverlapAreaProps extends CommonChartProps {
 }
 
 export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
-  const { xAxes, yAxes, xField = 'date', yField = 'value', tooltip, ...rest } = props;
+  const { xAxes, yAxes, xField = 'date', yField = 'value', cursor = 'default', tooltip, ...rest } = props;
 
   const tooltipProps = merge(defaultTooltip, tooltip);
 
@@ -31,9 +33,10 @@ export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
         xAxes,
         xField,
         yField,
+        cursor,
       });
     },
-    [yAxes, xAxes, xField, yField],
+    [yAxes, xAxes, xField, yField, cursor],
   );
 
   return <CommonChart {...defaultProps} {...rest} tooltip={tooltipProps} />;
