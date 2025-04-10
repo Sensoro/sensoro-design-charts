@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.4.0
+
+### Minor Changes
+
+- DoubleOverlapArea 支持设置 cursor
+
 ## 1.3.0
 
 ### Minor Changes
