@@ -1,8 +1,26 @@
-import type { DoubleOverlapAreaProps, IMarkLineSpec } from '@sensoro-design/chart';
+import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec } from '@sensoro-design/chart';
 import { useGetState } from '@rcuse/core';
 import { DoubleOverlapArea } from '@sensoro-design/chart';
 import { isNull } from 'es-toolkit/predicate';
 import React from 'react';
+
+const linearColor: IGradient = {
+  gradient: 'linear',
+  x0: 0.5,
+  y0: 0,
+  x1: 0.5,
+  y1: 1,
+  stops: [
+    {
+      offset: 0,
+      color: 'rgba(43,109,229,0.35)',
+    },
+    {
+      offset: 1,
+      color: 'rgba(43,109,229,0)',
+    },
+  ],
+};
 
 function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
   return {
@@ -11,23 +29,7 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
     },
     line: {
       style: {
-        stroke: {
-          gradient: 'linear',
-          x0: 0.5,
-          y0: 0,
-          x1: 0.5,
-          y1: 1,
-          stops: [
-            {
-              offset: 0,
-              color: 'rgba(43,109,229,0.35)',
-            },
-            {
-              offset: 1,
-              color: 'rgba(43,109,229,0)',
-            },
-          ],
-        },
+        stroke: linearColor,
         zIndex: 1,
         lineDash: [0],
         lineWidth: 24,
@@ -38,7 +40,7 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
 }
 
 function Example() {
-  const [, setSelectVal, getSelectVal] = useGetState<number | null>(3);
+  const [, setSelectVal, getSelectVal] = useGetState<number | null>(null);
   const [markLine, setMarkLine] = React.useState<DoubleOverlapAreaProps['markLine']>([]);
 
   const spec: DoubleOverlapAreaProps = {
@@ -100,8 +102,32 @@ function Example() {
     <DoubleOverlapArea
       {...spec}
       cursor="pointer"
-      onDimensionClick={handleDimensionClick}
       markLine={markLine}
+      onDimensionClick={handleDimensionClick}
+      crosshair={[
+        {
+          xField: {
+            visible: true,
+            line: {
+              type: 'line',
+            },
+          },
+          followTooltip: true,
+        },
+        {
+          xField: {
+            visible: true,
+            line: {
+              type: 'rect',
+              width: 24,
+              style: {
+                fill: linearColor,
+              },
+            },
+          } as any,
+          followTooltip: true,
+        },
+      ]}
     />
   );
 };
