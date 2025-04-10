@@ -1,6 +1,7 @@
 import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec } from '@sensoro-design/chart';
 import { useGetState } from '@rcuse/core';
 import { DoubleOverlapArea } from '@sensoro-design/chart';
+import { colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
 import { isNull } from 'es-toolkit/predicate';
 import React from 'react';
 
@@ -39,7 +40,33 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
   };
 }
 
+function getMarkLineLabel() {
+  const label: IMarkLineSpec['label'] = {
+    text: '再次点击可取消选中',
+    style: {
+      fill: colorWhite,
+    },
+    labelBackground: {
+      visible: true,
+      padding: {
+        top: 8,
+        left: 12,
+        right: 12,
+        bottom: 8,
+      },
+      style: {
+        fill: colorGreyPro09,
+      },
+    },
+    dy: -8,
+  };
+
+  return label;
+}
+
 function Example() {
+  const timeoutRef = React.useRef<NodeJS.Timeout>();
+  const [, setFirstSelect, getFirstSelect] = useGetState(true);
   const [, setSelectVal, getSelectVal] = useGetState<number | null>(null);
   const [markLine, setMarkLine] = React.useState<DoubleOverlapAreaProps['markLine']>([]);
 
@@ -70,15 +97,32 @@ function Example() {
     },
   };
 
+  React.useEffect(() => {
+    timeoutRef.current && clearTimeout(timeoutRef.current);
+  }, []);
+
   const handleChangeMarkLine = () => {
     const selectVal = getSelectVal();
+    const firstSelect = getFirstSelect();
 
     const markLine: IMarkLineSpec[] = [];
 
     if (!isNull(selectVal)) {
       markLine.push(getMarkLineItem({
         x: selectVal,
+        label: firstSelect ? getMarkLineLabel() : undefined,
       }));
+    }
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    if (firstSelect) {
+      timeoutRef.current = setTimeout(() => {
+        setFirstSelect(false);
+        handleChangeMarkLine();
+      }, 3 * 1000);
     }
 
     setMarkLine(markLine);
