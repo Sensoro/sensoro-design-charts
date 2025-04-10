@@ -30,8 +30,10 @@ function Example() {
   };
 
   const handleDimensionClick: DoubleOverlapAreaProps['onDimensionClick'] = (e) => {
-    // eslint-disable-next-line no-console
-    console.log(e);
+    if (e?.model?.userId === 'area2') {
+      // eslint-disable-next-line no-console
+      console.log(e);
+    }
   };
 
   return (
