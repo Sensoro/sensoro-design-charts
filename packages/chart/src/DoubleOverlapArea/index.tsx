@@ -27,6 +27,8 @@ export interface DoubleOverlapAreaProps {
    * 坐标轴 Y 轴配置
    */
   yAxes?: Partial<ICartesianAxisSpec>;
+  onDimensionClick?: CommonChartProps['onDimensionClick'];
+  onDimensionHover?: CommonChartProps['onDimensionHover'];
 }
 
 export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
