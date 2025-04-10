@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.3.0
+
+### Minor Changes
+
+- DoubleOverlapArea 增加事件支持
+
 ## 1.2.1
 
 ### Patch Changes
