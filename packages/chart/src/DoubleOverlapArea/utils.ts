@@ -108,15 +108,6 @@ export function getDefaultProps(params: Params) {
       yAxesData,
       xAxesData,
     ],
-    crosshair: {
-      xField: {
-        visible: true,
-        line: {
-          type: 'line',
-        },
-      },
-      followTooltip: true,
-    },
   };
 
   return defaultProps;

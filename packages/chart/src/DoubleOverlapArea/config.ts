@@ -47,3 +47,15 @@ export const defaultTooltip: CommonChartProps['tooltip'] = {
     shapeFill: colorBlue2,
   },
 };
+
+export const defaultCrosshair: CommonChartProps['crosshair'] = [
+  {
+    xField: {
+      visible: true,
+      line: {
+        type: 'line',
+      },
+    },
+    followTooltip: true,
+  },
+];

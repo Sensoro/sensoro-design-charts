@@ -41,6 +41,10 @@ export type { WordCloudProps } from './WordCloud';
 
 export { VChart as VChartCore } from '@visactor/vchart';
 export type {
+  IMarkLineSpec,
   ITheme,
   IVChart,
 } from '@visactor/vchart';
+export type {
+  IGradient,
+} from '@visactor/vchart/esm/typings';
