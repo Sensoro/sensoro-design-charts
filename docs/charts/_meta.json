@@ -12,5 +12,7 @@
   "Bar",
   "WordCloud",
   "Radar",
-  "CirclePacking"
+  "CirclePacking",
+  "LinearProgress",
+  "CircularProgress"
 ]
