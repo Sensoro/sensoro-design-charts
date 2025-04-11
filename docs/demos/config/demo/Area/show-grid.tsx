@@ -152,9 +152,8 @@ function Example() {
           visible: true,
         },
         tick: {
-          tickStep: 10,
+          tickCount: 3,
         },
-        max: 30,
       },
       {
         orient: 'bottom',
