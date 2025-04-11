@@ -60,6 +60,7 @@ export function TwoStateArea(props: TwoStateAreaProps) {
       line={{
         style: {
           lineCap: 'square',
+          lineWidth: 1,
         },
       }}
       stack={false}
