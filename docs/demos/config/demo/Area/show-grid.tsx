@@ -145,6 +145,24 @@ function Example() {
     data: {
       values: list,
     },
+    line: {
+      style: {
+        lineWidth: 1,
+      },
+    },
+    point: {
+      style: {
+        size: 0,
+        fill: '#161D2A',
+        stroke: 'default',
+        lineWidth: 1,
+      },
+      state: {
+        dimension_hover: {
+          size: 8,
+        },
+      },
+    },
     axes: [
       {
         orient: 'left',
