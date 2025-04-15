@@ -7,10 +7,10 @@ export const axis: IAxisCommonTheme = {
       lineWidth: 1,
       stroke: {
         type: 'palette',
-        key: 'axisDomainColor'
+        key: 'axisDomainColor',
       },
-      strokeOpacity: 1
-    }
+      strokeOpacity: 1,
+    },
   },
   /** 网格线配置 */
   grid: {
@@ -19,7 +19,7 @@ export const axis: IAxisCommonTheme = {
       lineWidth: 1,
       stroke: {
         type: 'palette',
-        key: 'axisGridColor'
+        key: 'axisGridColor',
       },
       strokeOpacity: 1,
       lineDash: [3, 2],
@@ -32,23 +32,23 @@ export const axis: IAxisCommonTheme = {
       lineWidth: 1,
       stroke: {
         type: 'palette',
-        key: 'axisGridColor'
+        key: 'axisGridColor',
       },
       strokeOpacity: 1,
-      lineDash: [4, 4]
-    }
+      lineDash: [4, 4],
+    },
   },
   /** 轴刻度线配置 */
   tick: {
     visible: true,
-    inside: false,
+    inside: true,
     tickSize: 4,
     alignWithLabel: true,
     style: {
       lineWidth: 1,
       stroke: {
         type: 'palette',
-        key: 'axisDomainColor'
+        key: 'axisDomainColor',
       },
       opacity: 1,
     },
@@ -60,10 +60,10 @@ export const axis: IAxisCommonTheme = {
       lineWidth: 1,
       stroke: {
         type: 'palette',
-        key: 'axisDomainColor'
+        key: 'axisDomainColor',
       },
-      strokeOpacity: 1
-    }
+      strokeOpacity: 1,
+    },
   },
   /** 轴标签配置 */
   label: {
@@ -74,7 +74,7 @@ export const axis: IAxisCommonTheme = {
       fontSize: 12,
       fill: {
         type: 'palette',
-        key: 'axisLabelFontColor'
+        key: 'axisLabelFontColor',
       },
       fontWeight: 'normal',
       fillOpacity: 1,
@@ -86,18 +86,18 @@ export const axis: IAxisCommonTheme = {
     style: {
       fontSize: {
         type: 'token',
-        key: 'l5FontSize'
+        key: 'l5FontSize',
       },
       lineHeight: {
         type: 'token',
-        key: 'l5LineHeight'
+        key: 'l5LineHeight',
       },
       fill: {
         type: 'palette',
-        key: 'secondaryFontColor'
+        key: 'secondaryFontColor',
       },
       fontWeight: 'normal',
-      fillOpacity: 1
-    }
-  }
-}
+      fillOpacity: 1,
+    },
+  },
+};

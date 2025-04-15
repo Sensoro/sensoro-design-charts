@@ -20,6 +20,9 @@
   "peerDependencies": {
     "@visactor/vchart": ">=1.10.4"
   },
+  "dependencies": {
+    "@visactor/vutils": "catalog:"
+  },
   "publishConfig": {
     "access": "public"
   }
