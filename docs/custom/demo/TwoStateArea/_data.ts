@@ -34,3 +34,5 @@ export const data = [
   { time: 1742837581209, value: 0 },
   { time: 1742859601528, value: 0 },
 ];
+
+export default {};
