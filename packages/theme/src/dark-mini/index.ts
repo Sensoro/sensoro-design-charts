@@ -47,11 +47,11 @@ export const darkMini: ITheme = {
             key: 'backgroundColor',
           },
           stroke: 'default',
-          lineWidth: 2,
+          lineWidth: 1,
         },
         state: {
           dimension_hover: {
-            size: 10,
+            size: 8,
           },
         },
       },
