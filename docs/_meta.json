@@ -13,5 +13,10 @@
     "text": "示例图表",
     "link": "/demos/",
     "activeMatch": "/demos/"
+  },
+  {
+    "text": "FAQ文档",
+    "link": "/faq/",
+    "activeMatch": "/faq/"
   }
 ]

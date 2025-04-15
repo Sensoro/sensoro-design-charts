@@ -1,0 +1,18 @@
+# 坐标轴
+
+## 在数据量较少时，如何去除图表的左右间隙
+
+```ts
+axes: [
+  {
+    orient: 'bottom',
+    // 必须配置
+    trimPadding: true,
+    // 指定左右间隙
+    innerOffset: {
+      left: 32,
+      right: 32,
+    },
+  }
+]
+```
