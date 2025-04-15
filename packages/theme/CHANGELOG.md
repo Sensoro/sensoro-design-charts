@@ -1,5 +1,11 @@
 # @sensoro-design/chart-theme
 
+## 1.0.4
+
+### Patch Changes
+
+- add dark mini theme
+
 ## 1.0.3
 
 ### Patch Changes
