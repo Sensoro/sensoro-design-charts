@@ -46,3 +46,15 @@ export const defaultLegends: AreaChartProps['legends'] = {
     },
   },
 };
+
+export const defaultLine: NonNullable<AreaChartProps['line']> = {
+  style: {
+    lineCap: 'square',
+  },
+};
+
+export const defaultMiniLine: NonNullable<AreaChartProps['line']> = {
+  style: {
+    lineWidth: 1,
+  },
+};

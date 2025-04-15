@@ -2,7 +2,8 @@ import type { TwoStateAreaProps } from './types';
 import { AreaChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React, { useMemo } from 'react';
-import { defaultLegends, defaultXAxes, defaultYAxes } from './config';
+import { isMiniTheme } from '../utils';
+import { defaultLegends, defaultLine, defaultMiniLine, defaultXAxes, defaultYAxes } from './config';
 import { getDefaultTooltip, transformData } from './utils';
 
 export function TwoStateArea(props: TwoStateAreaProps) {
@@ -18,6 +19,8 @@ export function TwoStateArea(props: TwoStateAreaProps) {
     legend,
     ...rest
   } = props;
+
+  const miniTheme = isMiniTheme(props.theme);
 
   const dataMemo = useMemo(
     () => {
@@ -46,6 +49,7 @@ export function TwoStateArea(props: TwoStateAreaProps) {
   });
 
   const tooltipData = merge({}, defaultTooltip, tooltip);
+  const lineData = merge({}, defaultLine, miniTheme ? defaultMiniLine : {});
   const legendData = merge({}, defaultLegends, legend);
 
   return (
@@ -57,12 +61,7 @@ export function TwoStateArea(props: TwoStateAreaProps) {
           curveType: 'step',
         },
       }}
-      line={{
-        style: {
-          lineCap: 'square',
-          lineWidth: 1,
-        },
-      }}
+      line={lineData}
       stack={false}
       xField={xField}
       yField={yField}
