@@ -31,9 +31,8 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
     line: {
       style: {
         stroke: linearColor,
-        zIndex: 1,
         lineDash: [0],
-        lineWidth: 24,
+        lineWidth: 26,
       },
     },
     ...opts,
@@ -163,7 +162,7 @@ function Example() {
             visible: true,
             line: {
               type: 'rect',
-              width: 24,
+              width: '24px',
               style: {
                 fill: linearColor,
               },
