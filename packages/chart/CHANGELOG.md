@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.4.3
+
+### Patch Changes
+
+- 解决多个 UI 走查问题
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.5
+
 ## 1.4.2
 
 ### Patch Changes
