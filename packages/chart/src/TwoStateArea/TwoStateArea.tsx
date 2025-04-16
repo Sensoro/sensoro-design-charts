@@ -1,4 +1,5 @@
 import type { TwoStateAreaProps } from './types';
+import { darkColors } from '@sensoro-design/chart-theme';
 import { AreaChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React, { useMemo } from 'react';
@@ -14,7 +15,7 @@ export function TwoStateArea(props: TwoStateAreaProps) {
     xAxes,
     yAxes,
     // eslint-disable-next-line react/no-unstable-default-props
-    color = ['#5C8BE6', '#3EB390'],
+    color = [darkColors.blue2, '#3EB390'],
     tooltip,
     legend,
     ...rest
@@ -59,6 +60,23 @@ export function TwoStateArea(props: TwoStateAreaProps) {
       area={{
         style: {
           curveType: 'step',
+          fill: {
+            gradient: 'linear',
+            x0: 0.5,
+            y0: 0,
+            x1: 0.5,
+            y1: 1,
+            stops: [
+              {
+                offset: 0,
+                opacity: 0.25,
+              },
+              {
+                offset: 1,
+                opacity: 0,
+              },
+            ],
+          },
         },
       }}
       line={lineData}
