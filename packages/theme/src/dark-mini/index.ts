@@ -27,12 +27,10 @@ export const darkMini: ITheme = {
             stops: [
               {
                 offset: 0,
-                color: '#4E85DD',
-                opacity: 0.8,
+                opacity: 0.15,
               },
               {
                 offset: 1,
-                color: '#4E85DD',
                 opacity: 0,
               },
             ],
