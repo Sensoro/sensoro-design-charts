@@ -9,6 +9,7 @@ export const crosshair: ICrosshairTheme = {
           type: 'palette',
           key: 'crosshairLineColor',
         },
+        opacity: 1,
         strokeOpacity: 1,
         lineDash: [3, 2],
       },
