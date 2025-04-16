@@ -1,7 +1,7 @@
 import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec } from '@sensoro-design/chart';
 import { useGetState } from '@rcuse/core';
 import { DoubleOverlapArea } from '@sensoro-design/chart';
-import { colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
+import { colorBlue06, colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
 import { isNull } from 'es-toolkit/predicate';
 import React from 'react';
 
@@ -107,10 +107,22 @@ function Example() {
     const markLine: IMarkLineSpec[] = [];
 
     if (!isNull(selectVal)) {
-      markLine.push(getMarkLineItem({
-        x: selectVal,
-        label: firstSelect ? getMarkLineLabel() : undefined,
-      }));
+      markLine.push(
+        getMarkLineItem({
+          x: selectVal,
+          label: firstSelect ? getMarkLineLabel() : undefined,
+        }),
+        getMarkLineItem({
+          x: selectVal,
+          line: {
+            style: {
+              stroke: colorBlue06,
+              lineWidth: 1,
+              lineDash: [3, 2],
+            },
+          },
+        }),
+      );
     }
 
     if (timeoutRef.current) {
@@ -153,6 +165,10 @@ function Example() {
             visible: true,
             line: {
               type: 'line',
+              width: 1,
+              style: {
+                stroke: colorBlue06,
+              },
             },
           },
           followTooltip: true,
