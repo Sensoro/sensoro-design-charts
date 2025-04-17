@@ -130,8 +130,8 @@ function Example() {
     }
 
     if (firstSelect) {
+      setFirstSelect(false);
       timeoutRef.current = setTimeout(() => {
-        setFirstSelect(false);
         handleChangeMarkLine();
       }, 3 * 1000);
     }
@@ -171,19 +171,6 @@ function Example() {
               },
             },
           },
-          followTooltip: true,
-        },
-        {
-          xField: {
-            visible: true,
-            line: {
-              type: 'rect',
-              width: '24px',
-              style: {
-                fill: linearColor,
-              },
-            },
-          } as any,
           followTooltip: true,
         },
       ]}
