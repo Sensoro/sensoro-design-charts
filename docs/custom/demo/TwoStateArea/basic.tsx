@@ -37,6 +37,9 @@ function Example() {
           return dayjs(data as string).format('HH:mm');
         },
       },
+      tick: {
+        tickCount: 5,
+      },
     },
     crosshair: {
       xField: {
