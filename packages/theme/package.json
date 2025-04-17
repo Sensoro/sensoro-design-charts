@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/chart-theme",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
