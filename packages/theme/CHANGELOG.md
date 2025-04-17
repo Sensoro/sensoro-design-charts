@@ -1,5 +1,11 @@
 # @sensoro-design/chart-theme
 
+## 1.0.6
+
+### Patch Changes
+
+- 更新 light 主题配置
+
 ## 1.0.5
 
 ### Patch Changes
