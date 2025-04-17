@@ -60,23 +60,6 @@ export function TwoStateArea(props: TwoStateAreaProps) {
       area={{
         style: {
           curveType: 'step',
-          fill: {
-            gradient: 'linear',
-            x0: 0.5,
-            y0: 0,
-            x1: 0.5,
-            y1: 1,
-            stops: [
-              {
-                offset: 0,
-                opacity: 0.25,
-              },
-              {
-                offset: 1,
-                opacity: 0,
-              },
-            ],
-          },
         },
       }}
       line={lineData}
