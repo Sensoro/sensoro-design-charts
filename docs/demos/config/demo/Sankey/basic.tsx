@@ -116,6 +116,8 @@ function Example() {
     valueField: 'value',
     nodeAlign: 'left',
     nodeWidth: 4,
+    // 可通过此参数调整同一层中两个节点之间的间隙大小
+    // nodeGap: 100,
     nodeKey(datum) {
       // @ts-expect-error 忽略报错
       return datum.name;
@@ -162,7 +164,6 @@ function Example() {
         },
       },
     },
-
     emphasis: {
       enable: true,
       trigger: 'hover',

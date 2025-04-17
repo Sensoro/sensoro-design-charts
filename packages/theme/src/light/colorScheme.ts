@@ -32,7 +32,7 @@ export const colorScheme: IThemeColorScheme = {
       /** 浮层背景区域颜色 */
       popupBackgroundColor: colorGreyPro09,
       /** 浮层边框颜色 */
-      popupBorderColor: colorGreyPro09,
+      popupBorderColor: 'transparent',
 
       /** 主要字色 */
       primaryFontColor: colorGrey10,
