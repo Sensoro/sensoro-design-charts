@@ -147,8 +147,8 @@ function Example() {
           const end = specified[datum?.target];
           return {
             gradient: 'linear',
-            x0: 0,
-            y0: 0,
+            x0: 0.2,
+            y0: 0.5,
             x1: 1,
             y1: 1,
             stops: [
@@ -166,7 +166,7 @@ function Example() {
       },
       state: {
         selected: {
-          fillOpacity: 0.6,
+          fillOpacity: 1,
         },
       },
     },
