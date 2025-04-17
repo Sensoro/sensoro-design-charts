@@ -164,6 +164,11 @@ function Example() {
           };
         },
       },
+      state: {
+        selected: {
+          fillOpacity: 0.6,
+        },
+      },
     },
     emphasis: {
       enable: true,
