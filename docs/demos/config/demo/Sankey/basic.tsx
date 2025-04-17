@@ -139,6 +139,7 @@ function Example() {
 
     link: {
       style: {
+        fillOpacity: 0.3,
         fill(datum) {
           // @ts-expect-error 忽略报错
           const start = specified[datum?.source];
