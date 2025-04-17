@@ -8,6 +8,14 @@ export const defaultXAxes: NonNullable<TwoStateAreaProps['xAxes']> = {
   tick: {
     visible: false,
   },
+  trimPadding: true,
+  innerOffset: {
+    left: 0,
+    right: 0,
+  },
+  label: {
+    flush: true,
+  },
 };
 
 export const defaultYAxes: NonNullable<TwoStateAreaProps['yAxes']> = {
