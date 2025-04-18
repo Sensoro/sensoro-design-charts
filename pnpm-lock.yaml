@@ -232,8 +232,8 @@ importers:
   packages/chart:
     dependencies:
       '@sensoro-design/chart-theme':
-        specifier: '>=1.0.3'
-        version: 1.0.3(@visactor/vchart@1.13.8)
+        specifier: '>=1.0.7'
+        version: 1.0.7(@visactor/vchart@1.13.8)
       '@visactor/react-vchart':
         specifier: 'catalog:'
         version: 1.13.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -258,6 +258,9 @@ importers:
       '@visactor/vchart':
         specifier: '>=1.10.4'
         version: 1.13.8
+      '@visactor/vutils':
+        specifier: 'catalog:'
+        version: 0.19.5
 
 packages:
 
@@ -1786,8 +1789,8 @@ packages:
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
 
-  '@sensoro-design/chart-theme@1.0.3':
-    resolution: {integrity: sha512-7QuHSzxCJ8dvpEJp0BhGEtL2iGO3msc5L/QDxE/Jn/M0U5ikQWPTKj3OHPORGjEOinhz9YmOy6gy/Pjf0zDaKQ==}
+  '@sensoro-design/chart-theme@1.0.7':
+    resolution: {integrity: sha512-4UhfxrPOKhm8z7lECbRqzBG0rKkGVcovgmjsaxwtwCFrq5vg4QjxKpTNNU6wx9FwwRlKEV5yA131d6ACVyD0wg==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
 
@@ -7453,9 +7456,10 @@ snapshots:
       domhandler: 5.0.3
       selderee: 0.11.0
 
-  '@sensoro-design/chart-theme@1.0.3(@visactor/vchart@1.13.8)':
+  '@sensoro-design/chart-theme@1.0.7(@visactor/vchart@1.13.8)':
     dependencies:
       '@visactor/vchart': 1.13.8
+      '@visactor/vutils': 0.19.5
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -7820,7 +7824,7 @@ snapshots:
   '@visactor/vgrammar-coordinate@0.16.3':
     dependencies:
       '@visactor/vgrammar-util': 0.16.3
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-core@0.16.3':
     dependencies:
@@ -7831,7 +7835,7 @@ snapshots:
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
       '@visactor/vscale': 0.19.4
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-hierarchy@0.16.3':
     dependencies:
@@ -7839,13 +7843,13 @@ snapshots:
       '@visactor/vgrammar-util': 0.16.3
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-projection@0.16.3':
     dependencies:
       '@visactor/vgrammar-core': 0.16.3
       '@visactor/vgrammar-util': 0.16.3
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
       d3-geo: 1.12.1
 
   '@visactor/vgrammar-sankey@0.16.3':
@@ -7854,12 +7858,12 @@ snapshots:
       '@visactor/vgrammar-util': 0.16.3
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-util@0.16.3':
     dependencies:
       '@visactor/vrender-core': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-venn@0.16.3':
     dependencies:
@@ -7867,7 +7871,7 @@ snapshots:
       '@visactor/vgrammar-util': 0.16.3
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-wordcloud-shape@0.16.3':
     dependencies:
@@ -7876,7 +7880,7 @@ snapshots:
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
       '@visactor/vscale': 0.19.4
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vgrammar-wordcloud@0.16.3':
     dependencies:
@@ -7884,7 +7888,7 @@ snapshots:
       '@visactor/vgrammar-util': 0.16.3
       '@visactor/vrender-core': 0.22.6
       '@visactor/vrender-kits': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vrender-components@0.22.6':
     dependencies:
@@ -7895,14 +7899,14 @@ snapshots:
 
   '@visactor/vrender-core@0.22.6':
     dependencies:
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
       color-convert: 2.0.1
 
   '@visactor/vrender-kits@0.22.6':
     dependencies:
       '@resvg/resvg-js': 2.4.1
       '@visactor/vrender-core': 0.22.6
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
       gifuct-js: 2.1.2
       lottie-web: 5.12.2
       roughjs: 4.5.2
@@ -7914,7 +7918,7 @@ snapshots:
   '@visactor/vutils-extension@1.13.8':
     dependencies:
       '@visactor/vdataset': 0.19.4
-      '@visactor/vutils': 0.19.4
+      '@visactor/vutils': 0.19.5
 
   '@visactor/vutils@0.19.4':
     dependencies:
