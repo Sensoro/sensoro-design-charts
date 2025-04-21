@@ -222,6 +222,9 @@ importers:
       simple-git-hooks:
         specifier: 'catalog:'
         version: 2.12.1
+      tree-lodash:
+        specifier: ^0.4.0
+        version: 0.4.0
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -5339,6 +5342,9 @@ packages:
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
+
+  tree-lodash@0.4.0:
+    resolution: {integrity: sha512-/BeIei6zSwi/Jp1RTwWaXUM2tpDV5adtOrWQVLS0i+/NzgF+KE5OziaH3PKW3aPMou+kgayhMTBajCrB+cb38w==}
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -11720,6 +11726,8 @@ snapshots:
   tree-dump@1.0.2(tslib@2.8.1):
     dependencies:
       tslib: 2.8.1
+
+  tree-lodash@0.4.0: {}
 
   trim-lines@3.0.1: {}
 

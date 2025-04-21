@@ -1,6 +1,15 @@
 import type { IVChart, SankeyProps } from '@sensoro-design/chart';
 import { Sankey } from '@sensoro-design/chart';
 import React from 'react';
+import { foreach } from 'tree-lodash';
+
+function getRandomElement<T = any>(arr: T[]) {
+  if (arr.length === 0) {
+    return null;
+  }
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
 
 const values = [
   {
@@ -187,10 +196,41 @@ function Example() {
 
         if (!chart)
           return;
+        // chart.setHovered([
+        //   {
+        //     name: '高风险',
+        //   },
+        // ]);
+
+        const names: string[] = [];
+
+        foreach(
+          values[0].nodes,
+          (item) => {
+            const name = item.name as unknown as string;
+            if (!names.includes(name) && name !== '今日巡航次数') {
+              names.push(name);
+            }
+          },
+          {
+            strategy: 'breadth',
+          },
+        );
+
+        setInterval(() => {
+          const name = getRandomElement(names);
+
+          if (name) {
+            chart.setHovered([
+              {
+                name,
+              },
+            ]);
+          }
+        }, 2 * 1000);
         chart.setTooltipHandler({
           showTooltip: (activeType, data, params) => {
-            // eslint-disable-next-line no-console
-            console.log(activeType, data, params);
+            // console.log(activeType, data, params);
             setTooltipStyles((prev) => {
               return {
                 ...prev,

@@ -58,6 +58,7 @@
     "react-dom": "catalog:",
     "rspress": "catalog:",
     "simple-git-hooks": "catalog:",
+    "tree-lodash": "^0.4.0",
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
