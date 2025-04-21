@@ -111,7 +111,7 @@ function Tooltip(props: { style?: React.CSSProperties }) {
 function Example() {
   const chartRef = React.useRef<IVChart>(null);
   const timeoutRef = React.useRef<NodeJS.Timeout>();
-  const intervalRef = React.useRef<NodeJS.Timeout>();
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
 
   const spec: SankeyProps = {
@@ -192,6 +192,20 @@ function Example() {
     },
   };
 
+  const closeAutoHover = () => {
+    const chart = chartRef.current;
+
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
+    intervalRef.current && clearInterval(intervalRef.current);
+    if (chart) {
+      chart.setHovered(null);
+    }
+  };
+
   const startAutoHover = () => {
     const chart = chartRef.current;
     const names: string[] = [];
@@ -212,6 +226,7 @@ function Example() {
     if (!chart)
       return;
 
+    closeAutoHover();
     intervalRef.current = setInterval(() => {
       const name = getRandomElement(names);
 
@@ -225,13 +240,12 @@ function Example() {
     }, 2 * 1000);
   };
 
-  const closeAutoHover = () => {
-    const chart = chartRef.current;
+  const handlePointerEnter = () => {
+    closeAutoHover();
+  };
 
-    intervalRef.current && clearInterval(intervalRef.current);
-    if (chart) {
-      chart.setHovered(null);
-    }
+  const handlePointerLeave = () => {
+    startAutoHover();
   };
 
   React.useEffect(
@@ -246,6 +260,9 @@ function Example() {
           return;
 
         startAutoHover();
+
+        chart.on('pointerenter', { level: 'chart' }, handlePointerEnter);
+        chart.on('pointerleave', { level: 'chart' }, handlePointerLeave);
 
         chart.setTooltipHandler({
           showTooltip: (activeType, data, params) => {
@@ -286,6 +303,10 @@ function Example() {
       }, 500);
 
       return () => {
+        if (chartRef.current) {
+          chartRef.current.off('pointerenter', handlePointerEnter);
+          chartRef.current.off('pointerleave', handlePointerLeave);
+        }
         timeoutRef.current && clearTimeout(timeoutRef.current);
         closeAutoHover();
       };
