@@ -192,6 +192,48 @@ function Example() {
     },
   };
 
+  const startAutoHover = () => {
+    const chart = chartRef.current;
+    const names: string[] = [];
+
+    foreach(
+      values[0].nodes,
+      (item) => {
+        const name = item.name as unknown as string;
+        if (!names.includes(name) && name !== '今日巡航次数') {
+          names.push(name);
+        }
+      },
+      {
+        strategy: 'breadth',
+      },
+    );
+
+    if (!chart)
+      return;
+
+    intervalRef.current = setInterval(() => {
+      const name = getRandomElement(names);
+
+      if (name) {
+        chart.setHovered([
+          {
+            name,
+          },
+        ]);
+      }
+    }, 2 * 1000);
+  };
+
+  const closeAutoHover = () => {
+    const chart = chartRef.current;
+
+    intervalRef.current && clearInterval(intervalRef.current);
+    if (chart) {
+      chart.setHovered(null);
+    }
+  };
+
   React.useEffect(
     () => {
       timeoutRef.current = setTimeout(() => {
@@ -203,32 +245,7 @@ function Example() {
         if (!chart)
           return;
 
-        const names: string[] = [];
-
-        foreach(
-          values[0].nodes,
-          (item) => {
-            const name = item.name as unknown as string;
-            if (!names.includes(name) && name !== '今日巡航次数') {
-              names.push(name);
-            }
-          },
-          {
-            strategy: 'breadth',
-          },
-        );
-
-        intervalRef.current = setInterval(() => {
-          const name = getRandomElement(names);
-
-          if (name) {
-            chart.setHovered([
-              {
-                name,
-              },
-            ]);
-          }
-        }, 2 * 1000);
+        startAutoHover();
 
         chart.setTooltipHandler({
           showTooltip: (activeType, data, params) => {
@@ -270,7 +287,7 @@ function Example() {
 
       return () => {
         timeoutRef.current && clearTimeout(timeoutRef.current);
-        intervalRef.current && clearInterval(intervalRef.current);
+        closeAutoHover();
       };
     },
     [],
