@@ -3,6 +3,10 @@ import { Sankey } from '@sensoro-design/chart';
 import React from 'react';
 import { foreach } from 'tree-lodash';
 
+/**
+ * 从数组获取随机数
+ * @param arr
+ */
 function getRandomElement<T = any>(arr: T[]) {
   if (arr.length === 0) {
     return null;
@@ -106,6 +110,8 @@ function Tooltip(props: { style?: React.CSSProperties }) {
 
 function Example() {
   const chartRef = React.useRef<IVChart>(null);
+  const timeoutRef = React.useRef<NodeJS.Timeout>();
+  const intervalRef = React.useRef<NodeJS.Timeout>();
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
 
   const spec: SankeyProps = {
@@ -188,7 +194,7 @@ function Example() {
 
   React.useEffect(
     () => {
-      const timeout = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         // eslint-disable-next-line no-console
         console.log(chartRef.current);
 
@@ -196,11 +202,6 @@ function Example() {
 
         if (!chart)
           return;
-        // chart.setHovered([
-        //   {
-        //     name: '高风险',
-        //   },
-        // ]);
 
         const names: string[] = [];
 
@@ -217,7 +218,7 @@ function Example() {
           },
         );
 
-        setInterval(() => {
+        intervalRef.current = setInterval(() => {
           const name = getRandomElement(names);
 
           if (name) {
@@ -228,6 +229,7 @@ function Example() {
             ]);
           }
         }, 2 * 1000);
+
         chart.setTooltipHandler({
           showTooltip: (activeType, data, params) => {
             // console.log(activeType, data, params);
@@ -267,7 +269,8 @@ function Example() {
       }, 500);
 
       return () => {
-        timeout && clearTimeout(timeout);
+        timeoutRef.current && clearTimeout(timeoutRef.current);
+        intervalRef.current && clearInterval(intervalRef.current);
       };
     },
     [],
