@@ -2,7 +2,7 @@ import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec } from '@sensoro-
 import { useGetState } from '@rcuse/core';
 import { DoubleOverlapArea } from '@sensoro-design/chart';
 import { colorBlue06, colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
-import { isNull } from 'es-toolkit/predicate';
+import { isNotNil } from 'es-toolkit/predicate';
 import React from 'react';
 
 const linearColor: IGradient = {
@@ -106,7 +106,7 @@ function Example() {
 
     const markLine: IMarkLineSpec[] = [];
 
-    if (!isNull(selectVal)) {
+    if (isNotNil(selectVal)) {
       markLine.push(
         getMarkLineItem({
           x: selectVal,
