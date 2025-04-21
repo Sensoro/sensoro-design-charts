@@ -32,7 +32,7 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
       style: {
         stroke: linearColor,
         lineDash: [0],
-        lineWidth: 26,
+        lineWidth: 24,
       },
     },
     ...opts,
@@ -173,6 +173,20 @@ function Example() {
           },
           followTooltip: true,
         },
+        {
+          xField: {
+            visible: true,
+            line: {
+              type: 'rect',
+              width: 24,
+              style: {
+                fill: linearColor,
+              },
+            },
+          } as any,
+          followTooltip: true,
+        },
+
       ]}
     />
   );
