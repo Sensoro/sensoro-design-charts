@@ -20,13 +20,13 @@ const values = [
   {
     nodes: [
       {
-        key: uniqueId(''),
+        key: uniqueId(),
         name: '今日巡航次数',
         value: 160,
         total: 1087875,
         children: [
           {
-            key: uniqueId(''),
+            key: uniqueId(),
             name: '公共安全',
             value: 40,
             total: 287875,
@@ -85,7 +85,6 @@ const defaultSpecified = {
   中风险: colors[2],
   低风险: colors[3],
   无风险: colors[4],
-  测试节点: colors[0],
 };
 const specified: Record<string, string> = {
   ...defaultSpecified,
@@ -162,6 +161,13 @@ function Example() {
       style: {
         // 扩大 node 点击热区
         boundsPadding: [0, 20, 0, 20],
+        fill(datum) {
+          if (datum.depth !== 2) {
+            return colors[0];
+          }
+
+          return specified[datum.key];
+        },
       },
     },
     label: {
@@ -180,11 +186,11 @@ function Example() {
       style: {
         fillOpacity: 0.3,
         fill(datum) {
-          if (datum.parents.length !== 2) {
+          if (![2, 3].includes(datum.parents.length)) {
             return colors[0];
           }
-          const start = specified[datum?.source];
-          const end = specified[datum?.target];
+          const start = specified[datum?.source] || colors[0];
+          const end = specified[datum?.target] || colors[0];
 
           return {
             gradient: 'linear',
@@ -342,20 +348,20 @@ function Example() {
       if (!datum.children) {
         // eslint-disable-next-line no-console
         console.log(e);
-        // tree.foreach(values[0].nodes, (item) => {
-        //   if (datum.datum.name === item.name) {
-        //     item.children = [
-        //       {
-        //         key: uniqueId(),
-        //         name: '测试节点',
-        //         value: 5,
-        //         total: 1000,
-        //       } as any,
-        //     ];
-        //   }
-        // });
+        tree.foreach(values[0].nodes, (item) => {
+          if (datum.datum.name === item.name) {
+            item.children = [
+              {
+                key: uniqueId(),
+                name: '测试节点',
+                value: 5,
+                total: 1000,
+              } as any,
+            ];
+          }
+        });
 
-        // chart.updateData('sankey-data', values);
+        chart.updateData('sankey-data', values);
       }
     }
   };
