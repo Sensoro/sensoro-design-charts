@@ -1,7 +1,8 @@
 import type { IVChart, SankeyProps } from '@sensoro-design/chart';
 import { Sankey } from '@sensoro-design/chart';
+import { uniqueId } from 'es-toolkit/compat';
 import React from 'react';
-import { foreach } from 'tree-lodash';
+import tree from 'tree-lodash';
 
 /**
  * 从数组获取随机数
@@ -19,52 +20,57 @@ const values = [
   {
     nodes: [
       {
+        key: uniqueId(''),
         name: '今日巡航次数',
         value: 160,
         total: 1087875,
         children: [
           {
+            key: uniqueId(''),
             name: '公共安全',
             value: 40,
             total: 287875,
             children: [
-              { name: '高风险', value: 10, total: 18764 },
-              { name: '中风险', value: 10, total: 22329 },
-              { name: '低风险', value: 10, total: 43093 },
-              { name: '无风险', value: 10, total: 763875 },
+              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
+              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
+              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
+              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
             ],
           },
           {
+            key: uniqueId(),
             name: '交通安全',
             value: 40,
             total: 200653,
             children: [
-              { name: '高风险', value: 10, total: 18764 },
-              { name: '中风险', value: 10, total: 22329 },
-              { name: '低风险', value: 10, total: 43093 },
-              { name: '无风险', value: 10, total: 763875 },
+              { key: uniqueId(''), name: '高风险', value: 10, total: 18764 },
+              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
+              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
+              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
             ],
           },
           {
+            key: uniqueId(),
             name: '市容市政',
             value: 40,
             total: 406765,
             children: [
-              { name: '高风险', value: 10, total: 18764 },
-              { name: '中风险', value: 10, total: 22329 },
-              { name: '低风险', value: 10, total: 43093 },
-              { name: '无风险', value: 10, total: 763875 },
+              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
+              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
+              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
+              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
             ],
           },
           {
+            key: uniqueId(),
             name: '城市秩序',
             value: 40,
             total: 82854,
             children: [
-              { name: '高风险', value: 10, total: 18764 },
-              { name: '中风险', value: 10, total: 22329 },
-              { name: '低风险', value: 10, total: 43093 },
-              { name: '无风险', value: 10, total: 763875 },
+              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
+              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
+              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
+              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
             ],
           },
         ],
@@ -79,12 +85,13 @@ const defaultSpecified = {
   中风险: colors[2],
   低风险: colors[3],
   无风险: colors[4],
+  测试节点: colors[0],
 };
 const specified: Record<string, string> = {
   ...defaultSpecified,
 };
 
-foreach(values[0].nodes, (item) => {
+tree.foreach(values[0].nodes, (item) => {
   const name = item.name as unknown as string;
 
   if (!specified[name]) {
@@ -130,6 +137,7 @@ function Example() {
     height: 600,
     data: [
       {
+        id: 'sankey-data',
         values,
       },
     ],
@@ -323,9 +331,38 @@ function Example() {
 
   const handleClick: SankeyProps['onClick'] = (e) => {
     if (e.node?.type === 'rect') {
-      // eslint-disable-next-line no-console
-      console.log(e);
+      const { datum } = e;
+
+      const chart = chartRef.current;
+
+      if (!chart)
+        return;
+
+      // 加载下层数据
+      if (!datum.children) {
+        // eslint-disable-next-line no-console
+        console.log(e);
+        // tree.foreach(values[0].nodes, (item) => {
+        //   if (datum.datum.name === item.name) {
+        //     item.children = [
+        //       {
+        //         key: uniqueId(),
+        //         name: '测试节点',
+        //         value: 5,
+        //         total: 1000,
+        //       } as any,
+        //     ];
+        //   }
+        // });
+
+        // chart.updateData('sankey-data', values);
+      }
     }
+  };
+
+  const handleDblClick: SankeyProps['onDblClick'] = (e) => {
+    // eslint-disable-next-line no-console
+    console.log(e);
   };
 
   return (
@@ -335,6 +372,7 @@ function Example() {
         skipFunctionDiff
         ref={chartRef}
         onClick={handleClick}
+        onDblClick={handleDblClick}
       />
       <Tooltip style={tooltipStyles} />
     </>
