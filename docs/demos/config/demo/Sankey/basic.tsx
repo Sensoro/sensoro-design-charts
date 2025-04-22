@@ -150,9 +150,15 @@ function Example() {
     nodeHeight(node) {
       return node.depth === 0 ? 160 : 40;
     },
+    node: {
+      style: {
+        // 扩大 node 点击热区
+        boundsPadding: [0, 20, 0, 20],
+      },
+    },
     label: {
       visible: true,
-      offset: 8,
+      offset: -12,
       formatMethod(_, datum) {
         return `${datum?.name} ${datum?.total?.toLocaleString()}`;
       },
@@ -311,8 +317,16 @@ function Example() {
         closeAutoHover();
       };
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
+
+  const handleClick: SankeyProps['onClick'] = (e) => {
+    if (e.node?.type === 'rect') {
+      // eslint-disable-next-line no-console
+      console.log(e);
+    }
+  };
 
   return (
     <>
@@ -320,6 +334,7 @@ function Example() {
         {...spec}
         skipFunctionDiff
         ref={chartRef}
+        onClick={handleClick}
       />
       <Tooltip style={tooltipStyles} />
     </>
