@@ -74,17 +74,23 @@ const values = [
 ];
 
 const colors = ['#423CD1', '#E7474D', '#E7AF2C', '#51C2E1', '#3AC583'];
-const specified = {
-  今日巡航次数: colors[0],
-  公共安全: colors[0],
-  交通安全: colors[0],
-  市容市政: colors[0],
-  城市秩序: colors[0],
+const defaultSpecified = {
   高风险: colors[1],
   中风险: colors[2],
   低风险: colors[3],
   无风险: colors[4],
 };
+const specified: Record<string, string> = {
+  ...defaultSpecified,
+};
+
+foreach(values[0].nodes, (item) => {
+  const name = item.name as unknown as string;
+
+  if (!specified[name]) {
+    specified[name] = colors[0];
+  }
+});
 
 function Tooltip(props: { style?: React.CSSProperties }) {
   const { style } = props;
@@ -109,6 +115,12 @@ function Tooltip(props: { style?: React.CSSProperties }) {
 }
 
 function Example() {
+  const autoHoverNames = React.useRef<string[]>([
+    '公共安全',
+    '交通安全',
+    '市容市政',
+    '城市秩序',
+  ]);
   const chartRef = React.useRef<IVChart>(null);
   const timeoutRef = React.useRef<NodeJS.Timeout>();
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -131,8 +143,6 @@ function Example() {
     valueField: 'value',
     nodeAlign: 'left',
     nodeWidth: 4,
-    // 可通过此参数调整同一层中两个节点之间的间隙大小
-    // nodeGap: 100,
     nodeKey(datum) {
       // @ts-expect-error 忽略报错
       return datum.name;
@@ -156,14 +166,16 @@ function Example() {
       style: {
         fillOpacity: 0.3,
         fill(datum) {
-          // @ts-expect-error 忽略报错
+          if (datum.parents.length !== 2) {
+            return colors[0];
+          }
           const start = specified[datum?.source];
-          // @ts-expect-error 忽略报错
           const end = specified[datum?.target];
+
           return {
             gradient: 'linear',
-            x0: 0.2,
-            y0: 0.5,
+            x0: 0.1,
+            y0: 1,
             x1: 1,
             y1: 1,
             stops: [
@@ -208,23 +220,11 @@ function Example() {
 
   const startAutoHover = () => {
     const chart = chartRef.current;
-    const names: string[] = [];
-
-    foreach(
-      values[0].nodes,
-      (item) => {
-        const name = item.name as unknown as string;
-        if (!names.includes(name) && name !== '今日巡航次数') {
-          names.push(name);
-        }
-      },
-      {
-        strategy: 'breadth',
-      },
-    );
 
     if (!chart)
       return;
+
+    const names = autoHoverNames.current;
 
     closeAutoHover();
     intervalRef.current = setInterval(() => {
