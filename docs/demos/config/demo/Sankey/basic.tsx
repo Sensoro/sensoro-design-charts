@@ -131,6 +131,7 @@ function Example() {
   const timeoutRef = React.useRef<NodeJS.Timeout>();
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
+  const [hideLabel, setHideLabel] = React.useState(false);
 
   const spec: SankeyProps = {
     height: 600,
@@ -174,6 +175,8 @@ function Example() {
       visible: true,
       offset: -12,
       formatMethod(_, datum) {
+        if (hideLabel)
+          return ``;
         return `${datum?.name} ${datum?.total?.toLocaleString()}`;
       },
       style: {
@@ -335,6 +338,16 @@ function Example() {
     [],
   );
 
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setHideLabel(true);
+    }, 5 * 1000);
+
+    return () => {
+      timeout && clearTimeout(timeout);
+    };
+  }, []);
+
   const handleClick: SankeyProps['onClick'] = (e) => {
     if (e.node?.type === 'rect') {
       const { datum } = e;
@@ -375,7 +388,6 @@ function Example() {
     <>
       <Sankey
         {...spec}
-        skipFunctionDiff
         ref={chartRef}
         onClick={handleClick}
         onDblClick={handleDblClick}
