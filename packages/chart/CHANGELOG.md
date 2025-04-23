@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.4.5
+
+### Patch Changes
+
+- 去除 DoubleOverlapArea cursor 配置，由 markArea 实现
+
 ## 1.4.4
 
 ### Patch Changes
