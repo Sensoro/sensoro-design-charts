@@ -1,5 +1,4 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { Cursor } from '@visactor/vchart/esm/typings/cursor';
 import type { ICartesianAxisSpec } from './types';
 import { colorBlue2, colorGrey04 } from '@sensoro-design/chart-theme';
 import { merge } from '@visactor/vutils';
@@ -10,11 +9,10 @@ interface Params {
   yAxes?: Partial<ICartesianAxisSpec>;
   xField?: string | string[];
   yField?: string | string[];
-  cursor?: Cursor;
 }
 
 export function getDefaultProps(params: Params) {
-  const { xAxes = {}, yAxes = {}, xField, yField, cursor } = params;
+  const { xAxes = {}, yAxes = {}, xField, yField } = params;
 
   const defaultXAxes = {
     orient: 'bottom',
@@ -75,7 +73,6 @@ export function getDefaultProps(params: Params) {
           ...defaultArea,
           style: {
             ...defaultArea.style,
-            cursor,
           },
         },
         point: {

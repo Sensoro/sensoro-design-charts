@@ -140,7 +140,10 @@ function Example() {
   };
 
   const handleDimensionClick: DoubleOverlapAreaProps['onDimensionClick'] = (e) => {
-    if (e?.model?.userId === 'area2' || e.node.type === 'line') {
+    const datum = e.dimensionInfo[0];
+
+    // 根据数据判断
+    if (datum && datum.value >= 2 && datum.value <= 22) {
       const val = e.dimensionInfo[0].value;
       if (getSelectVal() === val) {
         setSelectVal(null);
@@ -156,9 +159,20 @@ function Example() {
   return (
     <DoubleOverlapArea
       {...spec}
-      cursor="pointer"
       markLine={markLine}
       onDimensionClick={handleDimensionClick}
+      markArea={[
+        {
+          x: 2,
+          x1: 22,
+          area: {
+            style: {
+              fillOpacity: 0,
+              cursor: 'pointer',
+            },
+          },
+        },
+      ]}
       crosshair={[
         {
           xField: {

@@ -1,16 +1,14 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { Cursor } from '@visactor/vchart/esm/typings/cursor';
 import type { ICartesianAxisSpec } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { defaultCrosshair, defaultTooltip } from './config';
 import { getDefaultProps } from './utils';
 
 export interface DoubleOverlapAreaProps extends CommonChartProps {
   xField?: string | string[];
   yField?: string | string[];
-  cursor?: Cursor;
   /**
    * 坐标轴 X 轴配置
    */
@@ -28,7 +26,6 @@ export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
     yAxes,
     xField = 'date',
     yField = 'value',
-    cursor = 'default',
     tooltip,
     crosshair = defaultCrosshair,
     ...rest
@@ -36,17 +33,16 @@ export function DoubleOverlapArea(props: DoubleOverlapAreaProps) {
 
   const tooltipProps = merge({}, defaultTooltip, tooltip);
 
-  const defaultProps = useMemo(
+  const defaultProps = React.useMemo(
     () => {
       return getDefaultProps({
         yAxes,
         xAxes,
         xField,
         yField,
-        cursor,
       });
     },
-    [yAxes, xAxes, xField, yField, cursor],
+    [yAxes, xAxes, xField, yField],
   );
 
   return (
