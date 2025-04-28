@@ -1,6 +1,5 @@
 import type { IVChart, SankeyProps } from '@sensoro-design/chart';
 import { Sankey } from '@sensoro-design/chart';
-import { uniqueId } from 'es-toolkit/compat';
 import React from 'react';
 import tree from 'tree-lodash';
 
@@ -20,57 +19,72 @@ const values = [
   {
     nodes: [
       {
-        key: uniqueId(),
         name: '今日巡航次数',
         value: 160,
         total: 1087875,
         children: [
           {
-            key: uniqueId(),
             name: '公共安全',
             value: 40,
             total: 287875,
             children: [
-              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
-              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
-              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
-              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
+              {
+                name: '紧急响应',
+                value: 10,
+                total: 18764,
+                children: [
+                  { name: '暴力行为', value: 10, total: 1864 },
+                  { name: '突发状况', value: 10, total: 1864 },
+                ],
+              },
+              {
+                name: '异常跟踪',
+                value: 10,
+                total: 22329,
+              },
+              { name: '持续监测', value: 10, total: 43093 },
+              { name: '巡航正常', value: 10, total: 763875 },
             ],
           },
           {
-            key: uniqueId(),
             name: '交通安全',
             value: 40,
             total: 200653,
             children: [
-              { key: uniqueId(''), name: '高风险', value: 10, total: 18764 },
-              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
-              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
-              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
+              {
+                name: '紧急响应',
+                value: 10,
+                total: 18764,
+                children: [
+                  { name: '暴力行为', value: 10, total: 1864 },
+                  { name: '突发状况', value: 10, total: 1864 },
+                ],
+              },
+              { name: '异常跟踪', value: 10, total: 22329 },
+              { name: '持续监测', value: 10, total: 43093 },
+              { name: '巡航正常', value: 10, total: 763875 },
             ],
           },
           {
-            key: uniqueId(),
             name: '市容市政',
             value: 40,
             total: 406765,
             children: [
-              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
-              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
-              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
-              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
+              { name: '紧急响应', value: 10, total: 18764 },
+              { name: '异常跟踪', value: 10, total: 22329 },
+              { name: '持续监测', value: 10, total: 43093 },
+              { name: '巡航正常', value: 10, total: 763875 },
             ],
           },
           {
-            key: uniqueId(),
             name: '城市秩序',
             value: 40,
             total: 82854,
             children: [
-              { key: uniqueId(), name: '高风险', value: 10, total: 18764 },
-              { key: uniqueId(), name: '中风险', value: 10, total: 22329 },
-              { key: uniqueId(), name: '低风险', value: 10, total: 43093 },
-              { key: uniqueId(), name: '无风险', value: 10, total: 763875 },
+              { name: '紧急响应', value: 10, total: 18764 },
+              { name: '异常跟踪', value: 10, total: 22329 },
+              { name: '持续监测', value: 10, total: 43093 },
+              { name: '巡航正常', value: 10, total: 763875 },
             ],
           },
         ],
@@ -81,10 +95,10 @@ const values = [
 
 const colors = ['#423CD1', '#E7474D', '#E7AF2C', '#51C2E1', '#3AC583'];
 const defaultSpecified = {
-  高风险: colors[1],
-  中风险: colors[2],
-  低风险: colors[3],
-  无风险: colors[4],
+  紧急响应: colors[1],
+  异常跟踪: colors[2],
+  持续监测: colors[3],
+  巡航正常: colors[4],
 };
 const specified: Record<string, string> = {
   ...defaultSpecified,
@@ -131,7 +145,7 @@ function Example() {
   const timeoutRef = React.useRef<NodeJS.Timeout>();
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
-  const [hideLabel, setHideLabel] = React.useState(false);
+  const [isAutoHover, setIsAutoHover] = React.useState(false);
 
   const spec: SankeyProps = {
     height: 600,
@@ -155,8 +169,27 @@ function Example() {
       // @ts-expect-error 忽略报错
       return datum.name;
     },
-    nodeHeight(node) {
-      return node.depth === 0 ? 160 : 40;
+    nodeHeight: (node) => {
+      if (node.depth === 0) {
+        return 160;
+      }
+
+      if (node.depth === 1 || node.depth === 2) {
+        return 40;
+      }
+
+      return 20;
+    },
+    linkHeight(_, sourceNode) {
+      if (sourceNode.depth === 0) {
+        return 40;
+      }
+
+      if (sourceNode.depth === 1) {
+        return 10;
+      }
+
+      return 20;
     },
     node: {
       style: {
@@ -175,8 +208,6 @@ function Example() {
       visible: true,
       offset: -12,
       formatMethod(_, datum) {
-        if (hideLabel)
-          return ``;
         return `${datum?.name} ${datum?.total?.toLocaleString()}`;
       },
       style: {
@@ -223,7 +254,7 @@ function Example() {
     emphasis: {
       enable: true,
       trigger: 'hover',
-      effect: 'related',
+      effect: isAutoHover ? 'adjacency' : 'related',
     },
   };
 
@@ -239,6 +270,8 @@ function Example() {
     if (chart) {
       chart.setHovered(null);
     }
+
+    setIsAutoHover(false);
   };
 
   const startAutoHover = () => {
@@ -261,6 +294,8 @@ function Example() {
         ]);
       }
     }, 2 * 1000);
+
+    setIsAutoHover(true);
   };
 
   const handlePointerEnter = () => {
@@ -338,16 +373,6 @@ function Example() {
     [],
   );
 
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      setHideLabel(true);
-    }, 5 * 1000);
-
-    return () => {
-      timeout && clearTimeout(timeout);
-    };
-  }, []);
-
   const handleClick: SankeyProps['onClick'] = (e) => {
     if (e.node?.type === 'rect') {
       const { datum } = e;
@@ -365,7 +390,6 @@ function Example() {
           if (datum.datum.name === item.name) {
             item.children = [
               {
-                key: uniqueId(),
                 name: '测试节点',
                 value: 5,
                 total: 1000,
@@ -389,6 +413,7 @@ function Example() {
       <Sankey
         {...spec}
         ref={chartRef}
+        skipFunctionDiff
         onClick={handleClick}
         onDblClick={handleDblClick}
       />
