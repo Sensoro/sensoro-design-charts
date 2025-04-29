@@ -52,5 +52,11 @@ export type {
   IVChart,
 } from '@visactor/vchart';
 export type {
+  SankeyLinkElement,
+  SankeyNodeDatum,
+  SankeyNodeElement,
+} from '@visactor/vchart/esm/series/sankey/interface';
+export type {
+  Datum,
   IGradient,
 } from '@visactor/vchart/esm/typings';
