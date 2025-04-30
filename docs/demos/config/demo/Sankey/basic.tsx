@@ -1,5 +1,6 @@
 import type {
   Datum,
+  ISankeyLabelSpec,
   IVChart,
   SankeyLinkElement,
   SankeyNodeDatum,
@@ -153,34 +154,41 @@ function Example() {
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
   const [isAutoHover, setIsAutoHover] = React.useState(false);
-  const [changeLabel, setChangeLabel] = React.useState(false);
 
-  const nodeKey = React.useCallback((datum: SankeyNodeDatum) => {
-    return (datum as SankeyNodeDatum & { name: string }).name;
-  }, []);
-  const nodeHeight = React.useCallback((node: SankeyNodeElement) => {
-    if (node.depth === 0) {
-      return 160;
-    }
+  const nodeKey = React.useCallback(
+    (datum: SankeyNodeDatum) => {
+      return (datum as SankeyNodeDatum & { name: string }).name;
+    },
+    [],
+  );
+  const nodeHeight = React.useCallback(
+    (node: SankeyNodeElement) => {
+      if (node.depth === 0) {
+        return 160;
+      }
 
-    if (node.depth === 1 || node.depth === 2) {
-      return 40;
-    }
+      if (node.depth === 1 || node.depth === 2) {
+        return 40;
+      }
 
-    return 20;
-  }, []);
-  const linkHeight = React.useCallback((_: SankeyLinkElement, sourceNode: SankeyNodeElement) => {
-    if (sourceNode.depth === 0) {
-      return 40;
-    }
+      return 20;
+    },
+    [],
+  );
+  const linkHeight = React.useCallback(
+    (_: SankeyLinkElement, sourceNode: SankeyNodeElement) => {
+      if (sourceNode.depth === 0) {
+        return 40;
+      }
 
-    if (sourceNode.depth === 1) {
-      return 10;
-    }
+      if (sourceNode.depth === 1) {
+        return 10;
+      }
 
-    return 20;
-  }, []);
-
+      return 20;
+    },
+    [],
+  );
   const nodeStyleFill = React.useCallback(
     (datum: Datum) => {
       if (datum.depth !== 2) {
@@ -191,7 +199,6 @@ function Example() {
     },
     [],
   );
-
   const linkStyleFill = React.useCallback(
     (datum: Datum) => {
       if (![2, 3].includes(datum.parents.length)) {
@@ -219,14 +226,13 @@ function Example() {
       };
     },
     [],
-  );
-
-  const labelFormatMethod = React.useCallback((_: string | string[], datum: Datum) => {
-    if (changeLabel) {
-      return `${datum?.name} ${(datum?.total + 11)?.toLocaleString()}`;
-    }
-    return `${datum?.name} ${datum?.total?.toLocaleString()}`;
-  }, [changeLabel]);
+  ) as NonNullable<NonNullable<SankeyProps['link']>['style']>['fill'];
+  const labelFormatMethod = React.useCallback(
+    (_: string | string[], datum: Datum) => {
+      return `${datum?.name} ${datum?.total?.toLocaleString()}`;
+    },
+    [],
+  ) as ISankeyLabelSpec['formatMethod'];
 
   const closeAutoHover = () => {
     const chart = chartRef.current;
@@ -343,16 +349,6 @@ function Example() {
     [],
   );
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setChangeLabel(prev => !prev);
-    }, 3 * 1000);
-
-    return () => {
-      interval && clearInterval(interval);
-    };
-  }, []);
-
   const handleClick: SankeyProps['onClick'] = (e) => {
     if (e.node?.type === 'rect') {
       const { datum } = e;
@@ -421,7 +417,7 @@ function Example() {
         link={{
           style: {
             fillOpacity: 0.3,
-            fill: linkStyleFill as any,
+            fill: linkStyleFill,
           },
           state: {
             selected: {
@@ -432,7 +428,7 @@ function Example() {
         label={{
           visible: true,
           offset: -12,
-          formatMethod: labelFormatMethod as any,
+          formatMethod: labelFormatMethod,
           style: {
             fill: '#F6F9FE',
             fontSize: 12,

@@ -52,6 +52,7 @@ export type {
   IVChart,
 } from '@visactor/vchart';
 export type {
+  ISankeyLabelSpec,
   SankeyLinkElement,
   SankeyNodeDatum,
   SankeyNodeElement,
