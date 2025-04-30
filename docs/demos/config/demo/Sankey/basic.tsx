@@ -1,4 +1,11 @@
-import type { IVChart, SankeyProps } from '@sensoro-design/chart';
+import type {
+  Datum,
+  IVChart,
+  SankeyLinkElement,
+  SankeyNodeDatum,
+  SankeyNodeElement,
+  SankeyProps,
+} from '@sensoro-design/chart';
 import { Sankey } from '@sensoro-design/chart';
 import React from 'react';
 import tree from 'tree-lodash';
@@ -146,117 +153,80 @@ function Example() {
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [tooltipStyles, setTooltipStyles] = React.useState<React.CSSProperties>({});
   const [isAutoHover, setIsAutoHover] = React.useState(false);
+  const [changeLabel, setChangeLabel] = React.useState(false);
 
-  const spec: SankeyProps = {
-    height: 600,
-    data: [
-      {
-        id: 'sankey-data',
-        values,
-      },
-    ],
-    color: {
-      type: 'ordinal',
-      range: colors,
-      domain: [],
-      specified,
-    },
-    categoryField: 'name',
-    valueField: 'value',
-    nodeAlign: 'left',
-    nodeWidth: 4,
-    nodeKey(datum) {
-      // @ts-expect-error 忽略报错
-      return datum.name;
-    },
-    nodeHeight: (node) => {
-      if (node.depth === 0) {
-        return 160;
+  const nodeKey = React.useCallback((datum: SankeyNodeDatum) => {
+    return (datum as SankeyNodeDatum & { name: string }).name;
+  }, []);
+  const nodeHeight = React.useCallback((node: SankeyNodeElement) => {
+    if (node.depth === 0) {
+      return 160;
+    }
+
+    if (node.depth === 1 || node.depth === 2) {
+      return 40;
+    }
+
+    return 20;
+  }, []);
+  const linkHeight = React.useCallback((_: SankeyLinkElement, sourceNode: SankeyNodeElement) => {
+    if (sourceNode.depth === 0) {
+      return 40;
+    }
+
+    if (sourceNode.depth === 1) {
+      return 10;
+    }
+
+    return 20;
+  }, []);
+
+  const nodeStyleFill = React.useCallback(
+    (datum: Datum) => {
+      if (datum.depth !== 2) {
+        return colors[0];
       }
 
-      if (node.depth === 1 || node.depth === 2) {
-        return 40;
+      return specified[datum.key];
+    },
+    [],
+  );
+
+  const linkStyleFill = React.useCallback(
+    (datum: Datum) => {
+      if (![2, 3].includes(datum.parents.length)) {
+        return colors[0];
       }
+      const start = specified[datum?.source] || colors[0];
+      const end = specified[datum?.target] || colors[0];
 
-      return 20;
+      return {
+        gradient: 'linear',
+        x0: 0.1,
+        y0: 1,
+        x1: 1,
+        y1: 1,
+        stops: [
+          {
+            offset: 0,
+            color: start,
+          },
+          {
+            offset: 1,
+            color: end,
+          },
+        ],
+      };
     },
-    linkHeight(_, sourceNode) {
-      if (sourceNode.depth === 0) {
-        return 40;
-      }
+    [],
+  );
 
-      if (sourceNode.depth === 1) {
-        return 10;
-      }
-
-      return 20;
-    },
-    node: {
-      style: {
-        // 扩大 node 点击热区
-        boundsPadding: [0, 20, 0, 20],
-        fill(datum) {
-          if (datum.depth !== 2) {
-            return colors[0];
-          }
-
-          return specified[datum.key];
-        },
-      },
-    },
-    label: {
-      visible: true,
-      offset: -12,
-      formatMethod(_, datum) {
-        return `${datum?.name} ${datum?.total?.toLocaleString()}`;
-      },
-      style: {
-        fill: '#F6F9FE',
-        fontSize: 12,
-      },
-    },
-
-    link: {
-      style: {
-        fillOpacity: 0.3,
-        fill(datum) {
-          if (![2, 3].includes(datum.parents.length)) {
-            return colors[0];
-          }
-          const start = specified[datum?.source] || colors[0];
-          const end = specified[datum?.target] || colors[0];
-
-          return {
-            gradient: 'linear',
-            x0: 0.1,
-            y0: 1,
-            x1: 1,
-            y1: 1,
-            stops: [
-              {
-                offset: 0,
-                color: start,
-              },
-              {
-                offset: 1,
-                color: end,
-              },
-            ],
-          };
-        },
-      },
-      state: {
-        selected: {
-          fillOpacity: 1,
-        },
-      },
-    },
-    emphasis: {
-      enable: true,
-      trigger: 'hover',
-      effect: isAutoHover ? 'adjacency' : 'related',
-    },
-  };
+  const labelFormatMethod = React.useCallback((_: string | string[], datum: Datum) => {
+    if (changeLabel) {
+      return `${datum?.name} ${(datum?.total + 11)?.toLocaleString()}`;
+    }
+    return `${datum?.name} ${datum?.total?.toLocaleString()}`;
+  }, [changeLabel]);
 
   const closeAutoHover = () => {
     const chart = chartRef.current;
@@ -373,6 +343,16 @@ function Example() {
     [],
   );
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setChangeLabel(prev => !prev);
+    }, 3 * 1000);
+
+    return () => {
+      interval && clearInterval(interval);
+    };
+  }, []);
+
   const handleClick: SankeyProps['onClick'] = (e) => {
     if (e.node?.type === 'rect') {
       const { datum } = e;
@@ -411,9 +391,59 @@ function Example() {
   return (
     <>
       <Sankey
-        {...spec}
+        height={600}
+        data={[
+          {
+            id: 'sankey-data',
+            values,
+          },
+        ]}
+        color={{
+          type: 'ordinal',
+          range: colors,
+          domain: [],
+          specified,
+        }}
+        categoryField="name"
+        valueField="value"
+        nodeAlign="left"
+        nodeWidth={4}
+        nodeKey={nodeKey}
+        nodeHeight={nodeHeight}
+        linkHeight={linkHeight}
+        node={{
+          style: {
+            // 扩大 node 点击热区
+            boundsPadding: [0, 20, 0, 20],
+            fill: nodeStyleFill,
+          },
+        }}
+        link={{
+          style: {
+            fillOpacity: 0.3,
+            fill: linkStyleFill as any,
+          },
+          state: {
+            selected: {
+              fillOpacity: 1,
+            },
+          },
+        }}
+        label={{
+          visible: true,
+          offset: -12,
+          formatMethod: labelFormatMethod as any,
+          style: {
+            fill: '#F6F9FE',
+            fontSize: 12,
+          },
+        }}
+        emphasis={{
+          enable: true,
+          trigger: 'hover',
+          effect: isAutoHover ? 'adjacency' : 'related',
+        }}
         ref={chartRef}
-        skipFunctionDiff
         onClick={handleClick}
         onDblClick={handleDblClick}
       />
