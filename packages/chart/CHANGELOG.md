@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.4.6
+
+### Patch Changes
+
+- export IMarkAreaSpec IMarkPointSpec ISankeyLabelSpec ...
+
 ## 1.4.5
 
 ### Patch Changes
