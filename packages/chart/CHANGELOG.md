@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.5.0
+
+### Minor Changes
+
+- add Treemap
+
 ## 1.4.6
 
 ### Patch Changes
