@@ -38,6 +38,9 @@ export type { RangeColumnProps } from './RangeColumn';
 export { default as Sankey } from './Sankey';
 export type { SankeyProps } from './Sankey';
 
+export { default as Treemap } from './Treemap';
+export type { TreemapProps } from './Treemap';
+
 export { TwoStateArea } from './TwoStateArea';
 export type { TwoStateAreaProps } from './TwoStateArea';
 

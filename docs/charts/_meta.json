@@ -14,5 +14,6 @@
   "Radar",
   "CirclePacking",
   "LinearProgress",
-  "CircularProgress"
+  "CircularProgress",
+  "Treemap"
 ]
