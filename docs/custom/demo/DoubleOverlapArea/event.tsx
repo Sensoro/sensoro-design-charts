@@ -1,4 +1,4 @@
-import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec } from '@sensoro-design/chart';
+import type { DoubleOverlapAreaProps, IGradient, IMarkLineSpec, IMarkPointSpec } from '@sensoro-design/chart';
 import { useGetState } from '@rcuse/core';
 import { DoubleOverlapArea } from '@sensoro-design/chart';
 import { colorBlue06, colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
@@ -28,6 +28,7 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
     endSymbol: {
       visible: false,
     },
+    zIndex: 1,
     line: {
       style: {
         stroke: linearColor,
@@ -63,11 +64,37 @@ function getMarkLineLabel() {
   return label;
 }
 
+function getMarkPoint(opts: IMarkPointSpec): IMarkPointSpec {
+  const markPoint = {
+    itemLine: {
+      visible: true,
+      startSymbol: {
+        visible: true,
+        size: 10,
+        style: {
+          lineWidth: 2,
+          fill: '#fff',
+          stroke: 'default',
+        },
+      },
+      line: {
+        style: {
+          visible: false,
+        },
+      },
+    },
+    ...opts,
+  };
+
+  return markPoint;
+}
+
 function Example() {
   const timeoutRef = React.useRef<NodeJS.Timeout>();
   const [, setFirstSelect, getFirstSelect] = useGetState(true);
-  const [, setSelectVal, getSelectVal] = useGetState<number | null>(null);
+  const [, setSelectVal, getSelectVal] = useGetState<{ date: number; value: number } | null>(null);
   const [markLine, setMarkLine] = React.useState<DoubleOverlapAreaProps['markLine']>([]);
+  const [markPoint, setMarkPoint] = React.useState<IMarkPointSpec[]>([]);
 
   const spec: DoubleOverlapAreaProps = {
     title: {
@@ -105,15 +132,16 @@ function Example() {
     const firstSelect = getFirstSelect();
 
     const markLine: IMarkLineSpec[] = [];
+    const markPoint: IMarkPointSpec[] = [];
 
     if (isNotNil(selectVal)) {
       markLine.push(
         getMarkLineItem({
-          x: selectVal,
+          x: selectVal.date,
           label: firstSelect ? getMarkLineLabel() : undefined,
         }),
         getMarkLineItem({
-          x: selectVal,
+          x: selectVal.date,
           line: {
             style: {
               stroke: colorBlue06,
@@ -121,6 +149,13 @@ function Example() {
               lineDash: [3, 2],
             },
           },
+        }),
+      );
+
+      markPoint.push(
+        getMarkPoint({
+          x: selectVal.date,
+          y: selectVal.value,
         }),
       );
     }
@@ -137,6 +172,7 @@ function Example() {
     }
 
     setMarkLine(markLine);
+    setMarkPoint(markPoint);
   };
 
   const handleDimensionClick: DoubleOverlapAreaProps['onDimensionClick'] = (e) => {
@@ -145,11 +181,13 @@ function Example() {
     // 根据数据判断
     if (datum && datum.value >= 2 && datum.value <= 22) {
       const val = e.dimensionInfo[0].value;
+      const datum = e.dimensionInfo[0].data[1].datum[0];
+
       if (getSelectVal() === val) {
         setSelectVal(null);
       }
       else {
-        setSelectVal(val);
+        setSelectVal(datum);
       }
 
       handleChangeMarkLine();
@@ -160,11 +198,13 @@ function Example() {
     <DoubleOverlapArea
       {...spec}
       markLine={markLine}
+      markPoint={markPoint}
       onDimensionClick={handleDimensionClick}
       markArea={[
         {
           x: 2,
           x1: 22,
+          zIndex: 1000,
           area: {
             style: {
               fillOpacity: 0,
