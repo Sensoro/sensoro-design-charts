@@ -31,10 +31,11 @@ export const dark: ITheme = {
               },
               {
                 offset: 1,
-                opacity: 0.02,
+                opacity: 0,
               },
             ],
           },
+          fillOpacity: 1,
         },
       },
       point: {

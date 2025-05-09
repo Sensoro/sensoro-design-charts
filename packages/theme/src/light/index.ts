@@ -31,10 +31,11 @@ export const light: ITheme = {
               },
               {
                 offset: 1,
-                color: '#fff',
+                opacity: 0,
               },
             ],
           },
+          fillOpacity: 1,
         },
       },
       point: {
