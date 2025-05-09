@@ -1,5 +1,11 @@
 # @sensoro-design/chart-theme
 
+## 1.0.9
+
+### Patch Changes
+
+- 调整面积图渐变色
+
 ## 1.0.8
 
 ### Patch Changes
