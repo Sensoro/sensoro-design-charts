@@ -235,8 +235,8 @@ importers:
   packages/chart:
     dependencies:
       '@sensoro-design/chart-theme':
-        specifier: '>=1.0.7'
-        version: 1.0.7(@visactor/vchart@1.13.9)
+        specifier: '>=1.0.8'
+        version: 1.0.8(@visactor/vchart@1.13.9)
       '@visactor/react-vchart':
         specifier: 'catalog:'
         version: 1.13.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1733,8 +1733,8 @@ packages:
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
 
-  '@sensoro-design/chart-theme@1.0.7':
-    resolution: {integrity: sha512-4UhfxrPOKhm8z7lECbRqzBG0rKkGVcovgmjsaxwtwCFrq5vg4QjxKpTNNU6wx9FwwRlKEV5yA131d6ACVyD0wg==}
+  '@sensoro-design/chart-theme@1.0.8':
+    resolution: {integrity: sha512-wZtWy/MdbSKdugdpS8USvv2crZSFLa0saIvtyEEvRa35IAoml7ozbnZ5pxZO81rd0/2dfeHGFMXWxz1Mc7b2yA==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
 
@@ -7376,7 +7376,7 @@ snapshots:
       domhandler: 5.0.3
       selderee: 0.11.0
 
-  '@sensoro-design/chart-theme@1.0.7(@visactor/vchart@1.13.9)':
+  '@sensoro-design/chart-theme@1.0.8(@visactor/vchart@1.13.9)':
     dependencies:
       '@visactor/vchart': 1.13.9
       '@visactor/vutils': 0.19.5
