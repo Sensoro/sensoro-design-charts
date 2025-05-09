@@ -1,7 +1,7 @@
-import type { TokenMap } from '@visactor/vchart'
+import type { TokenMap } from '@visactor/vchart';
 
 export const token: TokenMap = {
-  fontFamily: "PingFang SC,Helvetica Neue,Microsoft Yahei,system-ui,-apple-system,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol",
+  fontFamily: 'DINPro,PingFang SC,Helvetica Neue,Microsoft Yahei,system-ui,-apple-system,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol',
   fontSize: 14,
   l1FontSize: 32,
   l1LineHeight: '150%',
@@ -14,5 +14,5 @@ export const token: TokenMap = {
   l5FontSize: 12,
   l5LineHeight: '130%',
   l6FontSize: 10,
-  l6LineHeight: '120%'
-}
+  l6LineHeight: '120%',
+};
