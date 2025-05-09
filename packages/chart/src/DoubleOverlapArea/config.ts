@@ -27,7 +27,7 @@ export const defaultArea: NonNullable<IAreaSeriesSpec['area']> = {
       stops: [
         {
           offset: 0,
-          opacity: 0.35,
+          opacity: 0.15,
         },
         {
           offset: 1,
@@ -35,6 +35,7 @@ export const defaultArea: NonNullable<IAreaSeriesSpec['area']> = {
         },
       ],
     },
+    fillOpacity: 1,
   },
 };
 

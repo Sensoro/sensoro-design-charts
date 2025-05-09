@@ -65,7 +65,7 @@ export function getDefaultProps(params: Params) {
               stops: [
                 {
                   offset: 0,
-                  opacity: 0.35,
+                  opacity: 0.25,
                 },
                 {
                   offset: 1,
@@ -73,6 +73,7 @@ export function getDefaultProps(params: Params) {
                 },
               ],
             },
+            fillOpacity: 1,
             cursor: 'not-allowed',
           },
         },
@@ -125,7 +126,7 @@ export function getDefaultProps(params: Params) {
               stops: [
                 {
                   offset: 0,
-                  opacity: 0.35,
+                  opacity: 0.25,
                 },
                 {
                   offset: 1,
@@ -133,6 +134,7 @@ export function getDefaultProps(params: Params) {
                 },
               ],
             },
+            fillOpacity: 1,
             cursor: 'not-allowed',
           },
         },
