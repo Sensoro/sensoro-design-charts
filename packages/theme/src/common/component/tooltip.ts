@@ -44,7 +44,7 @@ export const tooltip: ITooltipTheme = {
       type: 'palette',
       key: 'tooltipTitleColor',
     } as any,
-    fontWeight: 'bold',
+    fontWeight: 400,
     textBaseline: 'middle',
     spacing: 0,
   },
