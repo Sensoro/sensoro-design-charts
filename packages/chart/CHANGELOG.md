@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.5.1
+
+### Patch Changes
+
+- 解决渐变色不正确问题
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.8
+
 ## 1.5.0
 
 ### Minor Changes
