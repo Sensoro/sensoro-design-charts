@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.6.0
+
+### Minor Changes
+
+- add Gauge
+
 ## 1.5.1
 
 ### Patch Changes
