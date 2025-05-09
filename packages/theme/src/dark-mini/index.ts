@@ -27,14 +27,15 @@ export const darkMini: ITheme = {
             stops: [
               {
                 offset: 0,
-                opacity: 0.25,
+                opacity: 0.15,
               },
               {
                 offset: 1,
-                opacity: 0.02,
+                opacity: 0,
               },
             ],
           },
+          fillOpacity: 1,
         },
       },
       point: {

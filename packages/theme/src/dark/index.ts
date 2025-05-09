@@ -27,7 +27,7 @@ export const dark: ITheme = {
             stops: [
               {
                 offset: 0,
-                opacity: 0.25,
+                opacity: 0.15,
               },
               {
                 offset: 1,
