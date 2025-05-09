@@ -21,8 +21,8 @@ export function getDefaultProps(params: Params) {
     },
     trimPadding: true,
     innerOffset: {
-      left: 32,
-      right: 32,
+      left: 16,
+      right: 16,
     },
     type: 'band',
   };
