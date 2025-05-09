@@ -14,8 +14,12 @@ export { default as Common } from './Common';
 export type { CommonProps } from './Common';
 
 export { hyphenPointPath } from './config';
+
 export { DoubleOverlapArea } from './DoubleOverlapArea';
 export type { DoubleOverlapAreaProps } from './DoubleOverlapArea';
+
+export { default as Gauge } from './Gauge';
+export type { GaugeProps } from './Gauge';
 
 export { HideAxesStackBar } from './HideAxesStackBar';
 export type { HideAxesStackBarProps } from './HideAxesStackBar';

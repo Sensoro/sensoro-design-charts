@@ -15,5 +15,6 @@
   "CirclePacking",
   "LinearProgress",
   "CircularProgress",
-  "Treemap"
+  "Treemap",
+  "Gauge"
 ]
