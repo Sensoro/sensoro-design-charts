@@ -56,7 +56,23 @@ export function getDefaultProps(params: Params) {
         area: {
           ...defaultArea,
           style: {
-            ...defaultArea.style,
+            fill: {
+              gradient: 'linear',
+              x0: 0.5,
+              y0: 0,
+              x1: 0.5,
+              y1: 1,
+              stops: [
+                {
+                  offset: 0,
+                  opacity: 0.35,
+                },
+                {
+                  offset: 1,
+                  opacity: 0,
+                },
+              ],
+            },
             cursor: 'not-allowed',
           },
         },
@@ -100,7 +116,23 @@ export function getDefaultProps(params: Params) {
         area: {
           ...defaultArea,
           style: {
-            ...defaultArea.style,
+            fill: {
+              gradient: 'linear',
+              x0: 0.5,
+              y0: 0,
+              x1: 0.5,
+              y1: 1,
+              stops: [
+                {
+                  offset: 0,
+                  opacity: 0.35,
+                },
+                {
+                  offset: 1,
+                  opacity: 0,
+                },
+              ],
+            },
             cursor: 'not-allowed',
           },
         },
