@@ -1,0 +1,28 @@
+# 颜色
+
+## 渐变色无法达到预期效果
+
+`fillOpacity` 存在默认值，需要将其设置为 `1`
+
+```ts
+style: {
+  fill: {
+    type: 'linear',
+    x0: 0,
+    y0: 0.5,
+    x1: 1,
+    y1: 0.5,
+    stops: [
+      {
+        offset: 0,
+        opacity: 0.15
+      },
+      {
+        offset: 1,
+        opacity: 0
+      },
+    ],
+  },
+  fillOpacity: 1,
+},
+```
