@@ -28,7 +28,7 @@ function getMarkLineItem(opts: IMarkLineSpec): IMarkLineSpec {
     endSymbol: {
       visible: false,
     },
-    zIndex: 1,
+    zIndex: 101,
     line: {
       style: {
         stroke: linearColor,
@@ -199,6 +199,7 @@ function Example() {
       {...spec}
       markLine={markLine}
       markPoint={markPoint}
+      skipFunctionDiff
       onDimensionClick={handleDimensionClick}
       markArea={[
         {
