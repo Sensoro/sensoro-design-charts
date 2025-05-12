@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.6.1
+
+### Patch Changes
+
+- 修复编译产物报错
+
 ## 1.6.0
 
 ### Minor Changes
