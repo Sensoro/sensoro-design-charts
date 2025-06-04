@@ -1,46 +1,21 @@
-import type { CommonChartProps } from '@visactor/react-vchart';
-import type { Datum, IAreaSeriesSpec, ICartesianAxisSpec } from './types';
-import { colorBlue2, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
+import type { IAreaSeriesSpec, TrendAreaProps } from './types';
+import { colorGrey04 } from '@sensoro-design/chart-theme';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import { uniq } from 'es-toolkit/array';
 import React from 'react';
-import { defaultXAxes, defaultYAxes } from './config';
+import {
+  defaultColor,
+  defaultCrosshair,
+  defaultPoint,
+  defaultXAxes,
+  defaultYAxes,
+} from './config';
 import { getReferenceSerie } from './utils';
 
-export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
-  data?: Datum[];
-  color?: {
-    isNight?: boolean;
-    disabled?: boolean;
-    isReference: boolean;
-    color: string;
-  }[];
-  /** x 字段 */
-  xField?: string;
-  /** y 字段 */
-  yField?: string;
-  /** 坐标轴 X 轴配置 */
-  xAxes?: Partial<ICartesianAxisSpec>;
-  /** 坐标轴 Y 轴配置 */
-  yAxes?: Partial<ICartesianAxisSpec>;
-  /** 隐藏参考面积图 */
-  hideReference?: boolean;
-  /** 参考面积图配置 */
-  referenceSerie?: IAreaSeriesSpec;
-  /** 白天判断 */
-  daytime?: [number, number];
-  /** 选择的时间 */
-  selectTime?: [number, number];
-}
-
-const defaultColorConfig = [
-  { isNight: false, disabled: false, color: colorGreen2 },
-  { isNight: false, disabled: true, color: '#AEEAD8' },
-  { isNight: true, disabled: false, color: colorBlue2 },
-  { isNight: true, disabled: true, color: '#C5D7F9' },
-  { isReference: true, color: colorGrey04 },
-];
+export type {
+  TrendAreaProps,
+};
 
 export function TrendArea(props: TrendAreaProps) {
   const {
@@ -48,18 +23,18 @@ export function TrendArea(props: TrendAreaProps) {
     yField = 'value',
     xAxes,
     yAxes,
-    hideReference = false,
+    hideReference = true,
     referenceSerie,
     selectTime,
     // eslint-disable-next-line react/no-unstable-default-props
     daytime = [6, 18],
-    color = defaultColorConfig,
+    color = defaultColor,
     // eslint-disable-next-line react/no-unstable-default-props
     data = [],
     ...rest
   } = props;
 
-  const referenceColor = defaultColorConfig.find(item => item.isReference)?.color || colorGrey04;
+  const referenceColor = color.find(item => item.isReference)?.color || colorGrey04;
 
   const xAxesData = merge(defaultXAxes, xAxes);
   const yAxesData = merge(defaultYAxes, yAxes);
@@ -109,6 +84,14 @@ export function TrendArea(props: TrendAreaProps) {
             dataIndex: index,
             xField,
             yField,
+            zIndex: disabled ? 5 : 10,
+            tooltip: {
+              visible: !disabled,
+            },
+            point: {
+              visible: !disabled,
+              ...defaultPoint,
+            },
             area: {
               style: {
                 fill: disabled ? 'transparent' : colorVal,
@@ -149,6 +132,7 @@ export function TrendArea(props: TrendAreaProps) {
       data={dataList}
       series={hideReference ? series : [referenceSeries, ...series]}
       axes={[yAxesData, xAxesData]}
+      crosshair={defaultCrosshair}
       {...rest}
     />
   );

@@ -1,5 +1,4 @@
 import type { IAreaSeriesSpec } from './types';
-import { defaultReferenceData } from './config';
 
 interface Params {
   xField?: string | string[];
@@ -11,7 +10,9 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
 
   return {
     type: 'area',
-    data: defaultReferenceData,
+    data: {
+      values: [],
+    },
     xField,
     yField,
     tooltip: {

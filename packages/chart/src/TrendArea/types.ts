@@ -1,6 +1,33 @@
+import type { CommonChartProps } from '@visactor/react-vchart';
 import type { ICartesianAxisSpec } from '@visactor/vchart/esm/component/axis/cartesian/interface';
 import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
 import type { Datum } from '@visactor/vchart/esm/typings/common';
+
+export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
+  data?: Datum[];
+  color?: {
+    isNight?: boolean;
+    disabled?: boolean;
+    isReference?: boolean;
+    color: string;
+  }[];
+  /** x 字段 */
+  xField?: string;
+  /** y 字段 */
+  yField?: string;
+  /** 坐标轴 X 轴配置 */
+  xAxes?: Partial<ICartesianAxisSpec>;
+  /** 坐标轴 Y 轴配置 */
+  yAxes?: Partial<ICartesianAxisSpec>;
+  /** 隐藏参考面积图 */
+  hideReference?: boolean;
+  /** 参考面积图配置 */
+  referenceSerie?: Partial<IAreaSeriesSpec>;
+  /** 白天判断 */
+  daytime?: [number, number];
+  /** 选择的时间 */
+  selectTime?: [number, number];
+}
 
 export {
   Datum,
