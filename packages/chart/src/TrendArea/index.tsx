@@ -10,7 +10,12 @@ import { getReferenceSerie } from './utils';
 
 export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
   data?: Datum[];
-  color?: string[];
+  color?: {
+    isNight?: boolean;
+    disabled?: boolean;
+    isReference: boolean;
+    color: string;
+  }[];
   /** x 字段 */
   xField?: string;
   /** y 字段 */
@@ -29,6 +34,14 @@ export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField'
   selectTime?: [number, number];
 }
 
+const defaultColorConfig = [
+  { isNight: false, disabled: false, color: colorGreen2 },
+  { isNight: false, disabled: true, color: '#AEEAD8' },
+  { isNight: true, disabled: false, color: colorBlue2 },
+  { isNight: true, disabled: true, color: '#C5D7F9' },
+  { isReference: true, color: colorGrey04 },
+];
+
 export function TrendArea(props: TrendAreaProps) {
   const {
     xField = 'date',
@@ -40,12 +53,13 @@ export function TrendArea(props: TrendAreaProps) {
     selectTime,
     // eslint-disable-next-line react/no-unstable-default-props
     daytime = [6, 18],
-    // eslint-disable-next-line react/no-unstable-default-props
-    color = [colorGrey04, colorBlue2, '#C5D7F9', colorGreen2, '#AEEAD8'],
+    color = defaultColorConfig,
     // eslint-disable-next-line react/no-unstable-default-props
     data = [],
     ...rest
   } = props;
+
+  const referenceColor = defaultColorConfig.find(item => item.isReference)?.color || colorGrey04;
 
   const xAxesData = merge(defaultXAxes, xAxes);
   const yAxesData = merge(defaultYAxes, yAxes);
@@ -88,10 +102,8 @@ export function TrendArea(props: TrendAreaProps) {
         });
 
         const series = items.map(({ disabled, isNight }, index) => {
-          let colorVal = color[1];
-          if (!disabled && !isNight) {
-            colorVal = color[3];
-          }
+          const colorVal = color.find(item => item.isNight === isNight && item.disabled === disabled)?.color;
+
           const areaSeriesSpec: IAreaSeriesSpec = {
             type: 'area',
             dataIndex: index,
@@ -100,7 +112,7 @@ export function TrendArea(props: TrendAreaProps) {
             area: {
               style: {
                 fill: disabled ? 'transparent' : colorVal,
-                fillOpacity: disabled ? 1 : 0.04,
+                fillOpacity: disabled ? 1 : 0.08,
                 // cursor: disabled ? 'not-allowed' : 'default',
               },
             },
@@ -109,25 +121,11 @@ export function TrendArea(props: TrendAreaProps) {
           return areaSeriesSpec;
         });
 
-        const colors = items.map(({ disabled, isNight }) => {
-          if (!disabled && isNight) {
-            return color[1];
-          }
-
-          if (disabled && isNight) {
-            return color[2];
-          }
-
-          if (!disabled && !isNight) {
-            return color[3];
-          }
-
-          if (disabled && !isNight) {
-            return color[4];
-          }
-
-          return color[0];
-        });
+        const colors = (items
+          .map(({ disabled, isNight }) => {
+            return color.find(item => item.isNight === isNight && item.disabled === disabled)?.color;
+          })
+          .filter(Boolean)) as string[];
 
         return {
           colors,
@@ -147,7 +145,7 @@ export function TrendArea(props: TrendAreaProps) {
 
   return (
     <CommonChart
-      color={hideReference ? colors : [color[0], ...colors!]}
+      color={hideReference ? colors : [referenceColor, ...colors!]}
       data={dataList}
       series={hideReference ? series : [referenceSeries, ...series]}
       axes={[yAxesData, xAxesData]}
