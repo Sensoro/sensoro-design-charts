@@ -1,6 +1,7 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { IAreaSeriesSpec, ICartesianAxisSpec } from './types';
 import { colorBlue2, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
+import { take } from 'es-toolkit/array';
 import { hyphenPointPath } from '../config';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
@@ -23,6 +24,9 @@ export const defaultTooltip: CommonChartProps['tooltip'] = {
   dimension: {
     shapeType: hyphenPointPath,
     shapeFill: colorBlue2,
+    updateContent: (prev) => {
+      return take(prev!, 1);
+    },
   },
 };
 
