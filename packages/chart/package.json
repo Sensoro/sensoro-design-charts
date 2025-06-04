@@ -26,7 +26,8 @@
     "@visactor/react-vchart": "catalog:",
     "@visactor/vchart": "catalog:",
     "@visactor/vrender-components": "*",
-    "@visactor/vutils": "catalog:"
+    "@visactor/vutils": "catalog:",
+    "es-toolkit": "catalog:"
   },
   "publishConfig": {
     "access": "public"

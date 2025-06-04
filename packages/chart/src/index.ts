@@ -45,10 +45,12 @@ export type { SankeyProps } from './Sankey';
 export { default as Treemap } from './Treemap';
 export type { TreemapProps } from './Treemap';
 
+export { TrendArea } from './TrendArea';
 export { TwoStateArea } from './TwoStateArea';
-export type { TwoStateAreaProps } from './TwoStateArea';
 
+export type { TwoStateAreaProps } from './TwoStateArea';
 export { default as WordCloud } from './WordCloud';
+
 export type { WordCloudProps } from './WordCloud';
 
 export { VChart as VChartCore } from '@visactor/vchart';
