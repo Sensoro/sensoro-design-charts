@@ -7,7 +7,8 @@ import React from 'react';
 import { defaultPoint, defaultTooltip } from './config';
 import { getDefaultMarkLine } from './utils';
 
-export interface LineProps extends LineChartProps {
+export interface LineProps extends Omit<LineChartProps, 'id'> {
+  id?: string;
   defaultMarkLine?: IMarkLineYSpec;
 }
 

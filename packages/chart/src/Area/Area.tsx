@@ -4,7 +4,9 @@ import { merge } from '@visactor/vutils';
 import React from 'react';
 import { defaultTooltip } from './config';
 
-export interface AreaProps extends AreaChartProps {}
+export interface AreaProps extends Omit<AreaChartProps, 'id'> {
+  id?: string;
+}
 
 export function Area(props: AreaProps) {
   const { tooltip } = props;
