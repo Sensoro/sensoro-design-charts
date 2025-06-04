@@ -1,6 +1,7 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { IAreaSeriesSpec, ICartesianAxisSpec } from './types';
 import { colorBlue2, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
+import { hyphenPointPath } from '../config';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   style: {
@@ -12,6 +13,16 @@ export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
     dimension_hover: {
       size: 10,
     },
+  },
+};
+
+export const defaultTooltip: CommonChartProps['tooltip'] = {
+  mark: {
+    visible: false,
+  },
+  dimension: {
+    shapeType: hyphenPointPath,
+    shapeFill: colorBlue2,
   },
 };
 
@@ -37,6 +48,9 @@ export const defaultXAxes: ICartesianAxisSpec = {
 export const defaultYAxes: ICartesianAxisSpec = {
   orient: 'left',
   seriesIndex: [0, 1, 2, 3, 4, 5, 6],
+  label: {
+    formatter: '{label:,.0f}',
+  },
 };
 
 export const defaultColor = [

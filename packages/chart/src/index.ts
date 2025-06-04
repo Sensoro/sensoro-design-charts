@@ -1,3 +1,8 @@
+import { registerFormatPlugin, VChart } from '@visactor/vchart';
+
+// eslint-disable-next-line react-hooks/rules-of-hooks
+VChart.useRegisters([registerFormatPlugin]);
+
 export { Area } from './Area';
 export type { AreaProps } from './Area';
 
@@ -46,11 +51,12 @@ export { default as Treemap } from './Treemap';
 export type { TreemapProps } from './Treemap';
 
 export { TrendArea } from './TrendArea';
+export type { TrendAreaProps } from './TrendArea';
+
 export { TwoStateArea } from './TwoStateArea';
-
 export type { TwoStateAreaProps } from './TwoStateArea';
-export { default as WordCloud } from './WordCloud';
 
+export { default as WordCloud } from './WordCloud';
 export type { WordCloudProps } from './WordCloud';
 
 export { VChart as VChartCore } from '@visactor/vchart';

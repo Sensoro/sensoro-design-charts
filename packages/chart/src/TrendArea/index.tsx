@@ -8,6 +8,7 @@ import {
   defaultColor,
   defaultCrosshair,
   defaultPoint,
+  defaultTooltip,
   defaultXAxes,
   defaultYAxes,
 } from './config';
@@ -16,6 +17,8 @@ import { getReferenceSerie } from './utils';
 export type {
   TrendAreaProps,
 };
+
+const defaultDaytime = [6, 18];
 
 export function TrendArea(props: TrendAreaProps) {
   const {
@@ -26,11 +29,10 @@ export function TrendArea(props: TrendAreaProps) {
     hideReference = true,
     referenceSerie,
     selectTime,
-    // eslint-disable-next-line react/no-unstable-default-props
-    daytime = [6, 18],
+    daytime = defaultDaytime,
     color = defaultColor,
-    // eslint-disable-next-line react/no-unstable-default-props
-    data = [],
+    data,
+    tooltip,
     ...rest
   } = props;
 
@@ -45,6 +47,7 @@ export function TrendArea(props: TrendAreaProps) {
     }),
     referenceSerie,
   );
+  const tooltipProps = merge({}, defaultTooltip, tooltip);
 
   const { dataList, series, colors } = React.useMemo(
     () => {
@@ -69,7 +72,7 @@ export function TrendArea(props: TrendAreaProps) {
           const { times } = item;
 
           return {
-            values: data.filter((item) => {
+            values: (data || []).filter((item) => {
               const date = item[xField as string];
               return date >= times[0] && date <= times[1];
             }),
@@ -133,6 +136,7 @@ export function TrendArea(props: TrendAreaProps) {
       series={hideReference ? series : [referenceSeries, ...series]}
       axes={[yAxesData, xAxesData]}
       crosshair={defaultCrosshair}
+      tooltip={tooltipProps}
       {...rest}
     />
   );

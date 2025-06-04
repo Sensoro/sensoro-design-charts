@@ -31,6 +31,22 @@ function Example() {
         { date: 22, value: 12338 },
         { date: 23, value: 6522 },
       ]}
+      tooltip={{
+        dimension: {
+          title: {
+            value: (datum) => {
+              return `${datum?.date}:00 ~ ${datum?.date + 1}:00`;
+            },
+          },
+          content: {
+            key: '出行次数',
+            value: (datum) => {
+              return datum?.value;
+            },
+            valueFormatter: '{value:,.0f}',
+          },
+        },
+      }}
     />
   );
 };
