@@ -113,6 +113,7 @@ export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
     xField: {
       visible: true,
       line: {
+        zIndex: 100,
         type: 'rect',
         width: 24,
         style: {
