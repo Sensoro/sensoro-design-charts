@@ -1,6 +1,6 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { IAreaSeriesSpec, ICartesianAxisSpec } from './types';
-import { colorBlue2, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
+import type { IAreaSeriesSpec, ICartesianAxisSpec, IGradient } from './types';
+import { colorBlue2, colorBlue06, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
 import { take } from 'es-toolkit/array';
 import { hyphenPointPath } from '../config';
 
@@ -73,6 +73,53 @@ export const defaultCrosshair: CommonChartProps['crosshair'] = [
         type: 'line',
       },
     },
+    followTooltip: true,
+  },
+];
+
+export const linearColor: IGradient = {
+  gradient: 'linear',
+  x0: 0.5,
+  y0: 0,
+  x1: 0.5,
+  y1: 1,
+  stops: [
+    {
+      offset: 0,
+      color: 'rgba(43,109,229,0.35)',
+    },
+    {
+      offset: 1,
+      color: 'rgba(43,109,229,0)',
+    },
+  ],
+};
+
+export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
+  {
+    xField: {
+      visible: true,
+      line: {
+        type: 'line',
+        width: 1,
+        style: {
+          stroke: colorBlue06,
+        },
+      },
+    },
+    followTooltip: true,
+  },
+  {
+    xField: {
+      visible: true,
+      line: {
+        type: 'rect',
+        width: 24,
+        style: {
+          fill: linearColor,
+        },
+      },
+    } as any,
     followTooltip: true,
   },
 ];
