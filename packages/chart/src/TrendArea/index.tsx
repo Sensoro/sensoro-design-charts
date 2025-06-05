@@ -12,11 +12,17 @@ import {
   defaultCrosshair,
   defaultPoint,
   defaultSelectModeCrosshair,
-  defaultTooltip,
   defaultXAxes,
   defaultYAxes,
 } from './config';
-import { getMarkLineItem, getMarkLineLabel, getMarkPoint, getReferenceSerie } from './utils';
+import {
+  getDefaultTooltip,
+  getMarkLineItem,
+  getMarkLineLabel,
+  getMarkPoint,
+  getReferenceData,
+  getReferenceSerie,
+} from './utils';
 
 export type {
   TrendAreaProps,
@@ -31,7 +37,7 @@ export function TrendArea(props: TrendAreaProps) {
     yField = 'value',
     xAxes,
     yAxes,
-    hideReference = true,
+    showReference = false,
     referenceSerie,
     selectTime,
     daytime = defaultDaytime,
@@ -50,14 +56,45 @@ export function TrendArea(props: TrendAreaProps) {
   const referenceColor = color.find(item => item.isReference)?.color || colorGrey04;
   const xAxesData = merge(defaultXAxes, xAxes);
   const yAxesData = merge(defaultYAxes, yAxes);
-  const referenceSeries = merge(
-    getReferenceSerie({
+  const tooltipProps = merge(
+    getDefaultTooltip({
       xField,
       yField,
     }),
-    referenceSerie,
+    tooltip,
   );
-  const tooltipProps = merge({}, defaultTooltip, tooltip);
+
+  const referenceSeries = useMemo<IMarkAreaSpec[]>(
+    () => {
+      if (!data || !data.length || !showReference) {
+        return [];
+      }
+
+      const referenceData = getReferenceData({
+        data,
+        xField,
+        yField,
+      });
+
+      if (referenceData.length === 0) {
+        return [];
+      }
+
+      const defaultReferenceSerie = getReferenceSerie({
+        xField,
+        yField,
+      });
+
+      return [
+        merge(defaultReferenceSerie, referenceSerie, {
+          data: {
+            values: referenceData,
+          },
+        }),
+      ];
+    },
+    [xField, yField, referenceSerie, data, showReference],
+  );
 
   const { dataList, series, colors } = useMemo(
     () => {
@@ -177,11 +214,11 @@ export function TrendArea(props: TrendAreaProps) {
     if (isNotNil(selectVal)) {
       markLine.push(
         getMarkLineItem({
-          x: selectVal.date,
+          x: selectVal[xField],
           label: firstSelect ? getMarkLineLabel() : undefined,
         }),
         getMarkLineItem({
-          x: selectVal.date,
+          x: selectVal[xField],
           line: {
             style: {
               stroke: colorBlue06,
@@ -192,13 +229,13 @@ export function TrendArea(props: TrendAreaProps) {
         }),
       );
 
-      const isNotNight = selectVal.date >= daytime[0] && selectVal.date <= daytime[1];
+      const isNotNight = selectVal[xField] >= daytime[0] && selectVal[xField] <= daytime[1];
       const notNightColor = color.find(item => item.isNight === false && item.disabled === false)?.color || colorGreen2;
 
       markPoint.push(
         getMarkPoint({
-          x: selectVal.date,
-          y: selectVal.value,
+          x: selectVal[xField],
+          y: selectVal[yField],
           itemLine: {
             startSymbol: {
               visible: true,
@@ -236,7 +273,7 @@ export function TrendArea(props: TrendAreaProps) {
         const datum = (data || []).find(item => item[xField] === value);
 
         if (datum) {
-          if (getSelectVal()?.value === value) {
+          if (getSelectVal()?.[yField] === value) {
             setSelectVal(null);
           }
           else {
@@ -255,14 +292,15 @@ export function TrendArea(props: TrendAreaProps) {
 
   return (
     <CommonChart
-      color={hideReference ? colors : [referenceColor, ...colors!]}
+      color={!showReference ? colors : [referenceColor, ...colors!]}
       data={dataList}
-      series={hideReference ? series : [referenceSeries, ...series]}
+      series={[...referenceSeries, ...series] as IAreaSeriesSpec[]}
       axes={[yAxesData, xAxesData]}
       crosshair={mode === 'default' ? defaultCrosshair : defaultSelectModeCrosshair}
       tooltip={tooltipProps}
       markLine={markLine}
       markPoint={markPoint}
+      skipFunctionDiff
       onDimensionClick={handleDimensionClick}
       markArea={markAreaProps}
       {...rest}

@@ -1,8 +1,6 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { IAreaSeriesSpec, ICartesianAxisSpec, IGradient } from './types';
 import { colorBlue2, colorBlue06, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
-import { take } from 'es-toolkit/array';
-import { hyphenPointPath } from '../config';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   style: {
@@ -13,19 +11,6 @@ export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   state: {
     dimension_hover: {
       size: 10,
-    },
-  },
-};
-
-export const defaultTooltip: CommonChartProps['tooltip'] = {
-  mark: {
-    visible: false,
-  },
-  dimension: {
-    shapeType: hyphenPointPath,
-    shapeFill: colorBlue2,
-    updateContent: (prev) => {
-      return take(prev!, 1);
     },
   },
 };
@@ -123,4 +108,31 @@ export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
     } as any,
     followTooltip: true,
   },
+];
+
+export const defaultReferenceData = [
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  7,
+  10,
+  10,
+  12,
+  13,
+  16,
+  16,
+  14,
+  16,
+  17,
+  16,
+  14,
+  10,
+  6,
+  4,
+  3,
+  1,
 ];

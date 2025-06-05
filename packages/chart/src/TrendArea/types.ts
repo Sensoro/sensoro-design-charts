@@ -20,10 +20,10 @@ export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField'
   xAxes?: Partial<ICartesianAxisSpec>;
   /** 坐标轴 Y 轴配置 */
   yAxes?: Partial<ICartesianAxisSpec>;
-  /** 隐藏参考面积图 */
-  hideReference?: boolean;
+  /** 显示参考面积图 */
+  showReference?: boolean;
   /** 参考面积图配置 */
-  referenceSerie?: Partial<IAreaSeriesSpec>;
+  referenceSerie?: Partial<Omit<IAreaSeriesSpec, 'data'>>;
   /** 白天判断 */
   daytime?: [number, number];
   /** 选择的时间 */

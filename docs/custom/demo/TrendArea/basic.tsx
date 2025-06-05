@@ -33,17 +33,11 @@ function Example() {
       ]}
       tooltip={{
         dimension: {
-          title: {
-            value: (datum) => {
-              return `${datum?.date}:00 ~ ${datum?.date + 1}:00`;
-            },
-          },
           content: {
             key: '出行次数',
             value: (datum) => {
               return datum?.value;
             },
-            valueFormatter: '{value:,.0f}',
           },
         },
       }}
