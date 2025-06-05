@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.0
+
+### Minor Changes
+
+- add TrendArea
+
 ## 1.6.1
 
 ### Patch Changes
