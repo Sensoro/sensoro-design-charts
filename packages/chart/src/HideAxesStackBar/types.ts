@@ -1,4 +1,5 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
+import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
 
 export interface DataItem {
   time: string | number;
@@ -7,15 +8,13 @@ export interface DataItem {
   [key: string]: any;
 }
 
-export interface HideAxesStackBarProps {
-  /** 图表标题 */
-  title?: CommonChartProps['title'];
-  /** Tooltip */
-  tooltip?: CommonChartProps['tooltip'];
-  /** 图表高度 */
-  height?: number;
-  /** 图表宽度 */
-  width?: number;
+export interface HideAxesStackBarProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
+  color?: string[];
+  /**
+   * 白天判断
+   * @default [6, 18]
+   */
+  daytime?: [number, number];
   /**
    * X
    * @default time
@@ -33,9 +32,12 @@ export interface HideAxesStackBarProps {
    * @default 6
    */
   barWidth?: number;
-  /**
-   * 图表主题
-   */
-  theme?: CommonChartProps['theme'];
-  crosshair?: CommonChartProps['crosshair'];
+  /** 显示参考面积图 */
+  showReference?: boolean;
+  /** 参考面积图配置 */
+  referenceSerie?: Partial<Omit<IAreaSeriesSpec, 'data'>>;
 }
+
+export {
+  IAreaSeriesSpec,
+};

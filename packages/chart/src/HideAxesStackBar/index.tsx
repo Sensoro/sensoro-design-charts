@@ -1,16 +1,26 @@
+import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
 import type { HideAxesStackBarProps } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React, { useMemo } from 'react';
-import { defaultProps, defaultTooltip } from './config';
-import { getDefaultCrosshair, getDefaultSeries, transformData } from './utils';
+import { defaultColor, defaultProps, defaultTooltip } from './config';
+import {
+  getDefaultCrosshair,
+  getDefaultSeries,
+  getReferenceData,
+  getReferenceSerie,
+  transformData,
+} from './utils';
 
 export function HideAxesStackBar(props: HideAxesStackBarProps) {
   const {
     barWidth = 6,
     data,
+    color = defaultColor,
     xField = 'time',
     yField = 'value',
+    showReference = false,
+    referenceSerie,
     tooltip,
     crosshair,
     ...rest
@@ -46,6 +56,38 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
     [crosshair, barWidth],
   );
 
+  const referenceSeries = useMemo<IAreaSeriesSpec[]>(
+    () => {
+      if (!data || !data.length || !showReference) {
+        return [];
+      }
+
+      const referenceData = getReferenceData({
+        data,
+        xField,
+        yField,
+      });
+
+      if (referenceData.length === 0) {
+        return [];
+      }
+
+      const defaultReferenceSerie = getReferenceSerie({
+        xField,
+        yField,
+      });
+
+      return [
+        merge(defaultReferenceSerie, referenceSerie, {
+          data: {
+            values: referenceData,
+          },
+        }),
+      ];
+    },
+    [xField, yField, referenceSerie, data, showReference],
+  );
+
   const series = getDefaultSeries({
     xField,
     yField,
@@ -58,8 +100,9 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
       {...defaultProps}
       data={dataMemo}
       tooltip={tooltipProps}
-      series={series}
+      series={[...referenceSeries, ...series]}
       crosshair={crosshairMemo}
+      color={color}
       {...rest}
     />
   );

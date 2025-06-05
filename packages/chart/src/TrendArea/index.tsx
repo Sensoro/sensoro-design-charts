@@ -64,7 +64,7 @@ export function TrendArea(props: TrendAreaProps) {
     tooltip,
   );
 
-  const referenceSeries = useMemo<IMarkAreaSpec[]>(
+  const referenceSeries = useMemo<IAreaSeriesSpec[]>(
     () => {
       if (!data || !data.length || !showReference) {
         return [];
@@ -294,7 +294,7 @@ export function TrendArea(props: TrendAreaProps) {
     <CommonChart
       color={!showReference ? colors : [referenceColor, ...colors!]}
       data={dataList}
-      series={[...referenceSeries, ...series] as IAreaSeriesSpec[]}
+      series={[...referenceSeries, ...series]}
       axes={[yAxesData, xAxesData]}
       crosshair={mode === 'default' ? defaultCrosshair : defaultSelectModeCrosshair}
       tooltip={tooltipProps}

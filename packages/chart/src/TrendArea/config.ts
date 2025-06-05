@@ -36,7 +36,7 @@ export const defaultXAxes: ICartesianAxisSpec = {
 
 export const defaultYAxes: ICartesianAxisSpec = {
   orient: 'left',
-  seriesIndex: [0, 1, 2, 3, 4, 5, 6],
+  seriesIndex: [0, 1, 2, 3, 4, 5],
   label: {
     formatter: '{label:,.0f}',
   },
@@ -84,6 +84,7 @@ export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
   {
     xField: {
       visible: true,
+      zIndex: 100,
       line: {
         type: 'line',
         width: 1,
@@ -97,8 +98,8 @@ export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
   {
     xField: {
       visible: true,
+      zIndex: 100,
       line: {
-        zIndex: 100,
         type: 'rect',
         width: 24,
         style: {
