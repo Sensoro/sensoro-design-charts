@@ -1,4 +1,5 @@
-import { TrendArea } from '@sensoro-design/chart';
+import { hyphenPointPath, TrendArea } from '@sensoro-design/chart';
+import { colorBlue2, colorGreen2 } from '@sensoro-design/chart-theme';
 import reactDom from 'react-dom/client';
 
 function Example() {
@@ -18,7 +19,6 @@ function Example() {
           } as any,
         },
       }}
-      showReference={false}
       selectTime={[3, 19]}
       data={[
         { date: 0, value: 5855 },
@@ -54,6 +54,51 @@ function Example() {
               return datum?.value;
             },
           },
+        },
+      }}
+      legends={{
+        visible: true,
+        interactive: false,
+        item: {
+          spaceCol: 24,
+          shape: {
+            style: {
+              size: 10,
+              symbolType: hyphenPointPath,
+              dy: -4,
+            },
+          },
+        },
+        data: (list) => {
+          const dayItem = list.find(item => item.label.includes('day'))!;
+          const nightItem = list.find(item => item.label.includes('night'))!;
+
+          return [
+            {
+              ...nightItem,
+              label: '夜晚',
+              shape: {
+                ...dayItem.shape,
+                fill: colorBlue2,
+              },
+            },
+            {
+              ...dayItem,
+              label: '白天',
+              shape: {
+                ...dayItem.shape,
+                fill: colorGreen2,
+              },
+            },
+            {
+              ...dayItem,
+              label: '出行参考',
+              shape: {
+                ...dayItem.shape,
+                fill: '#AAB0BA',
+              },
+            },
+          ];
         },
       }}
     />

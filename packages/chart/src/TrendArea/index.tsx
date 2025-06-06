@@ -138,6 +138,7 @@ export function TrendArea(props: TrendAreaProps) {
           const colorVal = color.find(item => item.isNight === isNight && item.disabled === disabled)?.color;
 
           const areaSeriesSpec: IAreaSeriesSpec = {
+            id: `${index}_${isNight ? '_night' : '_day'}`,
             type: 'area',
             dataIndex: index,
             xField,

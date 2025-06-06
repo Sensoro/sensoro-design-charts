@@ -48,6 +48,7 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
   const { xField, yField } = params;
 
   return {
+    id: 'reference',
     type: 'area',
     data: {
       values: [],
