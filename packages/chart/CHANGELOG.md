@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.2
+
+### Patch Changes
+
+- showReference 默认值修改为 true
+
 ## 1.7.1
 
 ### Patch Changes
