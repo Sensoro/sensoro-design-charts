@@ -7,6 +7,7 @@ function Example() {
       title={{
         text: '自定义 Field',
       }}
+      showReference={false}
       mode="select"
       selectTime={[3, 19]}
       xField="hour"

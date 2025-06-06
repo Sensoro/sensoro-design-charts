@@ -4,6 +4,7 @@ function Example() {
   return (
     <TrendArea
       height={400}
+      showReference={false}
       selectTime={[3, 19]}
       data={[
         { date: 0, value: 5855 },

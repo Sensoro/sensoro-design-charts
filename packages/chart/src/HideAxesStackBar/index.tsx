@@ -26,7 +26,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
     xField = 'time',
     yField = 'value',
     daytime = defaultDaytime,
-    showReference = false,
+    showReference = true,
     referenceSerie,
     tooltip,
     crosshair,

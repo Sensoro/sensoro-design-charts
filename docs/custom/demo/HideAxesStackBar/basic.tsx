@@ -4,6 +4,7 @@ import { HideAxesStackBar } from '@sensoro-design/chart';
 function Example() {
   const spec: HideAxesStackBarProps = {
     background: '#161D2A',
+    showReference: false,
     data: [
       { time: 0, select: false },
       { time: 1, select: false },

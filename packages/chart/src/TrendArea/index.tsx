@@ -44,7 +44,7 @@ export function TrendArea(props: TrendAreaProps) {
     yField = 'value',
     xAxes,
     yAxes,
-    showReference = false,
+    showReference = true,
     referenceSerie,
     selectTime,
     daytime = defaultDaytime,
