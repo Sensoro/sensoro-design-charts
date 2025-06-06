@@ -1,7 +1,13 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { ICartesianAxisSpec } from '@visactor/vchart/esm/component/axis/cartesian/interface';
-import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
-import type { Datum, IGradient } from '@visactor/vchart/esm/typings';
+import type {
+  Datum,
+  IAreaSeriesSpec,
+  ICartesianAxisSpec,
+  IGradient,
+  IMarkAreaSpec,
+  IMarkLineSpec,
+  IMarkPointSpec,
+} from '../types';
 
 export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
   data?: Datum[];
@@ -35,4 +41,7 @@ export {
   IAreaSeriesSpec,
   ICartesianAxisSpec,
   IGradient,
+  IMarkAreaSpec,
+  IMarkLineSpec,
+  IMarkPointSpec,
 };

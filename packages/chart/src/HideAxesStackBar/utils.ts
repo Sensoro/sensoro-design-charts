@@ -1,6 +1,10 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { ICartesianCrosshairSpec } from '@visactor/vchart/esm/component/crosshair/interface';
-import type { DataItem, HideAxesStackBarProps, IAreaSeriesSpec } from './types';
+import type {
+  DataItem,
+  HideAxesStackBarProps,
+  IAreaSeriesSpec,
+  ICartesianCrosshairSpec,
+} from './types';
 import { colorBlue2 } from '@sensoro-design/chart-theme';
 import { floor } from 'es-toolkit/compat';
 import { defaultReferenceData } from './config';

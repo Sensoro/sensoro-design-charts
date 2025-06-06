@@ -56,25 +56,9 @@ export type { TrendAreaProps } from './TrendArea';
 export { TwoStateArea } from './TwoStateArea';
 export type { TwoStateAreaProps } from './TwoStateArea';
 
+export * from './types';
+
 export { default as WordCloud } from './WordCloud';
 export type { WordCloudProps } from './WordCloud';
 
 export { VChart as VChartCore } from '@visactor/vchart';
-export type {
-  BaseEventParams,
-  IMarkAreaSpec,
-  IMarkLineSpec,
-  IMarkPointSpec,
-  ITheme,
-  IVChart,
-} from '@visactor/vchart';
-export type {
-  ISankeyLabelSpec,
-  SankeyLinkElement,
-  SankeyNodeDatum,
-  SankeyNodeElement,
-} from '@visactor/vchart/esm/series/sankey/interface';
-export type {
-  Datum,
-  IGradient,
-} from '@visactor/vchart/esm/typings';

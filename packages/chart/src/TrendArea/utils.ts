@@ -1,6 +1,10 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { IMarkLineSpec, IMarkPointSpec } from '@visactor/vchart';
-import type { IAreaSeriesSpec, TrendAreaProps } from './types';
+import type {
+  IAreaSeriesSpec,
+  IMarkLineSpec,
+  IMarkPointSpec,
+  TrendAreaProps,
+} from './types';
 import { colorBlue2, colorGreyPro09, colorWhite } from '@sensoro-design/chart-theme';
 import { merge } from '@visactor/vutils';
 import { take } from 'es-toolkit/array';

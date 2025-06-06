@@ -1,5 +1,4 @@
-import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
-import type { HideAxesStackBarProps } from './types';
+import type { HideAxesStackBarProps, IAreaSeriesSpec } from './types';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
 import React, { useMemo } from 'react';

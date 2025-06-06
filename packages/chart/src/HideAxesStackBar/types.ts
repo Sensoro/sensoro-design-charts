@@ -1,5 +1,5 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { IAreaSeriesSpec } from '@visactor/vchart/esm/series/area/interface';
+import type { IAreaSeriesSpec, ICartesianCrosshairSpec } from '../types';
 
 export interface DataItem {
   time: string | number;
@@ -40,4 +40,5 @@ export interface HideAxesStackBarProps extends Omit<CommonChartProps, 'data' | '
 
 export {
   IAreaSeriesSpec,
+  ICartesianCrosshairSpec,
 };

@@ -1,5 +1,11 @@
-import type { IMarkAreaSpec, IMarkLineSpec, IMarkPointSpec } from '@visactor/vchart';
-import type { Datum, IAreaSeriesSpec, TrendAreaProps } from './types';
+import type {
+  Datum,
+  IAreaSeriesSpec,
+  IMarkAreaSpec,
+  IMarkLineSpec,
+  IMarkPointSpec,
+  TrendAreaProps,
+} from './types';
 import { useGetState } from '@rcuse/core';
 import { colorBlue06, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
 import { CommonChart } from '@visactor/react-vchart';
