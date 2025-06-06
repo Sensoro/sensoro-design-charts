@@ -1,5 +1,13 @@
 # @sensoro-design/chart
 
+## 1.7.3
+
+### Patch Changes
+
+- 图例支持
+- Updated dependencies
+  - @sensoro-design/chart-theme@1.0.11
+
 ## 1.7.2
 
 ### Patch Changes
