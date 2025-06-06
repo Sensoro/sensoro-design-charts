@@ -4,6 +4,12 @@ import { HideAxesStackBar } from '@sensoro-design/chart';
 function Example() {
   const spec: HideAxesStackBarProps = {
     background: '#161D2A',
+    padding: {
+      top: 24,
+      bottom: 16,
+      left: 20,
+      right: 20,
+    },
     data: [
       { time: 0, select: false },
       { time: 1, select: false },
@@ -44,8 +50,27 @@ function Example() {
     },
     legends: {
       visible: true,
+      padding: {
+        top: 16,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
       type: 'discrete',
       interactive: false,
+      item: {
+        spaceCol: 20,
+        padding: 0,
+        shape: {
+          space: 8,
+        },
+        label: {
+          style: {
+            fill: '#546789',
+          },
+        },
+      },
+      clip: true,
       data: (list) => {
         const items = list
           .filter((item) => {
@@ -72,6 +97,7 @@ function Example() {
     },
     height: 150,
     width: 400,
+    theme: 'sensoroDesignDarkMini',
   };
 
   return (
