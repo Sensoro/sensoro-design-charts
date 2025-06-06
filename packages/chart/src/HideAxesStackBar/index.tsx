@@ -6,7 +6,7 @@ import type {
 import { colorBlue2, colorGreen2 } from '@sensoro-design/chart-theme';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import { flatten, uniq } from 'es-toolkit/array';
+import { flatten } from 'es-toolkit/array';
 import React, { useMemo } from 'react';
 import { defaultColor, defaultProps, defaultTooltip } from './config';
 import {
@@ -46,19 +46,20 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
 
   const { dataList, series, colors } = useMemo(
     () => {
-      const times = uniq([...daytime, 0, 23]).sort((a, b) => a - b);
-
-      const items: {
-        times: [number, number];
-        isNight: boolean;
-      }[] = [];
-
-      for (let i = 0; i < times.length - 1; i++) {
-        items.push({
-          times: [times[i], times[i + 1]],
-          isNight: !(times[i] >= daytime[0] && times[i + 1] <= daytime[1]),
-        });
-      }
+      const items = [
+        {
+          times: [0, daytime[0] - 1],
+          isNight: true,
+        },
+        {
+          times: [daytime[0], daytime[1]],
+          isNight: false,
+        },
+        {
+          times: [daytime[1] + 1, 23],
+          isNight: true,
+        },
+      ];
 
       const dataList = flatten(
         items.map((item) => {
@@ -80,8 +81,6 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
           ];
         }),
       );
-
-      // console.log(dataList);
 
       const series = flatten(
         items.map(({ isNight }, index) => {
