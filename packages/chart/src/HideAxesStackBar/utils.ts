@@ -142,20 +142,39 @@ interface GetReferenceDataProps {
 export function getReferenceData(props: GetReferenceDataProps) {
   const { data = [], xField, yField } = props;
   const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
+  const actualData = data.map(item => item[yField]);
+  const actualresult = getNumberArrayMaxIndexAndValue(actualData);
   const datum = data[result.index];
 
-  if (!Number.isFinite(datum?.[yField]) || datum?.[yField] === 0) {
-    return getByActualData();
-  }
-  else {
+  if (
+    datum?.[yField] < defaultReferenceData[result.index]
+    && actualresult.max < defaultReferenceData[actualresult.index]
+  ) {
     return getByDefaultData();
   }
 
+  if (datum?.[yField] === 0) {
+    return getByActualMaxData();
+  }
+  else {
+    return getByDefaultMaxData();
+  }
+
+  function getByDefaultData() {
+    return defaultReferenceData.map((item, index) => {
+      return {
+        [xField]: index,
+        [yField]: item + 4,
+      };
+    });
+  }
+
   // 以实际数据最大值计算
-  function getByActualData() {
-    const dataValues = data.map(item => item[yField] || 0);
-    const result = getNumberArrayMaxIndexAndValue(dataValues);
-    const scale = result.max / defaultReferenceData[result.index];
+  function getByActualMaxData() {
+    const scale = actualresult.max / defaultReferenceData[actualresult.index];
+    if (!Number.isFinite(scale)) {
+      return getByDefaultData();
+    }
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
@@ -168,8 +187,12 @@ export function getReferenceData(props: GetReferenceDataProps) {
   }
 
   // 以默认数据最大值计算
-  function getByDefaultData() {
+  function getByDefaultMaxData() {
     const scale = datum[yField] / result.max;
+    if (!Number.isFinite(scale)) {
+      return getByDefaultData();
+    }
+
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
