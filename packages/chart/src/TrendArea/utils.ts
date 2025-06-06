@@ -185,6 +185,17 @@ export function getReferenceData(props: GetReferenceDataProps) {
     datum?.[yField] <= defaultReferenceData[result.index]
     && actualresult.max <= defaultReferenceData[actualresult.index]
   ) {
+    return getByDefaultData();
+  }
+
+  if (datum?.[yField] === 0) {
+    return getByActualMaxData();
+  }
+  else {
+    return getByDefaultMaxData();
+  }
+
+  function getByDefaultData() {
     return defaultReferenceData.map((item, index) => {
       return {
         [xField]: index,
@@ -193,16 +204,12 @@ export function getReferenceData(props: GetReferenceDataProps) {
     });
   }
 
-  if (datum?.[yField] === 0) {
-    return getByActualData();
-  }
-  else {
-    return getByDefaultData();
-  }
-
   // 以实际数据最大值计算
-  function getByActualData() {
-    const scale = result.max / defaultReferenceData[actualresult.index];
+  function getByActualMaxData() {
+    const scale = actualresult.max / defaultReferenceData[actualresult.index];
+    if (!Number.isFinite(scale)) {
+      return getByDefaultData();
+    }
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
@@ -215,8 +222,11 @@ export function getReferenceData(props: GetReferenceDataProps) {
   }
 
   // 以默认数据最大值计算
-  function getByDefaultData() {
+  function getByDefaultMaxData() {
     const scale = datum[yField] / result.max;
+    if (!Number.isFinite(scale)) {
+      return getByDefaultData();
+    }
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
