@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.1
+
+### Patch Changes
+
+- HideAxesStackBar 支持参考及白天黑夜
+
 ## 1.7.0
 
 ### Minor Changes
