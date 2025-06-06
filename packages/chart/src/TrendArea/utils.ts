@@ -177,7 +177,21 @@ interface GetReferenceDataProps {
 export function getReferenceData(props: GetReferenceDataProps) {
   const { data = [], xField, yField } = props;
   const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
+  const actualData = data.map(item => item[yField]);
+  const actualresult = getNumberArrayMaxIndexAndValue(actualData);
   const datum = data[result.index];
+
+  if (
+    datum?.[yField] <= defaultReferenceData[result.index]
+    && actualresult.max <= defaultReferenceData[actualresult.index]
+  ) {
+    return defaultReferenceData.map((item, index) => {
+      return {
+        [xField]: index,
+        [yField]: item,
+      };
+    });
+  }
 
   if (datum?.[yField] === 0) {
     return getByActualData();
@@ -188,9 +202,7 @@ export function getReferenceData(props: GetReferenceDataProps) {
 
   // 以实际数据最大值计算
   function getByActualData() {
-    const dataValues = data.map(item => item[yField]);
-    const result = getNumberArrayMaxIndexAndValue(dataValues);
-    const scale = result.max / defaultReferenceData[result.index];
+    const scale = result.max / defaultReferenceData[actualresult.index];
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
