@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.4
+
+### Patch Changes
+
+- TrendArea 支持图例
+
 ## 1.7.3
 
 ### Patch Changes
