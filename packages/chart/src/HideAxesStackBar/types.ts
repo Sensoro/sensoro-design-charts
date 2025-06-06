@@ -1,5 +1,9 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { IAreaSeriesSpec, ICartesianCrosshairSpec } from '../types';
+import type {
+  IAreaSeriesSpec,
+  IBarSeriesSpec,
+  ICartesianCrosshairSpec,
+} from '../types';
 
 export interface DataItem {
   time: string | number;
@@ -8,8 +12,14 @@ export interface DataItem {
   [key: string]: any;
 }
 
+export interface Color {
+  isNight?: boolean;
+  isReference?: boolean;
+  color: string;
+}
+
 export interface HideAxesStackBarProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
-  color?: string[];
+  color?: Color[];
   /**
    * 白天判断
    * @default [6, 18]
@@ -40,5 +50,6 @@ export interface HideAxesStackBarProps extends Omit<CommonChartProps, 'data' | '
 
 export {
   IAreaSeriesSpec,
+  IBarSeriesSpec,
   ICartesianCrosshairSpec,
 };

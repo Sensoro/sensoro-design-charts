@@ -9,15 +9,17 @@ import type {
   IMarkPointSpec,
 } from '../types';
 
+export interface Color {
+  isNight?: boolean;
+  disabled?: boolean;
+  isReference?: boolean;
+  color: string;
+}
+
 export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
   data?: Datum[];
   mode?: 'default' | 'select';
-  color?: {
-    isNight?: boolean;
-    disabled?: boolean;
-    isReference?: boolean;
-    color: string;
-  }[];
+  color?: Color[];
   /** x 字段 */
   xField?: string;
   /** y 字段 */

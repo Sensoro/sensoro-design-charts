@@ -1,6 +1,12 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { ICartesianCrosshairSpec } from './types';
-import { colorBlue2 } from '@sensoro-design/chart-theme';
+import type { Color, ICartesianCrosshairSpec } from './types';
+import { colorBlue2, colorGreen2 } from '@sensoro-design/chart-theme';
+
+export const defaultColor: Color[] = [
+  { isNight: false, color: colorGreen2 },
+  { isNight: true, color: colorBlue2 },
+  { isReference: true, color: '#314059' },
+];
 
 export const defaultTooltip: CommonChartProps['tooltip'] = {
   mark: {
@@ -12,8 +18,6 @@ export const defaultTooltip: CommonChartProps['tooltip'] = {
     },
   },
 };
-
-export const defaultColor = ['#314059', colorBlue2, colorBlue2];
 
 export const defaultProps: CommonChartProps = {
   axes: [

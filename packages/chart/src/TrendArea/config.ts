@@ -1,5 +1,5 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
-import type { IAreaSeriesSpec, ICartesianAxisSpec, IGradient } from './types';
+import type { Color, IAreaSeriesSpec, ICartesianAxisSpec, IGradient } from './types';
 import { colorBlue2, colorBlue06, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
@@ -42,7 +42,7 @@ export const defaultYAxes: ICartesianAxisSpec = {
   },
 };
 
-export const defaultColor = [
+export const defaultColor: Color[] = [
   { isNight: false, disabled: false, color: colorGreen2 },
   { isNight: false, disabled: true, color: '#AEEAD8' },
   { isNight: true, disabled: false, color: colorBlue2 },

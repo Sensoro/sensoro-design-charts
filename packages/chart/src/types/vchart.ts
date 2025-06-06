@@ -16,6 +16,9 @@ export type {
   IAreaSeriesSpec,
 } from '@visactor/vchart/esm/series/area/interface';
 export type {
+  IBarSeriesSpec,
+} from '@visactor/vchart/esm/series/bar/interface';
+export type {
   ISankeyLabelSpec,
   SankeyLinkElement,
   SankeyNodeDatum,
