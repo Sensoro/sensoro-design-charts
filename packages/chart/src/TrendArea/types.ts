@@ -16,7 +16,7 @@ export interface Color {
   color: string;
 }
 
-export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
+export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color' | 'onDimensionClick'> {
   data?: Datum[];
   mode?: 'default' | 'select';
   color?: Color[];
@@ -36,6 +36,11 @@ export interface TrendAreaProps extends Omit<CommonChartProps, 'data' | 'xField'
   daytime?: [number, number];
   /** 选择的时间 */
   selectTime?: [number, number];
+  defaultSelectValue?: Datum | null;
+  onDimensionClick?: (e: {
+    data: Datum;
+    select?: boolean;
+  }) => void;
 }
 
 export {

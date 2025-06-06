@@ -1,3 +1,4 @@
+import type { CommonChartProps } from '@visactor/react-vchart';
 import type {
   Datum,
   IAreaSeriesSpec,
@@ -50,13 +51,14 @@ export function TrendArea(props: TrendAreaProps) {
     color = defaultColor,
     data,
     tooltip,
+    defaultSelectValue = null,
     onDimensionClick,
     ...rest
   } = props;
 
   const timeoutRef = useRef<NodeJS.Timeout>();
   const [, setFirstSelect, getFirstSelect] = useGetState(true);
-  const [, setSelectVal, getSelectVal] = useGetState<Datum | null>(null);
+  const [, setSelectVal, getSelectVal] = useGetState<Datum | null>(defaultSelectValue);
   const [markLine, setMarkLine] = useState<IMarkLineSpec[]>([]);
   const [markPoint, setMarkPoint] = useState<IMarkPointSpec[]>([]);
   const referenceColor = color.find(item => item.isReference)?.color || colorGrey04;
@@ -269,8 +271,7 @@ export function TrendArea(props: TrendAreaProps) {
     setMarkPoint(markPoint);
   };
 
-  const handleDimensionClick: TrendAreaProps['onDimensionClick'] = (e) => {
-    onDimensionClick?.(e);
+  const handleDimensionClick: CommonChartProps['onDimensionClick'] = (e) => {
     if (Array.isArray(selectTime) && selectTime.length === 2 && mode === 'select') {
       const dimensionInfo = e.dimensionInfo[0];
       const value = dimensionInfo.value;
@@ -281,9 +282,17 @@ export function TrendArea(props: TrendAreaProps) {
         if (datum) {
           if (getSelectVal()?.[yField] === value) {
             setSelectVal(null);
+            onDimensionClick?.({
+              data: datum,
+              select: false,
+            });
           }
           else {
             setSelectVal(datum);
+            onDimensionClick?.({
+              data: datum,
+              select: true,
+            });
           }
         }
 
