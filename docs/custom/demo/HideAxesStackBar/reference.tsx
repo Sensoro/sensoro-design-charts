@@ -42,6 +42,34 @@ function Example() {
         },
       },
     },
+    legends: {
+      visible: true,
+      type: 'discrete',
+      interactive: false,
+      data: (list) => {
+        const items = list
+          .filter((item) => {
+            return !item.label.includes('hide');
+          });
+
+        const referenceItem = items.find(item => item.label.includes('reference'))!;
+        const dayItem = items.find(item => item.label.includes('day'))!;
+        const nightItem = items.find(item => item.label.includes('night'))!;
+
+        return [
+          { ...nightItem, label: '夜晚' },
+          { ...dayItem, label: '白天' },
+          {
+            ...dayItem,
+            label: '出行参考',
+            shape: {
+              ...dayItem.shape,
+              fill: referenceItem.shape.stroke,
+            },
+          },
+        ];
+      },
+    },
     height: 150,
     width: 400,
   };

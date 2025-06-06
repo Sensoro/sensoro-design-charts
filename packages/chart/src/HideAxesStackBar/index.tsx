@@ -86,6 +86,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
         items.map(({ isNight }, index) => {
           const list: IBarSeriesSpec[] = [
             {
+              id: `${2 * index + 1}_hide`,
               type: 'bar',
               dataIndex: 2 * index,
               stack: true,
@@ -108,6 +109,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
               barWidth,
             },
             {
+              id: `${2 * index + 2}${isNight ? '_night' : '_day'}${index === 0 ? '_hide' : ''}`,
               type: 'bar',
               dataIndex: 2 * index + 1,
               stack: true,
