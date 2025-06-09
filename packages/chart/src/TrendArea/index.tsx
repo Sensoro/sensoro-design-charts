@@ -303,6 +303,17 @@ export function TrendArea(props: TrendAreaProps) {
   };
 
   useEffect(() => {
+    if (defaultSelectValue) {
+      const handler = () => {
+        handleChangeMarkLine();
+      };
+
+      handler();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     timeoutRef.current && clearTimeout(timeoutRef.current);
   }, []);
 
