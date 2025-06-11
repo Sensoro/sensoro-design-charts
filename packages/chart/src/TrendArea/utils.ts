@@ -177,25 +177,20 @@ interface GetReferenceDataProps {
 
 export function getReferenceData(props: GetReferenceDataProps) {
   const { data = [], xField, yField } = props;
-  const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
-  const actualData = data.map(item => item[yField]);
-  const actualresult = getNumberArrayMaxIndexAndValue(actualData);
-  const datum = data[result.index];
 
-  if (
-    datum?.[yField] <= defaultReferenceData[result.index]
-    && actualresult.max <= defaultReferenceData[actualresult.index]
-  ) {
-    return getByDefaultData();
+  let referenceData = getByActualMaxData();
+
+  if (referenceData.length === 0) {
+    referenceData = getByDefaultMaxData();
   }
 
-  if (datum?.[yField] === 0) {
-    return getByActualMaxData();
-  }
-  else {
-    return getByDefaultMaxData();
+  if (referenceData.length === 0) {
+    referenceData = getByDefaultData();
   }
 
+  return referenceData;
+
+  // 直接使用默认值
   function getByDefaultData() {
     return defaultReferenceData.map((item, index) => {
       return {
@@ -205,12 +200,20 @@ export function getReferenceData(props: GetReferenceDataProps) {
     });
   }
 
-  // 以实际数据最大值计算
+  // 以真实数据最大值计算
   function getByActualMaxData() {
-    const scale = actualresult.max / defaultReferenceData[actualresult.index];
-    if (!Number.isFinite(scale)) {
-      return getByDefaultData();
+    const list = data.map(item => item[yField] || 0);
+    const result = getNumberArrayMaxIndexAndValue(list);
+    const scale = result.max / defaultReferenceData[result.index];
+
+    if (
+      !Number.isFinite(scale)
+      || result.max === 0
+      || result.max <= defaultReferenceData[result.index]
+    ) {
+      return [];
     }
+
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
@@ -224,10 +227,18 @@ export function getReferenceData(props: GetReferenceDataProps) {
 
   // 以默认数据最大值计算
   function getByDefaultMaxData() {
+    const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
+    const datum = data[result.index];
     const scale = datum[yField] / result.max;
-    if (!Number.isFinite(scale)) {
-      return getByDefaultData();
+
+    if (
+      !Number.isFinite(scale)
+      || datum?.[yField] === 0
+      || datum?.[yField] <= defaultReferenceData[result.index]
+    ) {
+      return [];
     }
+
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
       return {
