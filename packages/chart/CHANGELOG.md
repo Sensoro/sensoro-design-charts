@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.5
+
+### Patch Changes
+
+- 修复 defaultSelectValue 无效及参考值计算逻辑调整
+
 ## 1.7.4
 
 ### Patch Changes
