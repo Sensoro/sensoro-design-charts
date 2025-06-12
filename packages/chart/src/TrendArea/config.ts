@@ -1,6 +1,6 @@
 import type { CommonChartProps } from '@visactor/react-vchart';
 import type { Color, IAreaSeriesSpec, ICartesianAxisSpec, IGradient } from './types';
-import { colorBlue2, colorBlue06, colorGreen2, colorGrey04 } from '@sensoro-design/chart-theme';
+import { colorBlue2, colorBlue06, colorGreen2, colorGrey10 } from '@sensoro-design/chart-theme';
 
 export const defaultPoint: NonNullable<IAreaSeriesSpec['point']> = {
   style: {
@@ -47,7 +47,7 @@ export const defaultColor: Color[] = [
   { isNight: false, disabled: true, color: '#AEEAD8' },
   { isNight: true, disabled: false, color: colorBlue2 },
   { isNight: true, disabled: true, color: '#C5D7F9' },
-  { isReference: true, color: colorGrey04 },
+  { isReference: true, color: colorGrey10 },
 ];
 
 export const defaultCrosshair: CommonChartProps['crosshair'] = [
@@ -56,6 +56,9 @@ export const defaultCrosshair: CommonChartProps['crosshair'] = [
       visible: true,
       line: {
         type: 'line',
+        style: {
+          lineWidth: 1,
+        },
       },
     },
     followTooltip: true,
@@ -89,6 +92,7 @@ export const defaultSelectModeCrosshair: CommonChartProps['crosshair'] = [
         type: 'line',
         width: 1,
         style: {
+          lineWidth: 1,
           stroke: colorBlue06,
         },
       },

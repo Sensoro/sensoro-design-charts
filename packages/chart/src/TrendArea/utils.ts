@@ -74,7 +74,7 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
       style: {
         lineDash: [2, 4],
         lineCap: 'square',
-        strokeOpacity: 1,
+        strokeOpacity: 0.15,
       },
     },
     area: {
@@ -89,7 +89,7 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
           stops: [
             {
               offset: 0,
-              opacity: 0.25,
+              opacity: 0.05,
             },
             {
               offset: 1,

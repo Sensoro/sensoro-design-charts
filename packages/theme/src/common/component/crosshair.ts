@@ -11,7 +11,6 @@ export const crosshair: ICrosshairTheme = {
         },
         opacity: 1,
         strokeOpacity: 1,
-        lineWidth: 1,
         lineDash: [3, 2],
       },
     },
