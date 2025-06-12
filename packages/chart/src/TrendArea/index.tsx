@@ -189,9 +189,23 @@ export function TrendArea(props: TrendAreaProps) {
       if (Array.isArray(selectTime) && selectTime.length === 2) {
         const times = uniq([...selectTime, 0, 23]).sort((a, b) => a - b);
 
-        const markAreas: IMarkAreaSpec[] = [];
+        const items: {
+          times: [number, number];
+          disabled: boolean;
+        }[] = [];
 
         for (let i = 0; i < times.length - 1; i++) {
+          items.push({
+            times: [times[i], times[i + 1]],
+            disabled: !(times[i] >= selectTime[0] && times[i + 1] <= selectTime[1]),
+          });
+        }
+
+        const markAreas: IMarkAreaSpec[] = [];
+
+        for (let i = 0; i < items.length; i++) {
+          const { disabled } = items[i];
+
           markAreas.push({
             x: times[i],
             x1: times[i + 1],
@@ -201,7 +215,7 @@ export function TrendArea(props: TrendAreaProps) {
                 fillOpacity: 0,
                 cursor:
                   mode === 'select'
-                    ? (i === 1 ? 'pointer' : 'not-allowed')
+                    ? (disabled ? 'not-allowed' : 'pointer')
                     : 'default',
               },
             },
