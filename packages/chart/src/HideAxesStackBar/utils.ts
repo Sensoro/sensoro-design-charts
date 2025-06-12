@@ -139,27 +139,25 @@ interface GetReferenceDataProps {
   yField: string;
 }
 
+/**
+ * 获取参考数据，根据默认值及真实值最大值计算比例
+ * @param props
+ */
 export function getReferenceData(props: GetReferenceDataProps) {
   const { data = [], xField, yField } = props;
-  const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
-  const actualData = data.map(item => item[yField]);
-  const actualresult = getNumberArrayMaxIndexAndValue(actualData);
-  const datum = data[result.index];
+  const actualData = data.map(item => item[yField] || 0);
+  const actualMax = Math.max(...actualData);
+  const defaultMax = Math.max(...defaultReferenceData);
 
-  if (
-    datum?.[yField] < defaultReferenceData[result.index]
-    && actualresult.max < defaultReferenceData[actualresult.index]
-  ) {
-    return getByDefaultData();
+  let referenceData = getByActualAndDefaultMaxData();
+
+  if (referenceData.length === 0) {
+    referenceData = getByDefaultData();
   }
 
-  if (datum?.[yField] === 0) {
-    return getByActualMaxData();
-  }
-  else {
-    return getByDefaultMaxData();
-  }
+  return referenceData;
 
+  // 直接使用默认值
   function getByDefaultData() {
     return defaultReferenceData.map((item, index) => {
       return {
@@ -169,32 +167,20 @@ export function getReferenceData(props: GetReferenceDataProps) {
     });
   }
 
-  // 以实际数据最大值计算
-  function getByActualMaxData() {
-    const scale = actualresult.max / defaultReferenceData[actualresult.index];
-    if (!Number.isFinite(scale)) {
-      return getByDefaultData();
-    }
-    const referenceData = defaultReferenceData.map((item, index) => {
-      const value = floor(item * scale);
-      return {
-        [xField]: index,
-        [yField]: value + 4,
-      };
-    });
+  // 以真实数据最大值&默认数据最大值计算
+  function getByActualAndDefaultMaxData() {
+    const scale = actualMax / defaultMax;
 
-    return referenceData;
-  }
-
-  // 以默认数据最大值计算
-  function getByDefaultMaxData() {
-    const scale = datum[yField] / result.max;
-    if (!Number.isFinite(scale)) {
-      return getByDefaultData();
+    if (
+      !Number.isFinite(scale)
+      || actualMax <= defaultMax
+    ) {
+      return [];
     }
 
     const referenceData = defaultReferenceData.map((item, index) => {
       const value = floor(item * scale);
+
       return {
         [xField]: index,
         [yField]: value + 4,
