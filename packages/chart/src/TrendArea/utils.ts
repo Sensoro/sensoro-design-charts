@@ -158,31 +158,23 @@ export function getMarkPoint(opts: Partial<IMarkPointSpec> = {}): IMarkPointSpec
   }, opts);
 }
 
-export function getNumberArrayMaxIndexAndValue(list: number[]) {
-  const max = Math.max(...list);
-
-  const index = list.findIndex((item: number) => item === max);
-
-  return {
-    index,
-    max,
-  };
-}
-
 interface GetReferenceDataProps {
   data: TrendAreaProps['data'];
   xField: string;
   yField: string;
 }
 
+/**
+ * 获取参考数据，根据默认值及真实值最大值计算比例
+ * @param props
+ */
 export function getReferenceData(props: GetReferenceDataProps) {
   const { data = [], xField, yField } = props;
+  const actualData = data.map(item => item[yField] || 0);
+  const actualMax = Math.max(...actualData);
+  const defaultMax = Math.max(...defaultReferenceData);
 
-  let referenceData = getByActualMaxData();
-
-  if (referenceData.length === 0) {
-    referenceData = getByDefaultMaxData();
-  }
+  let referenceData = getByActualAndDefaultMaxData();
 
   if (referenceData.length === 0) {
     referenceData = getByDefaultData();
@@ -200,41 +192,13 @@ export function getReferenceData(props: GetReferenceDataProps) {
     });
   }
 
-  // 以真实数据最大值计算
-  function getByActualMaxData() {
-    const list = data.map(item => item[yField] || 0);
-    const result = getNumberArrayMaxIndexAndValue(list);
-    const scale = result.max / defaultReferenceData[result.index];
+  // 以真实数据最大值&默认数据最大值计算
+  function getByActualAndDefaultMaxData() {
+    const scale = actualMax / defaultMax;
 
     if (
       !Number.isFinite(scale)
-      || result.max === 0
-      || result.max <= defaultReferenceData[result.index]
-    ) {
-      return [];
-    }
-
-    const referenceData = defaultReferenceData.map((item, index) => {
-      const value = floor(item * scale);
-      return {
-        [xField]: index,
-        [yField]: value,
-      };
-    });
-
-    return referenceData;
-  }
-
-  // 以默认数据最大值计算
-  function getByDefaultMaxData() {
-    const result = getNumberArrayMaxIndexAndValue(defaultReferenceData);
-    const datum = data[result.index];
-    const scale = datum[yField] / result.max;
-
-    if (
-      !Number.isFinite(scale)
-      || datum?.[yField] === 0
-      || datum?.[yField] <= defaultReferenceData[result.index]
+      || actualMax <= defaultMax
     ) {
       return [];
     }
