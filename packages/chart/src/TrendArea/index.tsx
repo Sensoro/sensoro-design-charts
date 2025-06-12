@@ -186,7 +186,7 @@ export function TrendArea(props: TrendAreaProps) {
 
   const markAreaProps = useMemo(
     () => {
-      if (Array.isArray(selectTime) && selectTime.length === 2 && mode === 'select') {
+      if (Array.isArray(selectTime) && selectTime.length === 2) {
         const times = uniq([...selectTime, 0, 23]).sort((a, b) => a - b);
 
         const markAreas: IMarkAreaSpec[] = [];
@@ -199,7 +199,10 @@ export function TrendArea(props: TrendAreaProps) {
             area: {
               style: {
                 fillOpacity: 0,
-                cursor: i === 1 ? 'pointer' : 'not-allowed',
+                cursor:
+                  mode === 'select'
+                    ? (i === 1 ? 'pointer' : 'not-allowed')
+                    : 'default',
               },
             },
           });
