@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.7
+
+### Patch Changes
+
+- 修复多个样式问题
+
 ## 1.7.6
 
 ### Patch Changes
