@@ -36,7 +36,13 @@ export function getDefaultTooltip(params: Params = {}) {
       shapeType: hyphenPointPath,
       shapeFill: colorBlue2,
       updateContent: (prev) => {
-        return take(prev!, 1);
+        const list = take(prev!, 1).map((item) => {
+          return {
+            ...item,
+            shapeFill: item.shapeStroke,
+          };
+        });
+        return list;
       },
     },
   };
