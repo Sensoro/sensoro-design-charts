@@ -2,11 +2,12 @@ import type {
   HideAxesStackBarProps,
   IAreaSeriesSpec,
   IBarSeriesSpec,
+  IMarkAreaSpec,
 } from './types';
 import { colorBlue2, colorGreen2 } from '@sensoro-design/chart-theme';
 import { CommonChart } from '@visactor/react-vchart';
 import { merge } from '@visactor/vutils';
-import { flatten } from 'es-toolkit/array';
+import { flatten, last } from 'es-toolkit/array';
 import React, { useMemo } from 'react';
 import { defaultColor, defaultProps, defaultTooltip } from './config';
 import {
@@ -188,6 +189,29 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
 
   const tooltipProps = merge(defaultTooltip, tooltip);
 
+  const markAreaProps = useMemo<IMarkAreaSpec[]>(
+    () => {
+      if (!data || !data.length) {
+        return [];
+      }
+
+      return [
+        {
+          x: data[0][xField],
+          x1: last(data)?.[xField],
+          zIndex: 1000,
+          area: {
+            style: {
+              fillOpacity: 0,
+              cursor: 'default',
+            },
+          },
+        },
+      ];
+    },
+    [data, xField],
+  );
+
   return (
     <CommonChart
       {...defaultProps}
@@ -196,6 +220,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
       series={[...referenceSeries, ...series]}
       crosshair={crosshairMemo}
       color={!showReference ? colors : [colorMap.reference, ...colors!]}
+      markArea={markAreaProps}
       {...rest}
     />
   );

@@ -3,6 +3,7 @@ import type {
   IAreaSeriesSpec,
   IBarSeriesSpec,
   ICartesianCrosshairSpec,
+  IMarkAreaSpec,
 } from '../types';
 
 export interface DataItem {
@@ -52,4 +53,5 @@ export {
   IAreaSeriesSpec,
   IBarSeriesSpec,
   ICartesianCrosshairSpec,
+  IMarkAreaSpec,
 };
