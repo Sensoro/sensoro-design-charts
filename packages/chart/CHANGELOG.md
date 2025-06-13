@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.9
+
+### Patch Changes
+
+- 修复 tooltip 展示问题
+
 ## 1.7.8
 
 ### Patch Changes
