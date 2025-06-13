@@ -20,6 +20,7 @@ export interface Color {
 }
 
 export interface HideAxesStackBarProps extends Omit<CommonChartProps, 'data' | 'xField' | 'yField' | 'color'> {
+  mode?: 'hour' | 'day';
   color?: Color[];
   /**
    * 白天判断

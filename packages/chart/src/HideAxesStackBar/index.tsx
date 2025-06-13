@@ -12,6 +12,7 @@ import React, { useMemo } from 'react';
 import { defaultColor, defaultProps, defaultTooltip } from './config';
 import {
   getDefaultCrosshair,
+  getDefaultSeries,
   getReferenceData,
   getReferenceSerie,
   transformData,
@@ -21,6 +22,7 @@ const defaultDaytime = [6, 18];
 
 export function HideAxesStackBar(props: HideAxesStackBarProps) {
   const {
+    mode = 'hour',
     barWidth = 6,
     data,
     color = defaultColor,
@@ -47,6 +49,26 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
 
   const { dataList, series, colors } = useMemo(
     () => {
+      if (mode === 'day') {
+        const list = transformData(data, {
+          xField,
+          yField,
+        });
+
+        return {
+          dataList: [
+            { values: list[0] },
+            { values: list[1] },
+          ],
+          series: getDefaultSeries({
+            xField,
+            yField,
+            barWidth,
+          }),
+          colors: [colorMap.night],
+        };
+      }
+
       const items = [
         {
           times: [0, daytime[0] - 1],
@@ -141,7 +163,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
         dataList,
       };
     },
-    [daytime, data, xField, yField, barWidth, colorMap],
+    [daytime, data, xField, yField, barWidth, colorMap, mode],
   );
 
   const crosshairMemo = useMemo(
@@ -157,7 +179,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
 
   const referenceSeries = useMemo<IAreaSeriesSpec[]>(
     () => {
-      if (!data || !data.length || !showReference) {
+      if (!data || !data.length || !showReference || mode === 'day') {
         return [];
       }
 
@@ -184,7 +206,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
         }),
       ];
     },
-    [xField, yField, referenceSerie, data, showReference],
+    [xField, yField, referenceSerie, data, showReference, mode],
   );
 
   const tooltipProps = merge(defaultTooltip, tooltip);
