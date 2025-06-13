@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.8
+
+### Patch Changes
+
+- 解决 HideAxesStackBar 多个问题
+
 ## 1.7.7
 
 ### Patch Changes
