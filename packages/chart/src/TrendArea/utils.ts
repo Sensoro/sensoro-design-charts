@@ -18,7 +18,8 @@ interface Params {
 }
 
 export function getDefaultTooltip(params: Params = {}) {
-  const { xField, yField } = params;
+  // const { xField, yField } = params;
+  const { xField } = params;
 
   const tooltip: CommonChartProps['tooltip'] = {
     mark: {
@@ -31,7 +32,7 @@ export function getDefaultTooltip(params: Params = {}) {
         },
       },
       content: {
-        valueFormatter: `{${yField}:,.0f}`,
+        // valueFormatter: `{${yField}:,.0f}`,
       },
       shapeType: hyphenPointPath,
       shapeFill: colorBlue2,
