@@ -111,6 +111,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
             {
               id: `${2 * index + 1}_hide`,
               type: 'bar',
+              zIndex: 100,
               dataIndex: 2 * index,
               stack: true,
               xField,
@@ -134,6 +135,7 @@ export function HideAxesStackBar(props: HideAxesStackBarProps) {
             {
               id: `${2 * index + 2}${isNight ? '_night' : '_day'}${index === 0 ? '_hide' : ''}`,
               type: 'bar',
+              zIndex: 100,
               dataIndex: 2 * index + 1,
               stack: true,
               xField,

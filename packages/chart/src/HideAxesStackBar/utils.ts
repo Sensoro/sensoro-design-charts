@@ -202,12 +202,12 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
   return {
     id: 'reference',
     type: 'area',
+    zIndex: 10,
     data: {
       values: [],
     },
     xField,
     yField,
-    zIndex: 1,
     tooltip: {
       visible: false,
     },
