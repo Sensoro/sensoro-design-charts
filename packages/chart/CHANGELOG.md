@@ -1,5 +1,11 @@
 # @sensoro-design/chart
 
+## 1.7.11
+
+### Patch Changes
+
+- 解决图表 HideAxesStackBar 参考面积图层级问题
+
 ## 1.7.10
 
 ### Patch Changes
