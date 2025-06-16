@@ -218,6 +218,7 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
     },
     line: {
       style: {
+        lineWidth: 1,
         lineDash: [2, 4],
         lineCap: 'square',
         strokeOpacity: 1,
@@ -226,6 +227,7 @@ export function getReferenceSerie(params: Params = {}): IAreaSeriesSpec {
     area: {
       interactive: false,
       style: {
+        fill: '#314059',
         fillOpacity: 0.25,
       },
     },
