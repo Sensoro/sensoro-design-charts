@@ -64,19 +64,19 @@ catalogs:
       specifier: ^18.3.1
       version: 18.3.7
     '@visactor/react-vchart':
-      specifier: 1.13.11
-      version: 1.13.11
+      specifier: 2.0.0
+      version: 2.0.0
     '@visactor/vchart':
-      specifier: 1.13.11
-      version: 1.13.11
+      specifier: 2.0.0
+      version: 2.0.0
     '@visactor/vutils':
-      specifier: 0.19.6
-      version: 0.19.6
+      specifier: 1.0.6
+      version: 1.0.6
     dayjs:
       specifier: ^1.11.13
       version: 1.11.13
     es-toolkit:
-      specifier: ^1.34.1
+      specifier: ^1.38.0
       version: 1.38.0
     eslint:
       specifier: ^9.24.0
@@ -182,10 +182,10 @@ importers:
         version: 18.3.7(@types/react@18.3.23)
       '@visactor/react-vchart':
         specifier: 'catalog:'
-        version: 1.13.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@visactor/vchart':
         specifier: 'catalog:'
-        version: 1.13.11
+        version: 2.0.0
       dayjs:
         specifier: 'catalog:'
         version: 1.11.13
@@ -234,21 +234,27 @@ importers:
 
   packages/chart:
     dependencies:
+      '@rcuse/core':
+        specifier: 'catalog:'
+        version: 0.25.0
       '@sensoro-design/chart-theme':
-        specifier: '>=1.0.8'
-        version: 1.0.10(@visactor/vchart@1.13.11)
+        specifier: '>=1.0.11'
+        version: 1.0.11(@visactor/vchart@2.0.0)
       '@visactor/react-vchart':
         specifier: 'catalog:'
-        version: 1.13.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@visactor/vchart':
         specifier: 'catalog:'
-        version: 1.13.11
+        version: 2.0.0
       '@visactor/vrender-components':
         specifier: '*'
         version: 0.22.11
       '@visactor/vutils':
         specifier: 'catalog:'
-        version: 0.19.6
+        version: 1.0.6
+      es-toolkit:
+        specifier: 'catalog:'
+        version: 1.38.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -263,7 +269,7 @@ importers:
         version: 1.13.11
       '@visactor/vutils':
         specifier: 'catalog:'
-        version: 0.19.6
+        version: 1.0.6
 
 packages:
 
@@ -1711,8 +1717,8 @@ packages:
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
 
-  '@sensoro-design/chart-theme@1.0.10':
-    resolution: {integrity: sha512-miBW79aa3JYUvmV7jUtaKHNi6q+P9Xx40EnQW/GBzUyRq7DfNF5VBvUMpk4pfjCpZNVdkRqnxusgmgKW6QX+gg==}
+  '@sensoro-design/chart-theme@1.0.11':
+    resolution: {integrity: sha512-p93DwFc77Bv94bzsaMtQfQKk+ivQm3aQlNvHIUsPOn+gaP0BNtn5Li4GSygiJ5+wlyfCQ9QcgVxO1Kk6hb4Vig==}
     peerDependencies:
       '@visactor/vchart': '>=1.10.4'
 
@@ -2011,17 +2017,26 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@visactor/react-vchart@1.13.11':
-    resolution: {integrity: sha512-FhzGGsJYA/A7moJFIc2JRYy0IYRpLIFsKJyYQXbZXxkwoQMrUE+JQUzSgAYoD89dpc0PS20LW5FweADM5O9yGQ==}
+  '@visactor/react-vchart@2.0.0':
+    resolution: {integrity: sha512-tgofIccT5xWUR1SudngfHlBOeLyICQ3vVUr70+PQuViF6MT3dWFEmgtMWC9nF9JIeidDXkUShT4puOWVhqQMMQ==}
     peerDependencies:
       react: ^18.3.1
       react-dom: ^18.3.1
 
+  '@visactor/vchart-extension@2.0.0':
+    resolution: {integrity: sha512-Vc794335o61szc7g9aEFT7hrQIeyzS5ytVBgu/r8svdn0+C5RPTL7YoSB7AHylc8HdpLrkug7O7MLdDDU/QOXA==}
+
   '@visactor/vchart@1.13.11':
     resolution: {integrity: sha512-doJYOu8/vrnd2Jr7DmIj954C66cLXiGhXTHtaZb+HVFUinec50zw2zYp2ChuQ2Lb5/v+wiY6sR3evYWQHfPytw==}
 
+  '@visactor/vchart@2.0.0':
+    resolution: {integrity: sha512-F4WPcmQoHvrChCvTuKl0gr+F7Bp9imRqeZwFpDgC653NxSR4l8eML9+dMFkImUmzLT6VXgQk24ejzLe+x7aQtQ==}
+
   '@visactor/vdataset@0.19.6':
     resolution: {integrity: sha512-WG7Jhye/YwnKUEKDV6xrYHDXgepTKqmNbUYG9/ApUgY9CxhAqSFtGKXhB+1N+/Svoa70RDekJvFNuOCJg+Jr/Q==}
+
+  '@visactor/vdataset@1.0.6':
+    resolution: {integrity: sha512-RhsC1JcrWGOOysBwGTHevn+VmOIDgaohFWNLkAAv4Qvd0Psdg8jH7VCP/Lp3HjV/vGBAg4ToL9ADfAjqT5SzcA==}
 
   '@visactor/vgrammar-coordinate@0.16.7':
     resolution: {integrity: sha512-iVLTgoMeB4a6AyOlzi3Zz/33wzJnVvZeQDxbKm74iQEAqwrdiQjTVCazFlZhFgx/kNCWh4gFVmIcsz4A0K7yyA==}
@@ -2050,11 +2065,20 @@ packages:
   '@visactor/vgrammar-wordcloud@0.16.7':
     resolution: {integrity: sha512-fWaxIHxs0w/xeskZNRQnK4pNIsoCOEADHI1rS/WeQboHh+3NeAAtGaxvVd1d1VFbVA5TFk4iWe9w+JLv34GxSQ==}
 
+  '@visactor/vlayouts@1.0.6':
+    resolution: {integrity: sha512-0HUoNos83LjOSXuJWscerFF6I0teLYDvDW6FIrm5w/b/q9CXvfeujQNm4pRR4AJgbND/bsJy5FAkPG2ne/rdvg==}
+
+  '@visactor/vrender-animate@1.0.3':
+    resolution: {integrity: sha512-F6E4ngeFfP//MRd2P8uitDsO9q669bFiNnIbbS06+vjca893kfg2S4HHd6X0DaS9Efz66FINNxqUoDXRzl1gYA==}
+
   '@visactor/vrender-components@0.22.10':
     resolution: {integrity: sha512-rfsci9y9AkEp/TCqCs0wpYdmPYqRnViEZ3EF9yiKhuFMExzdO8opga7JPfHJSbGCMoaqU5mWVCiEALsQkFuRQg==}
 
   '@visactor/vrender-components@0.22.11':
     resolution: {integrity: sha512-TWLz/eDUHWKE4Su5jbz17Dko987pX//n7wCvfj/xgdeLgj2JWFQS6b3VuUQh+SPk5b5+l9DZ1WxPKXXpFUED4Q==}
+
+  '@visactor/vrender-components@1.0.3':
+    resolution: {integrity: sha512-reQgGRW5/LMm2ArM1m8hM1jg+eDOU5dS/bg/uT3rqayl2ylfa/WHJwemileL6rQKLM+uFyH50RpGXVDV8PQv8w==}
 
   '@visactor/vrender-core@0.22.10':
     resolution: {integrity: sha512-I2+/odcPphPujZtA26S4RG8Yn9BNPt4jlcsbOPwDGP5MvN7oLkWTSMgu4C9r0/lWYvfkwi5JpaoU8lLBZT7e6w==}
@@ -2062,20 +2086,35 @@ packages:
   '@visactor/vrender-core@0.22.11':
     resolution: {integrity: sha512-11nEVFjg9NrSdoIywx+P/XxxTGf1QFAEsKuS0PpzBgAS7GpPno69RBvXdw0UNIgPH5A+NHJ1t8FegO4/RSPsUw==}
 
+  '@visactor/vrender-core@1.0.3':
+    resolution: {integrity: sha512-g+aPhX7WK/4FrDiAAX8hZRfoHtG2JmB2/73AaU8SMuWMYBFMPwTSBXQD5oI4vqeZ3/4p0yoSjXXaAL6t0d5ZTw==}
+
   '@visactor/vrender-kits@0.22.10':
     resolution: {integrity: sha512-XjhThrOLvd1m7+o2jKNGKZSSAlHQG4cIm7H6BV2ew9/eQ532Fj8Vd7N17KU8bBnXzPulCmPpnEFj++E4Mnoqpg==}
 
   '@visactor/vrender-kits@0.22.11':
     resolution: {integrity: sha512-eZuWlKvITIX7aNxtsg17W6i2vFEsREcX7pM65V8h7vTGyvRFvQHho6Hqlf8jO0rFBj206lyqQyW4Wx+qm6oC1Q==}
 
+  '@visactor/vrender-kits@1.0.3':
+    resolution: {integrity: sha512-RKO6zsYMU8ZhFgNa97lmwJEsm34MgV9CZLmDmMZ1Af9FkhwDYYaoMvZLHP47mjgQMGm4dnGUBfhPaZEqk31Dvw==}
+
   '@visactor/vscale@0.19.6':
     resolution: {integrity: sha512-m204y267/Gs9EggofdNBgRzSuDceigoxssu85A9UjkdbZzVaoHnh+F6oSOsY/3RlcrXt+FRLbws+ujwr3Ut+ew==}
+
+  '@visactor/vscale@1.0.6':
+    resolution: {integrity: sha512-E6ySrzOIyL85luy5dKPpKzaCjf/hkLFF/mAn37Lv8XJWhyxWjYO29GM7cIlqDNCKAY0qsONPnfmgdGX+Hoe5vg==}
 
   '@visactor/vutils-extension@1.13.11':
     resolution: {integrity: sha512-S4CuOE8AdbxmjNJlF15EF95OvxBs+g2ZQO7sg9yDpZv4A9KlNuLJm33amQ3isTRelIfjgcnCNuWUc82V6U1YAQ==}
 
+  '@visactor/vutils-extension@2.0.0':
+    resolution: {integrity: sha512-2i+DTUPoKVEqEyfSIMBu0KPOXSGBcw4n4cixx65/kNGUTAXlbqX8Y5SBVVmFzeRmcSwUQq6SWrRO0zaPPa0hhg==}
+
   '@visactor/vutils@0.19.6':
     resolution: {integrity: sha512-1jzBJNoIc9QKeJb1SQo2bXQhrhKqWcjyKPbOSdYE2joEYu2AzWY4RVe6Bq4SUNgZETeSFyhJF7Ij8gRdDd7/QA==}
+
+  '@visactor/vutils@1.0.6':
+    resolution: {integrity: sha512-87/AYLrjY1rtvIT0N/9S+sESialMQUKYv7MDjLjUo37u0hmeL/AwRSGBSvjxdxayKHOmdwUK1BLpQrDIrssKLg==}
 
   '@vitest/eslint-plugin@1.2.1':
     resolution: {integrity: sha512-JQr1jdVcrsoS7Sdzn83h9sq4DvREf9Q/onTZbJCqTVlv/76qb+TZrLv/9VhjnjSMHweQH5FdpMDeCR6aDe2fgw==}
@@ -7254,9 +7293,9 @@ snapshots:
       domhandler: 5.0.3
       selderee: 0.11.0
 
-  '@sensoro-design/chart-theme@1.0.10(@visactor/vchart@1.13.11)':
+  '@sensoro-design/chart-theme@1.0.11(@visactor/vchart@2.0.0)':
     dependencies:
-      '@visactor/vchart': 1.13.11
+      '@visactor/vchart': 2.0.0
       '@visactor/vutils': 0.19.6
 
   '@sinclair/typebox@0.27.8': {}
@@ -7593,16 +7632,27 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.7.8':
     optional: true
 
-  '@visactor/react-vchart@1.13.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@visactor/react-vchart@2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@visactor/vchart': 1.13.11
-      '@visactor/vgrammar-core': 0.16.7
-      '@visactor/vrender-core': 0.22.10
-      '@visactor/vrender-kits': 0.22.10
-      '@visactor/vutils': 0.19.6
+      '@visactor/vchart': 2.0.0
+      '@visactor/vchart-extension': 2.0.0
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vrender-kits': 1.0.3
+      '@visactor/vutils': 1.0.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.3.1
+
+  '@visactor/vchart-extension@2.0.0':
+    dependencies:
+      '@visactor/vchart': 2.0.0
+      '@visactor/vdataset': 1.0.6
+      '@visactor/vlayouts': 1.0.6
+      '@visactor/vrender-animate': 1.0.3
+      '@visactor/vrender-components': 1.0.3
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vrender-kits': 1.0.3
+      '@visactor/vutils': 1.0.6
 
   '@visactor/vchart@1.13.11':
     dependencies:
@@ -7622,12 +7672,44 @@ snapshots:
       '@visactor/vutils': 0.19.6
       '@visactor/vutils-extension': 1.13.11
 
+  '@visactor/vchart@2.0.0':
+    dependencies:
+      '@visactor/vdataset': 1.0.6
+      '@visactor/vlayouts': 1.0.6
+      '@visactor/vrender-animate': 1.0.3
+      '@visactor/vrender-components': 1.0.3
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vrender-kits': 1.0.3
+      '@visactor/vscale': 1.0.6
+      '@visactor/vutils': 1.0.6
+      '@visactor/vutils-extension': 2.0.0
+
   '@visactor/vdataset@0.19.6':
     dependencies:
       '@turf/flatten': 6.5.0
       '@turf/helpers': 6.5.0
       '@turf/rewind': 6.5.0
       '@visactor/vutils': 0.19.6
+      d3-dsv: 2.0.0
+      d3-geo: 1.12.1
+      d3-hexbin: 0.2.2
+      d3-hierarchy: 3.1.2
+      eventemitter3: 4.0.7
+      geobuf: 3.0.2
+      geojson-dissolve: 3.1.0
+      path-browserify: 1.0.1
+      pbf: 3.3.0
+      point-at-length: 1.1.0
+      simple-statistics: 7.8.8
+      simplify-geojson: 1.0.5
+      topojson-client: 3.1.0
+
+  '@visactor/vdataset@1.0.6':
+    dependencies:
+      '@turf/flatten': 6.5.0
+      '@turf/helpers': 6.5.0
+      '@turf/rewind': 6.5.0
+      '@visactor/vutils': 1.0.6
       d3-dsv: 2.0.0
       d3-geo: 1.12.1
       d3-hexbin: 0.2.2
@@ -7711,6 +7793,19 @@ snapshots:
       '@visactor/vrender-kits': 0.22.10
       '@visactor/vutils': 0.19.6
 
+  '@visactor/vlayouts@1.0.6':
+    dependencies:
+      '@turf/helpers': 6.5.0
+      '@turf/invariant': 6.5.0
+      '@visactor/vscale': 1.0.6
+      '@visactor/vutils': 1.0.6
+      eventemitter3: 4.0.7
+
+  '@visactor/vrender-animate@1.0.3':
+    dependencies:
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vutils': 1.0.6
+
   '@visactor/vrender-components@0.22.10':
     dependencies:
       '@visactor/vrender-core': 0.22.10
@@ -7725,6 +7820,14 @@ snapshots:
       '@visactor/vscale': 0.19.6
       '@visactor/vutils': 0.19.6
 
+  '@visactor/vrender-components@1.0.3':
+    dependencies:
+      '@visactor/vrender-animate': 1.0.3
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vrender-kits': 1.0.3
+      '@visactor/vscale': 1.0.6
+      '@visactor/vutils': 1.0.6
+
   '@visactor/vrender-core@0.22.10':
     dependencies:
       '@visactor/vutils': 0.19.6
@@ -7733,6 +7836,11 @@ snapshots:
   '@visactor/vrender-core@0.22.11':
     dependencies:
       '@visactor/vutils': 0.19.6
+      color-convert: 2.0.1
+
+  '@visactor/vrender-core@1.0.3':
+    dependencies:
+      '@visactor/vutils': 1.0.6
       color-convert: 2.0.1
 
   '@visactor/vrender-kits@0.22.10':
@@ -7753,16 +7861,40 @@ snapshots:
       lottie-web: 5.13.0
       roughjs: 4.5.2
 
+  '@visactor/vrender-kits@1.0.3':
+    dependencies:
+      '@resvg/resvg-js': 2.4.1
+      '@visactor/vrender-core': 1.0.3
+      '@visactor/vutils': 1.0.6
+      gifuct-js: 2.1.2
+      lottie-web: 5.13.0
+      roughjs: 4.5.2
+
   '@visactor/vscale@0.19.6':
     dependencies:
       '@visactor/vutils': 0.19.6
+
+  '@visactor/vscale@1.0.6':
+    dependencies:
+      '@visactor/vutils': 1.0.6
 
   '@visactor/vutils-extension@1.13.11':
     dependencies:
       '@visactor/vdataset': 0.19.6
       '@visactor/vutils': 0.19.6
 
+  '@visactor/vutils-extension@2.0.0':
+    dependencies:
+      '@visactor/vdataset': 1.0.6
+      '@visactor/vutils': 1.0.6
+
   '@visactor/vutils@0.19.6':
+    dependencies:
+      '@turf/helpers': 6.5.0
+      '@turf/invariant': 6.5.0
+      eventemitter3: 4.0.7
+
+  '@visactor/vutils@1.0.6':
     dependencies:
       '@turf/helpers': 6.5.0
       '@turf/invariant': 6.5.0
